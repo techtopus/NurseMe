@@ -5,12 +5,22 @@ public class Relative {
     String contactno;
     String alternateno;
     String emailid;
+    String uid;
 
-    public Relative(String name, String contactno, String alternateno, String emailid) {
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public Relative(String name, String contactno, String alternateno, String emailid, String uid) {
         this.name = name;
         this.contactno = contactno;
         this.alternateno = alternateno;
         this.emailid = emailid;
+        this.uid = uid;
     }
 
     public Relative() {

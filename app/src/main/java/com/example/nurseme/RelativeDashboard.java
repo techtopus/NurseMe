@@ -24,72 +24,28 @@ Button add_btn;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relative_dashboard);
         add_btn=findViewById(R.id.add_btn);
-        mAuth=FirebaseAuth.getInstance();DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        Query query = reference.child("Relatives").orderByChild("emailid").equalTo(mAuth.getCurrentUser().getEmail());
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-                                                 @Override
-                                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                                     if (dataSnapshot.exists()) {
-                                                         try {
-                                                             for (DataSnapshot ca : dataSnapshot.getChildren()) {
-                                                                 Relative r = ca.getValue(Relative.class);
+        mAuth=FirebaseAuth.getInstance();
+         DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
+         Query query2 = reference2.child("Patient").orderByChild("relativename").equalTo(mAuth.getCurrentUser().getUid());
+         query2.addListenerForSingleValueEvent(new ValueEventListener() {
+         @Override
+         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+         if ( dataSnapshot.exists()) {
+         add_btn.setVisibility(View.GONE);
+         }
 
-                                                                 DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
-                                                                 Query query2 = reference2.child("Patient").orderByChild("relativename").equalTo(r.getName());
-                                                                 query2.addListenerForSingleValueEvent(new ValueEventListener() {
-                                                                     @Override
-                                                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                                                         if ( dataSnapshot.exists()) {
-                                                                         add_btn.setVisibility(View.GONE);
-                                                                         }
-                                                                     }
-                                                                     @Override
-                                                                     public void onCancelled(@NonNull DatabaseError databaseError) {
+         }
+         @Override
+         public void onCancelled(@NonNull DatabaseError databaseError) {
+        }
+        });
+        }
 
-
-                                                                         }
-                                                                 });
-
-                                                             }
-                                                         } catch (Exception e) {
-                                                         }
-                                                     }
-
-                                                             }
-
-                                                 @Override
-                                                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                                 }
-                                             });
-    }
     public void add(View v)
-    {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        Query query = reference.child("Relatives").orderByChild("emailid").equalTo(mAuth.getCurrentUser().getEmail());
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    try {
-                        for (DataSnapshot ca : dataSnapshot.getChildren()) {
-                            Relative r = ca.getValue(Relative.class);
-                            Intent i = new Intent(RelativeDashboard.this,AddPatient.class);
-                            i.putExtra("name",r.getName());
+    {                       Intent i = new Intent(RelativeDashboard.this,AddPatient.class);
                            // Toast.makeText(RelativeDashboard.this, r.getName(), Toast.LENGTH_SHORT).show();
                             startActivity(i);
-
-                        }
-                    }catch(Exception e){}
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
+}
 
 
 

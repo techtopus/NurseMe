@@ -55,7 +55,7 @@ public class RelativeDetails extends AppCompatActivity {
             String custid=mAuth.getCurrentUser().getUid();
             DatabaseReference databasereference2= FirebaseDatabase.getInstance().getReference("Relatives");
             String id = databasereference2.push().getKey();
-            Relative r=new Relative(namestr,nostr,no2str,mAuth.getCurrentUser().getEmail());
+            Relative r=new Relative(namestr,nostr,no2str,mAuth.getCurrentUser().getEmail(),mAuth.getCurrentUser().getUid());
             databasereference2.child(namestr).setValue(r);
             Toast.makeText(this, "Updated successfully!!", Toast.LENGTH_SHORT).show();
                         Intent i=new Intent(this,RelativeDashboard.class);

@@ -22,7 +22,6 @@ import com.google.firebase.database.FirebaseDatabase;
      private FirebaseAuth mAuth;
      TextView c1,c2;
      Spinner nursetype,servicetype;
-     String names;
      @Override
      protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -31,11 +30,6 @@ import com.google.firebase.database.FirebaseDatabase;
          name=findViewById(R.id.name_txtbox);
          age=findViewById(R.id.age_txtbox);
          rg=findViewById(R.id.sex_radiogrp);
-         if(!getIntent().getStringExtra("name").equals(""))
-         {
-             names=getIntent().getStringExtra("name");
-
-         }
          description=findViewById(R.id.description_txtbox);
          male=findViewById(R.id.male_radiobtn);
          c1=findViewById(R.id.caution1_textview);
@@ -92,8 +86,8 @@ import com.google.firebase.database.FirebaseDatabase;
          }
          else
              c2.setVisibility(View.GONE);
-         Toast.makeText(this, names, Toast.LENGTH_SHORT).show();
-         Patient p=new Patient(names,namestr,agenum,gender,nursetypestr,servicetypestr,descriptionstr);
+        // Toast.makeText(this, names, Toast.LENGTH_SHORT).show();
+         Patient p=new Patient(mAuth.getCurrentUser().getUid(),namestr,agenum,gender,nursetypestr,servicetypestr,descriptionstr);
 
          DatabaseReference databasereference2= FirebaseDatabase.getInstance().getReference("Patient");
          String id = databasereference2.push().getKey();
