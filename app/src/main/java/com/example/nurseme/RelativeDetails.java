@@ -53,13 +53,14 @@ public class RelativeDetails extends AppCompatActivity {
             }
 
             String custid=mAuth.getCurrentUser().getUid();
-            DatabaseReference databasereference2= FirebaseDatabase.getInstance().getReference("users");
+            DatabaseReference databasereference2= FirebaseDatabase.getInstance().getReference("Relatives");
             String id = databasereference2.push().getKey();
             Relative r=new Relative(namestr,nostr,no2str,mAuth.getCurrentUser().getEmail());
             databasereference2.child(namestr).setValue(r);
             Toast.makeText(this, "Updated successfully!!", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this,RelativeProfile.class));
-
+                        Intent i=new Intent(this,RelativeDashboard.class);
+                        i.putExtra("name",namestr);
+                        startActivity(i);
         }
 
     @Override

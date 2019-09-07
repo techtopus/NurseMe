@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                                     //Log.d(TAG, "signInWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     Toast.makeText(LoginActivity.this, "Successfully Signed In", Toast.LENGTH_SHORT).show();
-
+                                    startActivity(new Intent(LoginActivity.this,RelativeDashboard.class));
                                 } else {
                                     if(task.getException() instanceof FirebaseAuthInvalidUserException)
                                     {                    Toast.makeText(LoginActivity.this, "Oops! You are not a registered user...\n you will be redirected to sign up page in 5 seconds!!", Toast.LENGTH_SHORT).show();
@@ -127,7 +127,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-    }
+        if (mAuth.getCurrentUser() != null) {
+            finish();
+            startActivity(new Intent(this, RelativeDashboard.class));
+    }}
     public void register(View v)
     {
         startActivity(new Intent(this,SignupActivity.class));

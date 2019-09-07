@@ -9,4 +9,28 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <string-array name="Age_Group">
+        <item>Select Age Group</item>
+        <item>0 years - 5 years</item>
+        <item>6 years - 20 years</item>
+        <item>21 years - 60 years</item>
+        <item>61 years - 80 years</item>
+        <item>81 years above </item>
+    </string-array>
+    <string-array name="patient_Group">
+        <item>Select Nursing Type</item>
+        <item>Baby Sitting</item>
+        <item>Major Injury</item>
+        <item>Bed Ridden</item>
+        <item>Oncology Unit</item>
+        <item>Chronic Condition</item>
+        <item>Old Age</item>
+    </string-array>
+    <string-array name="service_group">
+        <item>Select Service Type</item>
+        <item>Day Care(6 Am - 6 Pm)</item>
+        <item>Night Care (6 Pm - 6 Am)</item>
+            <item>Stay-At-Home</item>
+    </string-array>
 </resources>
