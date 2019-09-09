@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="581dp"
-        android:layout_height="120dp"
+        android:layout_height="130dp"
         android:layout_marginBottom="432dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,10 +29,10 @@
         app:fontFamily="@font/overlock1"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.225" />
+        app:layout_constraintVertical_bias="0.348" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
@@ -41,20 +41,79 @@
         android:layout_gravity="center"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="58dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        android:layout_marginBottom="192dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="37dp"
         app:cardCornerRadius="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/notreg_txtview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4">
+        app:layout_constraintTop_toBottomOf="@+id/invalid_txtview">
 
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/login_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/button_shape"
+                android:onClick="login"
+                android:text="Login"
+                android:textColor="#fff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.508"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/password_txtbox"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <EditText
+                android:id="@+id/password_txtbox"
+                android:layout_width="271dp"
+                android:layout_height="49dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginEnd="39dp"
+                android:layout_marginRight="39dp"
+                android:layout_marginBottom="128dp"
+                android:background="@drawable/textbox_shape"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/username_txtbox"
+                app:layout_constraintVertical_bias="0.923" />
+
+            <EditText
+                android:id="@+id/username_txtbox"
+                android:layout_width="271dp"
+                android:layout_height="49dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="182dp"
+                android:background="@drawable/textbox_shape"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -107,65 +166,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/username_txtbox"
                 app:layout_constraintVertical_bias="0.142" />
 
-            <EditText
-                android:id="@+id/username_txtbox"
-                android:layout_width="271dp"
-                android:layout_height="49dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginEnd="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginBottom="182dp"
-                android:background="@drawable/textbox_shape"
-                android:ems="10"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <EditText
-                android:id="@+id/password_txtbox"
-                android:layout_width="271dp"
-                android:layout_height="49dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginEnd="39dp"
-                android:layout_marginRight="39dp"
-                android:layout_marginBottom="128dp"
-                android:background="@drawable/textbox_shape"
-                android:ems="10"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/username_txtbox"
-                app:layout_constraintVertical_bias="0.923" />
-
-            <Button
-                android:id="@+id/login_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="24dp"
-                android:background="@drawable/button_shape"
-                android:onClick="login"
-                android:text="Login"
-                android:textColor="#fff"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.508"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/password_txtbox"
-                app:layout_constraintVertical_bias="1.0" />
-
             <TextView
                 android:id="@+id/forgot_txtview"
                 android:layout_width="wrap_content"
@@ -197,10 +197,9 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.177" />
+        app:layout_constraintVertical_bias="0.207" />
 
     <TextView
         android:id="@+id/notreg_txtview"
@@ -217,7 +216,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.867" />
+        app:layout_constraintVertical_bias="0.887" />
 
 
 </android.support.constraint.ConstraintLayout>
