@@ -98,6 +98,7 @@ public class SignupActivity extends AppCompatActivity {
                     }
 
                 });
+
     }
 
     @Override
@@ -108,7 +109,7 @@ public class SignupActivity extends AppCompatActivity {
             startActivity(new Intent(this, RelativeDetails.class));
     }}
     public void login(View v)
-    {finish();
+    {   finish();
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
     }
