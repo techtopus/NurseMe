@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,13 +24,17 @@ import java.util.TimerTask;
 public class SignupActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     EditText emailvar,passvar,repassvar;
+    Button reg;
     String email,pass,repass;
+    ProgressBar pg;
         @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         mAuth = FirebaseAuth.getInstance();
+        reg=findViewById(R.id.register_btn);
         emailvar=findViewById(R.id.email_txtbox);
+        pg=findViewById(R.id.progressBar3);
         passvar=findViewById(R.id.password_txtbox);
         repassvar=findViewById(R.id.password2_txtbox);
             if(getIntent().getStringExtra("email")!=null)
@@ -41,25 +47,30 @@ public class SignupActivity extends AppCompatActivity {
     }
     public void signup(View v)
     {
+        reg.setVisibility(View.GONE);
+        pg.setVisibility(View.VISIBLE);
         email = emailvar.getText().toString().trim();
         pass = passvar.getText().toString().trim();
         repass = repassvar.getText().toString().trim();
 
 
         if(isEmail(email)==false)
-        {
+        {reg.setVisibility(View.VISIBLE);
+            pg.setVisibility(View.GONE);
             emailvar.setError("Enter valid Email!");
             emailvar.requestFocus();
             return;
         }
         if(pass.length()<4)
-        {
+        {reg.setVisibility(View.VISIBLE);
+            pg.setVisibility(View.GONE);
             passvar.setError("Enter a valid password for Min 4 charecters!");
             passvar.requestFocus();
             return;
         }
         if(!repass.equals(pass)||pass.isEmpty())
-        {
+        {reg.setVisibility(View.VISIBLE);
+            pg.setVisibility(View.GONE);
             repassvar.setError("The Passwords doesn't match ..please type carefully");
             repassvar.requestFocus();
             return;
@@ -71,6 +82,7 @@ public class SignupActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            pg.setVisibility(View.GONE);
                             finish();
                             Toast.makeText(SignupActivity.this, "Succeffully registered", Toast.LENGTH_SHORT).show();
                             Intent i=new Intent(SignupActivity.this,RelativeDetails.class);
@@ -90,9 +102,11 @@ public class SignupActivity extends AppCompatActivity {
                                 }, 5000);
                             }
 
-                            else
+                            else{
+                                reg.setVisibility(View.VISIBLE);
+                                pg.setVisibility(View.GONE);
                                 Toast.makeText(SignupActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
+                        }}
 
 
                     }
@@ -104,6 +118,9 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        pg.setVisibility(View.GONE);
+        reg.setVisibility(View.VISIBLE);
+
         if (mAuth.getCurrentUser() != null) {
             finish();
             startActivity(new Intent(this, RelativeDetails.class));

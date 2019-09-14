@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText username,password;
     Button loginbtn;
     TextView invalidtxt;
+    ProgressBar pg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         username=findViewById(R.id.username_txtbox);
         password=findViewById(R.id.password_txtbox);
         loginbtn=findViewById(R.id.login_btn);
+        pg=findViewById(R.id.progressBar2);
         mAuth = FirebaseAuth.getInstance();
         invalidtxt=findViewById(R.id.invalid_txtview);
         }
@@ -64,6 +67,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public void login(View view)
     {
+        loginbtn.setVisibility(View.GONE);
+        pg.setVisibility(View.VISIBLE);
         final String usernamestr,passwordstr;
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         passwordstr=password.getText().toString().trim();
@@ -77,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+                                    pg.setVisibility(View.GONE);
                                     // Sign in success, update UI with the signed-in user's information
                                     //Log.d(TAG, "signInWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
@@ -87,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                                     {                    Toast.makeText(LoginActivity.this, "Oops! You are not a registered user...\n you will be redirected to sign up page in 5 seconds!!", Toast.LENGTH_SHORT).show();
                                         new Timer().schedule(new TimerTask(){
                                             public void run() {
+
                                                 Intent i=new Intent(LoginActivity.this,SignupActivity.class);
                                                 i.putExtra("email",usernamestr);
                                                 startActivity(i);
@@ -94,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
                                         }, 5000);
                                     }
                                     else if(task.getException() instanceof FirebaseAuthWeakPasswordException){
-                                        {
+                                        {loginbtn.setVisibility(View.VISIBLE);
                                             Toast.makeText(LoginActivity.this, "Incorrect password!", Toast.LENGTH_SHORT).show();
                                             password.setError("Incorrect Password!");
                                             password.setText("");
@@ -102,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                                         }}
                                     else
                                     {
+                                        loginbtn.setVisibility(View.VISIBLE);
                                         Toast.makeText(LoginActivity.this, "Some Error occured! Please try again!!", Toast.LENGTH_SHORT).show();
                                     }
                                     invalidtxt.setVisibility(View.VISIBLE);
@@ -112,13 +120,15 @@ public class LoginActivity extends AppCompatActivity {
 
             }
             else
-            {
+            {pg.setVisibility(View.GONE);
+            loginbtn.setVisibility(View.VISIBLE);
                 password.setError("Password Mismatch!");
                 password.requestFocus();
             }
 
         }else
-        {
+        {pg.setVisibility(View.GONE);
+            loginbtn.setVisibility(View.VISIBLE);
             username.setError("Invalid Email!");
             username.requestFocus();
         }
@@ -126,6 +136,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        loginbtn.setVisibility(View.VISIBLE);
+        pg.setVisibility(View.GONE);
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (mAuth.getCurrentUser() != null) {
             finish();
