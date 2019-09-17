@@ -81,7 +81,26 @@ CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment
 public void emergency(View v){
         startActivity(new Intent(this,EmergenyContact.class));
 }
-
+public void searchactivity(View v)
+{
+    startActivity(new Intent(this,SearchActivity.class));
+}
+    public void reminderactivity(View v)
+    {
+        startActivity(new Intent(this,ReminderActivity.class));
+    }
+    public void paymentactivity(View v)
+    {
+        startActivity(new Intent(this,PaymentActivity.class));
+    }
+    public void healthactivity(View v)
+    {
+        startActivity(new Intent(this,HealthActivity.class));
+    }
+    public void accountactivity(View v)
+    {
+        startActivity(new Intent(this,AccountActivity.class));
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflator=getMenuInflater();

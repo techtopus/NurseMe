@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EmergenyContact"></activity>
+        <activity android:name=".AdminDashboard"></activity>
+        <activity android:name=".NurseDashboard" />
+        <activity android:name=".AccountActivity" />
+        <activity android:name=".HealthActivity" />
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".ReminderActivity" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".EmergenyContact" />
         <activity android:name=".AddPatient" />
         <activity android:name=".RelativeDashboard" />
         <activity android:name=".RelativeDetails" />
