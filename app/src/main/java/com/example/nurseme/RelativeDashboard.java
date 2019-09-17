@@ -5,6 +5,10 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -30,6 +34,10 @@ CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment
        // add_btn=findViewById(R.id.add_btn);
         mAuth=FirebaseAuth.getInstance();
         pg=findViewById(R.id.progressBar);
+        Toolbar toolbar=findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         add_patient_card=findViewById(R.id.add_patient_card_view);
         account_card=findViewById(R.id.account_card_view);
         search_nurse_card=findViewById(R.id.search_card_view);
@@ -70,8 +78,28 @@ CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment
                            // Toast.makeText(RelativeDashboard.this, r.getName(), Toast.LENGTH_SHORT).show();
                             startActivity(i);
 }
+public void emergency(View v){
+        startActivity(new Intent(this,EmergenyContact.class));
+}
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflator=getMenuInflater();
+        inflator.inflate(R.menu.menu ,menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                startActivity(new Intent(this, LoginActivity.class));
+                break;
 
-
+        }
+        return true;
+    }
 }

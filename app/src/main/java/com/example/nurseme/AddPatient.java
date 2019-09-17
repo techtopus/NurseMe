@@ -3,6 +3,10 @@
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -27,6 +31,10 @@ import com.google.firebase.database.FirebaseDatabase;
          super.onCreate(savedInstanceState);
          setContentView(R.layout.activity_add_patient);
          mAuth = FirebaseAuth.getInstance();
+         Toolbar toolbar=findViewById(R.id.toolbar2);
+
+         setSupportActionBar(toolbar);
+         getSupportActionBar().setDisplayShowTitleEnabled(false);
          name=findViewById(R.id.name_txtbox);
          age=findViewById(R.id.age_txtbox);
          rg=findViewById(R.id.sex_radiogrp);
@@ -98,4 +106,25 @@ import com.google.firebase.database.FirebaseDatabase;
 
      }
 
+     @Override
+     public boolean onCreateOptionsMenu(Menu menu) {
+         MenuInflater inflator=getMenuInflater();
+         inflator.inflate(R.menu.menu ,menu);
+         return true;
+     }
+
+     @Override
+     public boolean onOptionsItemSelected(MenuItem item) {
+         switch (item.getItemId())
+         {
+             case R.id.logout:
+                 FirebaseAuth.getInstance().signOut();
+                 finish();
+                 startActivity(new Intent(this, LoginActivity.class));
+                 break;
+
+         }
+         return true;
+     }
  }
+

@@ -31,6 +31,6 @@
         <item>Select Service Type</item>
         <item>Day Care(6 Am - 6 Pm)</item>
         <item>Night Care (6 Pm - 6 Am)</item>
-            <item>Stay-At-Home</item>
+        <item>Stay-At-Home</item>
     </string-array>
 </resources>
