@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.Checkable;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -41,6 +43,8 @@ public class add_nurse extends AppCompatActivity {
     ImageView img;
 RadioButton male,female;
     FirebaseAuth mAuth;
+    CheckBox c1,c2,c3;
+    int p1=0,p2=0,p3=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,9 @@ RadioButton male,female;
         mAuth=FirebaseAuth.getInstance();
         img=findViewById(R.id.imageView7);
         sp=findViewById(R.id.spinner);
+        c1=findViewById(R.id.daycare_box);
+        c2=findViewById(R.id.nightcare_box);
+        c3=findViewById(R.id.stayathome_box);
         nametxt=findViewById(R.id.name_txtbox);
         agetxt=findViewById(R.id.age_txtbox);
         //districttxt=findViewById(R.id.district_txtbox);
@@ -90,6 +97,18 @@ RadioButton male,female;
             Toast.makeText(this, "Select district", Toast.LENGTH_SHORT).show();
             return;
         }
+        if(!c1.isChecked()&& !c2.isChecked()&& !c3.isChecked())
+        {
+            Toast.makeText(this, "Please specify a suitable timing", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(c1.isChecked())
+            p1=1;
+        if(c2.isChecked())
+            p2=1;
+        if(c3.isChecked())
+            p3=1;
+
         if(male.isChecked())
             gender="Male";
         else
@@ -117,7 +136,7 @@ RadioButton male,female;
 
                         String s2="https://firebasestorage.googleapis.com/v0/b/nurseme-aeade.appspot.com/o/nursepics%2F"+mAuth.getCurrentUser().getUid()
                                 +".jpg?alt=media&token=037f8280-abe6-4b55-9634-ff9e33609da8";
-                        NursePersonalInfo u = new NursePersonalInfo(mAuth.getCurrentUser().getUid(),name,age,phoneno,locality,district,gender,s2);
+                        NursePersonalInfo u = new NursePersonalInfo(mAuth.getCurrentUser().getUid(),name,age,phoneno,locality,district,gender,s2,p1,p2,p3);
 
                         databasereference2.child(name).setValue(u);
 

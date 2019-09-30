@@ -9,9 +9,10 @@ String locality;
 String district;
 String gender;
 String profilepic;
+int daycare,nightcare,stryathome;
 
-    public NursePersonalInfo(String uid, String name, String age, String phoneno, String locality, String district, String gender, String profilepic) {
-       this. Uid = uid;
+    public NursePersonalInfo(String uid, String name, String age, String phoneno, String locality, String district, String gender, String profilepic, int daycare, int nightcare, int stryathome) {
+        Uid = uid;
         this.name = name;
         this.age = age;
         this.phoneno = phoneno;
@@ -19,8 +20,34 @@ String profilepic;
         this.district = district;
         this.gender = gender;
         this.profilepic = profilepic;
+        this.daycare = daycare;
+        this.nightcare = nightcare;
+        this.stryathome = stryathome;
     }
 
+    public int getDaycare() {
+        return daycare;
+    }
+
+    public void setDaycare(int daycare) {
+        this.daycare = daycare;
+    }
+
+    public int getNightcare() {
+        return nightcare;
+    }
+
+    public void setNightcare(int nightcare) {
+        this.nightcare = nightcare;
+    }
+
+    public int getStryathome() {
+        return stryathome;
+    }
+
+    public void setStryathome(int stryathome) {
+        this.stryathome = stryathome;
+    }
 
     public String getUid() {
         return Uid;

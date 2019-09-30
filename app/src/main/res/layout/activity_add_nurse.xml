@@ -6,10 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".add_nurse">
 
+    <CheckBox
+        android:id="@+id/stayathome_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Stay-At-Home\n24 Hrs"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.963"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.873" />
+
+    <CheckBox
+        android:id="@+id/daycare_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Day Care\n8 Am - 8 Pm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.027"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.873" />
+
+    <CheckBox
+        android:id="@+id/nightcare_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Night Care\n8Pm - 8 Am"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.873" />
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView7"
-        android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_width="141dp"
+        android:layout_height="102dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -22,13 +76,12 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:onClick="selectpic"
-android:src="@drawable/addpatient"
+        android:src="@drawable/addpatient"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintVertical_bias="0.0" />
 
 
     <Button
@@ -67,7 +120,7 @@ android:src="@drawable/addpatient"
         app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.703" />
+        app:layout_constraintVertical_bias="0.596" />
 
     <EditText
         android:id="@+id/contactno_txtbox"
@@ -83,9 +136,10 @@ android:src="@drawable/addpatient"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@+id/updatedetails_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.817" />
+        app:layout_constraintVertical_bias="0.714" />
 
     <EditText
         android:id="@+id/age_txtbox"
@@ -101,9 +155,10 @@ android:src="@drawable/addpatient"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@+id/updatedetails_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.608" />
+        app:layout_constraintVertical_bias="0.474" />
 
     <RadioGroup
         android:id="@+id/sex_radiogrp"
@@ -119,7 +174,7 @@ android:src="@drawable/addpatient"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/contactno_txtbox">
+        app:layout_constraintTop_toBottomOf="@+id/age_txtbox">
 
         <RadioButton
             android:id="@+id/male_radiobtn"
@@ -153,8 +208,10 @@ android:src="@drawable/addpatient"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/updatedetails_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.367" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -168,9 +225,9 @@ android:src="@drawable/addpatient"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/sex_radiogrp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.813"
+        app:layout_constraintHorizontal_bias="0.848"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.692" />
+        app:layout_constraintVertical_bias="0.654" />
 
 </android.support.constraint.ConstraintLayout>
