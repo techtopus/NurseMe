@@ -1,0 +1,206 @@
+package com.example.nurseme;
+
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.IOException;
+
+public class add_nurse extends AppCompatActivity {
+    private static final int CHOOSE_IMAAGE = 0;
+    private Uri uriprofileimg;
+    Spinner sp;
+    String profileImgUrl;
+    EditText nametxt,agetxt,phonenotxt,localitytxt,districttxt;
+    ImageView img;
+RadioButton male,female;
+    FirebaseAuth mAuth;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_nurse);
+        mAuth=FirebaseAuth.getInstance();
+        img=findViewById(R.id.imageView7);
+        sp=findViewById(R.id.spinner);
+        nametxt=findViewById(R.id.name_txtbox);
+        agetxt=findViewById(R.id.age_txtbox);
+        //districttxt=findViewById(R.id.district_txtbox);
+        phonenotxt=findViewById(R.id.contactno_txtbox);
+        localitytxt=findViewById(R.id.locality_txtbox);
+        male=findViewById(R.id.male_radiobtn);
+        female=findViewById(R.id.female_radiobtn);
+        String[] districts=getResources().getStringArray(R.array.districts);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,districts);
+        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        sp.setAdapter(adapter);
+    }
+    public void update(View v) {
+        try{
+        if(nametxt.getText().toString().length()==0){
+            nametxt.setError("Enter Name");
+            return;
+        }
+        if(agetxt.getText().toString().length()==0 || agetxt.getText().toString().length()>2){
+            agetxt.setError("Enter valid Age");
+            return;
+        }
+        if(localitytxt.getText().toString().length()==0){
+            localitytxt.setError("Enter Locality");
+            return;
+        }
+        if(phonenotxt.getText().toString().length()<10 || phonenotxt.getText().length()>10){
+            phonenotxt.setError("Enter valid Phone No");
+            return;
+        }
+
+
+          final String name,age,phoneno,locality,gender,district;
+        name=nametxt.getText().toString();
+        age=agetxt.getText().toString();
+        phoneno=phonenotxt.getText().toString();
+        locality=localitytxt.getText().toString();
+        district=sp.getSelectedItem().toString();
+        if(district.equals("District")){
+            Toast.makeText(this, "Select district", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(male.isChecked())
+            gender="Male";
+        else
+            gender="Female";
+
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (profileImgUrl == null) {
+            Toast.makeText(this, "Select a profile picture", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (user != null && profileImgUrl != null) {
+
+
+
+            UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
+                    .setDisplayName(name)
+                    .setPhotoUri(Uri.parse(profileImgUrl)).build();
+            user.updateProfile(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+
+                        DatabaseReference databasereference2 = FirebaseDatabase.getInstance().getReference("NursePersonalInfo");
+                        String id = databasereference2.push().getKey();
+
+                        String s2="https://firebasestorage.googleapis.com/v0/b/nurseme-aeade.appspot.com/o/nursepics%2F"+mAuth.getCurrentUser().getUid()
+                                +".jpg?alt=media&token=037f8280-abe6-4b55-9634-ff9e33609da8";
+                        NursePersonalInfo u = new NursePersonalInfo(mAuth.getCurrentUser().getUid(),name,age,phoneno,locality,district,gender,s2);
+
+                        databasereference2.child(name).setValue(u);
+
+
+                        Toast.makeText(add_nurse.this, "Your Profile updated successfully!!", Toast.LENGTH_SHORT).show();
+                        } else {
+                        Toast.makeText(add_nurse.this, "Oops!Some error occured!", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
+
+            FirebaseAuth.getInstance().signOut();
+            finish();
+
+            mAuth.signInWithEmailAndPassword("bba@admin.com", "123456")
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+
+                                startActivity(new Intent(add_nurse.this, AdminDashboard.class));
+                            } else {
+
+                                Toast.makeText(add_nurse.this, "Some Error occured! Please try again!!", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+
+                    });
+        }     }catch(Exception e){
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }}
+        public void selectpic(View v)
+        {
+            Intent i = new Intent();
+            i.setType("image/*");
+            i.setAction(i.ACTION_GET_CONTENT);
+            startActivityForResult(i.createChooser(i, "Select your profile picture"), CHOOSE_IMAAGE);
+        }
+        @Override
+        protected void onActivityResult ( int requestCode, int resultCode, @Nullable Intent data){
+            super.onActivityResult(requestCode, resultCode, data);
+            if (requestCode == CHOOSE_IMAAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+                uriprofileimg = data.getData();
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uriprofileimg);
+                    img.setImageBitmap(bitmap);
+                    uploadImagesToFirebase();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    public void uploadImagesToFirebase(){
+
+
+        final StorageReference profileImageRef= FirebaseStorage.getInstance().getReference("nursepics/"+mAuth.getCurrentUser().getUid()+".jpg");
+        if(uriprofileimg!=null)
+
+        {
+           // Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
+            //progressBar.setVisibility(View.VISIBLE);
+            profileImageRef.putFile(uriprofileimg)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            //progressBar.setVisibility(View.GONE);
+                            profileImgUrl= profileImageRef.getDownloadUrl().toString();
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    // progressBar.setVisibility(View.GONE);
+                    Toast.makeText(add_nurse.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+    }
+
+
+
+}

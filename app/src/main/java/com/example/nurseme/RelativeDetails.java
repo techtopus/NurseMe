@@ -36,7 +36,7 @@ public class RelativeDetails extends AppCompatActivity {
         uploadbtn=findViewById(R.id.update_btn);
         contactno=findViewById(R.id.contactno_txtbox);
         contactno2=findViewById(R.id.contactno2_txtbox);
-        name=findViewById(R.id.name_txtbox);
+        name=findViewById(R.id.district_txtbox);
         }
 
         public void update(View v)

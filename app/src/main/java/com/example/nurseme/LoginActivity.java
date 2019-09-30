@@ -93,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                                     if(usernamestr.contains("admin")){
                                         startActivity(new Intent(LoginActivity.this,AdminDashboard.class));
                                     }
+                                    else
                                     startActivity(new Intent(LoginActivity.this,RelativeDashboard.class));
                                 } else {
                                     if(task.getException() instanceof FirebaseAuthInvalidUserException)
@@ -147,10 +148,21 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (mAuth.getCurrentUser() != null) {
             finish();
+            if(mAuth.getCurrentUser().getEmail().contains("nurse"))
+            {
+                startActivity(new Intent(this,NurseDashboard.class));
+            }
+            else if(mAuth.getCurrentUser().getEmail().contains("admin"))
+            {
+                startActivity(new Intent(this,AdminDashboard.class));
+            }
+            else
             startActivity(new Intent(this, RelativeDashboard.class));
     }}
     public void register(View v)
     {
-        startActivity(new Intent(this,SignupActivity.class));
+        Intent i =new Intent(this,SignupActivity.class);
+        i.putExtra("type","relative");
+        startActivity(i);
     }
 }

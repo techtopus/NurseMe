@@ -13,7 +13,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -35,8 +34,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
          setSupportActionBar(toolbar);
          getSupportActionBar().setDisplayShowTitleEnabled(false);
-         name=findViewById(R.id.name_txtbox);
-         age=findViewById(R.id.age_txtbox);
+         name=findViewById(R.id.district_txtbox);
+         age=findViewById(R.id.district_txtbox);
          rg=findViewById(R.id.sex_radiogrp);
          description=findViewById(R.id.description_txtbox);
          male=findViewById(R.id.male_radiobtn);

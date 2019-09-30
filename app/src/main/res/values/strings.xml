@@ -33,4 +33,21 @@
         <item>Night Care (6 Pm - 6 Am)</item>
         <item>Stay-At-Home</item>
     </string-array>
+    <string-array name="districts">
+        <item>District</item>
+        <item>Alappuzha</item>
+        <item>Ernakulam</item>
+        <item>Idukki</item>
+        <item>Kannur</item>
+        <item>Kasargod</item>
+        <item>Kollam</item>
+        <item>Kottayam</item>
+        <item>Kozhikode</item>
+        <item>Malappuram</item>
+        <item>Palakkad</item>
+        <item>Pathanamthitta</item>
+        <item>Thirvanthapuram</item>
+        <item>Thrissur</item>
+        <item>Wayanad</item>
+    </string-array>
 </resources>

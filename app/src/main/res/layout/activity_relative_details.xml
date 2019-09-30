@@ -65,7 +65,7 @@
                 app:layout_constraintVertical_bias="1.0" />
 
             <EditText
-                android:id="@+id/name_txtbox"
+                android:id="@+id/district_txtbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="68dp"
@@ -150,7 +150,7 @@
                 android:layout_marginRight="249dp"
                 android:layout_marginBottom="12dp"
                 android:text="Username"
-                app:layout_constraintBottom_toTopOf="@+id/name_txtbox"
+                app:layout_constraintBottom_toTopOf="@+id/age_txtbox"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -170,7 +170,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.022"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name_txtbox"
+                app:layout_constraintTop_toBottomOf="@+id/age_txtbox"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
@@ -205,7 +205,7 @@
                 android:textSize="30dp"
                 android:textStyle="bold"
                 app:fontFamily="@font/overlock1"
-                app:layout_constraintBottom_toTopOf="@+id/name_txtbox"
+                app:layout_constraintBottom_toTopOf="@+id/age_txtbox"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

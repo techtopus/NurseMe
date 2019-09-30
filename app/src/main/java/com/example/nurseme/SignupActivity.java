@@ -39,6 +39,7 @@ public class SignupActivity extends AppCompatActivity {
         repassvar=findViewById(R.id.password2_txtbox);
             if(getIntent().getStringExtra("email")!=null)
                 emailvar.setText(getIntent().getStringExtra("email"));
+
     }
     boolean isEmail(String  text)
     {
@@ -85,9 +86,22 @@ public class SignupActivity extends AppCompatActivity {
                             pg.setVisibility(View.GONE);
                             finish();
                             Toast.makeText(SignupActivity.this, "Succeffully registered", Toast.LENGTH_SHORT).show();
-                            Intent i=new Intent(SignupActivity.this,RelativeDetails.class);
-                            i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(i);
+                            if(getIntent().getStringExtra("type")!=null)
+                            {
+                                if(getIntent().getStringExtra("type").equals("nurse"))
+                                {
+                                    Intent i=new Intent(SignupActivity.this,add_nurse.class);
+                                    i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
+                                    startActivity(i);
+                                }
+                                else if(getIntent().getStringExtra("type").equals("relative"))
+                                {
+                                    Intent i=new Intent(SignupActivity.this,RelativeDetails.class);
+                                    i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
+                                    startActivity(i);
+                                }
+                            }
+
                         }
                         else{
                             if(task.getException() instanceof FirebaseAuthUserCollisionException)
@@ -120,11 +134,13 @@ public class SignupActivity extends AppCompatActivity {
         super.onStart();
         pg.setVisibility(View.GONE);
         reg.setVisibility(View.VISIBLE);
-
+/*
         if (mAuth.getCurrentUser() != null) {
             finish();
+            if(getIntent().getStringExtra("type").equals("relative"))
             startActivity(new Intent(this, RelativeDetails.class));
-    }}
+
+    }*/}
     public void login(View v)
     {   finish();
         Intent i = new Intent(this, LoginActivity.class);
