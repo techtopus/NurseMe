@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.225" />
 
     <ImageView
-        android:id="@+id/imageView13"
+        android:id="@+id/ic_searchicon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
@@ -85,8 +85,8 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="383dp"
-        android:layout_height="588dp"
+        android:layout_width="416dp"
+        android:layout_height="599dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:layout_marginEnd="1dp"
@@ -108,11 +108,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView13"
+        app:layout_constraintTop_toBottomOf="@+id/ic_searchicon"
         app:layout_constraintVertical_bias="0.055" />
 
     <ImageView
-        android:id="@+id/imageView14"
+        android:id="@+id/ic_searchfoundnothing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="364dp"
@@ -120,8 +120,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView13"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.971"
         app:srcCompat="@drawable/nothingfound" />
 
 
