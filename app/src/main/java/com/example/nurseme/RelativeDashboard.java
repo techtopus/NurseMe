@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -39,7 +38,7 @@ CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         add_patient_card=findViewById(R.id.add_patient_card_view);
-        account_card=findViewById(R.id.account_card_view);
+        account_card=findViewById(R.id.callnurse_card);
         search_nurse_card=findViewById(R.id.search_card_view);
         remainder_card=findViewById(R.id.reminders_card_view);
         contacts_card=findViewById(R.id.contacts_card_view);
