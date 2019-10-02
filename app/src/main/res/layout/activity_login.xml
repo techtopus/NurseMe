@@ -68,25 +68,6 @@
                 app:layout_constraintVertical_bias="1.0" />
 
             <EditText
-                android:id="@+id/password_txtbox"
-                android:layout_width="271dp"
-                android:layout_height="49dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginEnd="39dp"
-                android:layout_marginRight="39dp"
-                android:layout_marginBottom="128dp"
-                android:background="@drawable/textbox_shape"
-                android:ems="10"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/username_txtbox"
-                app:layout_constraintVertical_bias="0.923" />
-
-            <EditText
                 android:id="@+id/username_txtbox"
                 android:layout_width="271dp"
                 android:layout_height="49dp"
@@ -105,6 +86,25 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7"
                 app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/password_txtbox"
+                android:layout_width="271dp"
+                android:layout_height="49dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginEnd="39dp"
+                android:layout_marginRight="39dp"
+                android:layout_marginBottom="128dp"
+                android:background="@drawable/textbox_shape"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/username_txtbox"
+                app:layout_constraintVertical_bias="0.923" />
 
             <ProgressBar
                 android:id="@+id/progressBar2"
@@ -208,7 +208,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.769" />
+        app:layout_constraintVertical_bias="0.948" />
 
     <TextView
         android:id="@+id/notreg_txtview"

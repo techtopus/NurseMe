@@ -34,8 +34,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
          setSupportActionBar(toolbar);
          getSupportActionBar().setDisplayShowTitleEnabled(false);
-         name=findViewById(R.id.district_txtbox);
-         age=findViewById(R.id.district_txtbox);
+         name=findViewById(R.id.name_txtbox);
+         age=findViewById(R.id.age_txtbox);
          rg=findViewById(R.id.sex_radiogrp);
          description=findViewById(R.id.description_txtbox);
          male=findViewById(R.id.male_radiobtn);
