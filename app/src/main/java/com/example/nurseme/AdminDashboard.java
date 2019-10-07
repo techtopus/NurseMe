@@ -15,7 +15,7 @@ public class AdminDashboard extends AppCompatActivity {
     }
     public void addnurse(View v)
     {
-        Intent i =new Intent(this,SignupActivity.class);
+        Intent i =new Intent(this,add_nurse.class);
         i.putExtra("type","nurse");
         startActivity(i);
     }
