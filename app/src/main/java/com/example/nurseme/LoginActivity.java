@@ -87,7 +87,8 @@ public class LoginActivity extends AppCompatActivity {
                                     //Log.d(TAG, "signInWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     Toast.makeText(LoginActivity.this, "Successfully Signed In", Toast.LENGTH_SHORT).show();
-                                    if(usernamestr.contains("nurse")){
+                                    if(usernamestr.contains("nurse"))
+                                    {
                                         startActivity(new Intent(LoginActivity.this,NurseDashboard.class));
                                     }
                                     if(usernamestr.contains("admin")){

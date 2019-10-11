@@ -120,4 +120,17 @@ public void searchactivity(View v)
         }
         return true;
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(mAuth.getCurrentUser()==null)
+        { finish();
+            startActivity(new Intent(this, LoginActivity.class));
+        }
+        if(mAuth.getCurrentUser().getEmail().contains("nurse"))
+        { finish();
+            startActivity(new Intent(this, NurseDashboard.class));
+        }
+    }
 }
