@@ -24,6 +24,10 @@ public class AdminDashboard extends AppCompatActivity {
         i.putExtra("type","nurse");
         startActivity(i);
     }
+    public void updatenurse(View v)
+    {
+        startActivity(new Intent(this,updatenurse.class));
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflator=getMenuInflater();
