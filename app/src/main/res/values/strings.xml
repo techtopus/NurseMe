@@ -50,4 +50,5 @@
         <item>Thrissur</item>
         <item>Wayanad</item>
     </string-array>
+    <string name="title_activity_doctor_appoinment">DoctorAppoinment</string>
 </resources>

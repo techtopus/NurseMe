@@ -10,13 +10,16 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.onesignal.OneSignal;
 
 public class AdminDashboard extends AppCompatActivity {
-
+FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dashboard);
+        mAuth=FirebaseAuth.getInstance();
+        OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
     }
     public void addnurse(View v)
     {
@@ -27,6 +30,10 @@ public class AdminDashboard extends AppCompatActivity {
     public void updatenurse(View v)
     {
         startActivity(new Intent(this,updatenurse.class));
+    }
+    public void delete(View v)
+    {
+     startActivity(new Intent(this,deletenurse.class));
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

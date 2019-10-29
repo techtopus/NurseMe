@@ -8,10 +8,12 @@ String phoneno;
 String locality;
 String district;
 String gender;
-String profilepic;
+String email;
+
 int daycare,nightcare,stryathome;
 
-    public NursePersonalInfo(String uid, String name, String age, String phoneno, String locality, String district, String gender, String profilepic, int daycare, int nightcare, int stryathome) {
+    public NursePersonalInfo(String uid, String name, String age, String phoneno, String locality,
+                             String district, String gender, String email,int daycare, int nightcare, int stryathome) {
         Uid = uid;
         this.name = name;
         this.age = age;
@@ -19,10 +21,18 @@ int daycare,nightcare,stryathome;
         this.locality = locality;
         this.district = district;
         this.gender = gender;
-        this.profilepic = profilepic;
+        this.email=email;
         this.daycare = daycare;
         this.nightcare = nightcare;
         this.stryathome = stryathome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getDaycare() {
@@ -108,11 +118,5 @@ int daycare,nightcare,stryathome;
     public NursePersonalInfo() {
     }
 
-    public String getProfilepic() {
-        return profilepic;
-    }
 
-    public void setProfilepic(String profilepic) {
-        this.profilepic = profilepic;
-    }
 }

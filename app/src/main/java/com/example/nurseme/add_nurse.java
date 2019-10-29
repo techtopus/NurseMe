@@ -114,17 +114,14 @@ RadioButton male,female;
             gender="Female";
 
         FirebaseUser user = mAuth.getCurrentUser();
-        if (profileImgUrl == null) {
-            Toast.makeText(this, "Select a profile picture", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (user != null && profileImgUrl != null) {
+
+        if (user != null ) {
 
 
 
             UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
                     .setDisplayName(name)
-                    .setPhotoUri(Uri.parse(profileImgUrl)).build();
+                    .build();
             user.updateProfile(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
@@ -133,9 +130,9 @@ RadioButton male,female;
                         DatabaseReference databasereference2 = FirebaseDatabase.getInstance().getReference("NursePersonalInfo");
                         String id = databasereference2.push().getKey();
 
-                        String s2="https://firebasestorage.googleapis.com/v0/b/nurseme-aeade.appspot.com/o/nursepics%2F"+mAuth.getCurrentUser().getUid()
-                                +".jpg?alt=media&token=037f8280-abe6-4b55-9634-ff9e33609da8";
-                        NursePersonalInfo u = new NursePersonalInfo(mAuth.getCurrentUser().getUid(),name,age,phoneno,locality,district,gender,s2,p1,p2,p3);
+
+                        NursePersonalInfo u = new NursePersonalInfo(mAuth.getCurrentUser().getUid(),name,age,phoneno,locality,district,gender,
+                                mAuth.getCurrentUser().getEmail(),p1,p2,p3);
 
                         databasereference2.child(name).setValue(u);
 
@@ -169,55 +166,6 @@ RadioButton male,female;
         }     }catch(Exception e){
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }}
-        public void selectpic(View v)
-        {
-            Intent i = new Intent();
-            i.setType("image/*");
-            i.setAction(i.ACTION_GET_CONTENT);
-            startActivityForResult(i.createChooser(i, "Select your profile picture"), CHOOSE_IMAAGE);
-        }
-        @Override
-        protected void onActivityResult ( int requestCode, int resultCode, @Nullable Intent data){
-            super.onActivityResult(requestCode, resultCode, data);
-            if (requestCode == CHOOSE_IMAAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
-                uriprofileimg = data.getData();
-                try {
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uriprofileimg);
-                    img.setImageBitmap(bitmap);
-                    uploadImagesToFirebase();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-    public void uploadImagesToFirebase(){
-
-
-        final StorageReference profileImageRef= FirebaseStorage.getInstance().getReference("nursepics/"+mAuth.getCurrentUser().getUid()+".jpg");
-        if(uriprofileimg!=null)
-
-        {
-           // Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
-            //progressBar.setVisibility(View.VISIBLE);
-            profileImageRef.putFile(uriprofileimg)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            //progressBar.setVisibility(View.GONE);
-                            profileImgUrl= profileImageRef.getDownloadUrl().toString();
-
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    // progressBar.setVisibility(View.GONE);
-                    Toast.makeText(add_nurse.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
-
-        }
-    }
 
 
 
