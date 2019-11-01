@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-//import com.onesignal.OneSignal;
+import com.onesignal.OneSignal;
 
 public class RelativeDashboard extends AppCompatActivity {
 FirebaseAuth mAuth;
@@ -33,7 +33,7 @@ CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment
         setContentView(R.layout.activity_relative_dashboard);
        // add_btn=findViewById(R.id.add_btn);
         mAuth=FirebaseAuth.getInstance();
-       // OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
+       OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
         pg=findViewById(R.id.progressBar);
         Toolbar toolbar=findViewById(R.id.toolbar);
 

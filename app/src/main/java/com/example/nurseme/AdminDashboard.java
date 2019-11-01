@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
-//import com.onesignal.OneSignal;
+import com.onesignal.OneSignal;
 
 public class AdminDashboard extends AppCompatActivity {
 FirebaseAuth mAuth;
@@ -19,7 +19,7 @@ FirebaseAuth mAuth;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dashboard);
         mAuth=FirebaseAuth.getInstance();
-       // OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
+        OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
     }
     public void addnurse(View v)
     {

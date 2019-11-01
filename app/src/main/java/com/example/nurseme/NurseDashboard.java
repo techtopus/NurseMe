@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
-//import com.onesignal.OneSignal;
+import com.onesignal.OneSignal;
 
 public class NurseDashboard extends AppCompatActivity {
     FirebaseAuth mAuth;
@@ -18,7 +19,10 @@ public class NurseDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nurse_dashboard);
         mAuth=FirebaseAuth.getInstance();
-     //  OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
+       OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
+    }
+    public void requestclick(View view){
+        startActivity(new Intent(this,PendingRequestActivity.class));
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
