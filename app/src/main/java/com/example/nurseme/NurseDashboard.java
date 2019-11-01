@@ -18,7 +18,7 @@ public class NurseDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nurse_dashboard);
         mAuth=FirebaseAuth.getInstance();
-       // OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
+     //  OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

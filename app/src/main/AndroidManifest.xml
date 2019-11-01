@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DoctorAppoinment"></activity>
+        <activity android:name=".NurseRequestActivity"></activity>
+        <activity android:name=".DoctorAppoinment" />
         <activity android:name=".deletenurse" />
         <activity android:name=".updatenurse2" />
         <activity android:name=".updatenurse" />
