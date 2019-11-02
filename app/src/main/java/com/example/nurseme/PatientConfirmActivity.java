@@ -91,6 +91,7 @@ Button confirm,reject;
         String name2=mAuth.getCurrentUser().getEmail().substring(0,index2-1);
         databasereference2.child(name+" TO "+name2).setValue(r);
        confirm.setVisibility(View.GONE);
+       reject.setVisibility(View.GONE);
         sendNotification( getIntent().getStringExtra("patientemail"));
         }
     public void rejectclick(View view)
@@ -105,6 +106,7 @@ Button confirm,reject;
         int index2=mAuth.getCurrentUser().getEmail().indexOf('@');
         String name2=mAuth.getCurrentUser().getEmail().substring(0,index2-1);
         databasereference2.child(name+" TO "+name2).setValue(r);
+        confirm.setVisibility(View.GONE);
 reject.setVisibility(View.GONE);
         sendNotification2( getIntent().getStringExtra("patientemail"));
 
