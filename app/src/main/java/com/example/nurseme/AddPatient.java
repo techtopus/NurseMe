@@ -94,7 +94,7 @@ import com.google.firebase.database.FirebaseDatabase;
          else
              c2.setVisibility(View.GONE);
         // Toast.makeText(this, names, Toast.LENGTH_SHORT).show();
-         Patient p=new Patient(mAuth.getCurrentUser().getUid(),namestr,agenum,gender,nursetypestr,servicetypestr,descriptionstr);
+         Patient p=new Patient(mAuth.getCurrentUser().getUid(),namestr,agenum,gender,nursetypestr,servicetypestr,descriptionstr,mAuth.getCurrentUser().getEmail());
 
          DatabaseReference databasereference2= FirebaseDatabase.getInstance().getReference("Patient");
          String id = databasereference2.push().getKey();

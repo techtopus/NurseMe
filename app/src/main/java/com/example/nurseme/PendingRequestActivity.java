@@ -3,6 +3,8 @@ package com.example.nurseme;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,16 +16,34 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PendingRequestActivity extends AppCompatActivity {
-TextView name;
-FirebaseAuth mAuth;
+
+    FirebaseAuth mAuth;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private List<PendingRequestsRecyclerClass> listItems;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pending_request);
-        mAuth=FirebaseAuth.getInstance();
-        name=findViewById(R.id.name);
-         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+
+        recyclerView = findViewById(R.id.recyclerview2);
+        recyclerView.hasFixedSize();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        listItems = new ArrayList<>();
+
+
+        checkPending();
+    }
+
+    public void checkPending() {
+        //listItems.clear();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         Query query = reference.child("Request").orderByChild("nurseemail").equalTo(mAuth.getCurrentUser().getEmail().trim());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -32,20 +52,57 @@ FirebaseAuth mAuth;
                     try {
                         for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                             RequestClass r = dataSnapshot1.getValue(RequestClass.class);
-                            if(Integer.valueOf(r.getStatus().toString())==-1) {
-                                name.setText(r.getPatientemail());
-                                Toast.makeText(PendingRequestActivity.this, r.getPatientemail(), Toast.LENGTH_SHORT).show();
+                            if (Integer.valueOf(r.getStatus().toString()) == -1) {
+
+
+                                DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
+                                Query query = reference2.child("Patient").orderByChild("email").equalTo(r.getPatientemail());
+                                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        if (dataSnapshot.exists()) {
+                                            try {
+                                                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                                    Patient patient = dataSnapshot1.getValue(Patient.class);
+                                                    PendingRequestsRecyclerClass p = new
+                                                            PendingRequestsRecyclerClass(patient.getName(), patient.getNursingtype(), patient.getEmail());
+
+                                                    listItems.add(p);
+                                                   // Toast.makeText(PendingRequestActivity.this, p.getUsername(), Toast.LENGTH_SHORT).show();
+                                                }
+                                                adapter=new PendingRequestsAdapterClass(listItems,getApplicationContext());
+                                                recyclerView.setAdapter(adapter);
+                                            } catch (Exception e) {
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+
+
+                                //Toast.makeText(PendingRequestActivity.this, r.getPatientemail(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     } catch (Exception e) {
-                        Toast.makeText(PendingRequestActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();                    }
-                }
-                        }
+                        Toast.makeText(PendingRequestActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    Toast.makeText(PendingRequestActivity.this, "working", Toast.LENGTH_SHORT).show();
+                }}
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
+
+
     }
+
 }
+

@@ -20,6 +20,7 @@ public class NurseDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_nurse_dashboard);
         mAuth=FirebaseAuth.getInstance();
        OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
+
     }
     public void requestclick(View view){
         startActivity(new Intent(this,PendingRequestActivity.class));

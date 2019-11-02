@@ -1,5 +1,6 @@
 package com.example.nurseme;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.StrictMode;
@@ -45,7 +46,31 @@ TextView name,age,gender,locality,district,sah,nc,dc;
         sah=findViewById(R.id.stayathome);
         nc=findViewById(R.id.nightcare);
         dc=findViewById(R.id.daycare);
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+
+        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
+        Query query2 = reference2.child("Request").orderByChild("patientemail").equalTo(mAuth.getCurrentUser().getEmail());
+        query2.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                 @Override
+                                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                     for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                                         RequestClass n = dataSnapshot1.getValue(RequestClass.class);
+                                                         if(n.getNurseemail().equals(email))
+                                                         {
+                                                             if(Integer.valueOf(n.getStatus())==-1){
+                                                                 request.setVisibility(View.GONE);
+                                                                 requested.setVisibility(View.VISIBLE);
+                                                             }
+                                                         }
+                                                     }
+                                                 }
+
+                                                 @Override
+                                                 public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                 }
+                                             });
+
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         Query query = reference.child("NursePersonalInfo").orderByChild("email").equalTo(email);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -90,7 +115,9 @@ TextView name,age,gender,locality,district,sah,nc,dc;
         reemail=email;
         int index=email.indexOf('@');
         String name=email.substring(0,index-1);
-        databasereference2.child(mAuth.getCurrentUser().getDisplayName()+" TO "+name).setValue(r);
+        int index2=mAuth.getCurrentUser().getEmail().indexOf('@');
+        String name2=mAuth.getCurrentUser().getEmail().substring(0,index2-1);
+        databasereference2.child(name2+" TO "+name).setValue(r);
         request.setVisibility(View.GONE);
         requested.setVisibility(View.VISIBLE);
         sendNotification(reemail);
@@ -98,6 +125,7 @@ TextView name,age,gender,locality,district,sah,nc,dc;
     }
     public void gobackclick(View v)
     {
+        startActivity(new Intent(this,SearchActivity.class));
 
     }
     public void sendNotification(final String email) {

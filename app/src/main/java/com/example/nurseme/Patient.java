@@ -8,8 +8,9 @@ public class Patient {
     String nursingtype;
     String servicestype;
     String desc;
+    String email;
 
-    public Patient(String relativename, String name, int age, String gender, String nursingtype, String servicestype, String desc) {
+    public Patient(String relativename, String name, int age, String gender, String nursingtype, String servicestype, String desc,String email) {
         this.relativename = relativename;
         this.name = name;
         this.age = age;
@@ -17,6 +18,15 @@ public class Patient {
         this.nursingtype = nursingtype;
         this.servicestype = servicestype;
         this.desc = desc;
+        this.email=email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Patient() {
