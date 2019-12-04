@@ -9,16 +9,13 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="427dp"
-        android:layout_height="463dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
+        android:layout_width="401dp"
+        android:layout_height="522dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.942" />
@@ -43,11 +40,25 @@
         android:id="@+id/ic_searchicon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.549"
+        app:srcCompat="@drawable/searchback" />
+
+    <ImageView
+        android:id="@+id/ic_searchfoundnothing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/searchback" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.549"
+        app:srcCompat="@drawable/nothingfound" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
@@ -57,10 +68,10 @@
         app:cardCornerRadius="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.607"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.192">
+        app:layout_constraintVertical_bias="0.209" >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -68,27 +79,25 @@
 
             <EditText
                 android:id="@+id/editText2"
-                android:layout_width="351dp"
-                android:layout_height="57dp"
+                android:layout_width="341dp"
+                android:layout_height="46dp"
                 android:background="@drawable/search_shape"
                 android:ems="10"
                 android:hint="   Quick Search By Location"
                 android:inputType="textPersonName"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.084"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.096" />
 
             <EditText
                 android:id="@+id/editText"
-                android:layout_width="353dp"
-                android:layout_height="44dp"
-                android:layout_marginTop="68dp"
+                android:layout_width="341dp"
+                android:layout_height="41dp"
                 android:layout_marginEnd="56dp"
                 android:layout_marginRight="56dp"
-                android:layout_marginBottom="16dp"
                 android:background="@drawable/search_shape"
                 android:ems="10"
                 android:hint="   Quick Search By District"
@@ -96,7 +105,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.809" />
 
             <ImageView
                 android:id="@+id/imageView"
@@ -109,10 +119,10 @@
                 android:onClick="locationsearch"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.44"
+                app:layout_constraintHorizontal_bias="0.448"
                 app:layout_constraintStart_toEndOf="@+id/editText2"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.046"
+                app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/search" />
 
             <ImageView
@@ -126,10 +136,10 @@
                 android:onClick="districtsearch"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.44"
+                app:layout_constraintHorizontal_bias="0.448"
                 app:layout_constraintStart_toEndOf="@+id/editText2"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.846"
+                app:layout_constraintVertical_bias="0.892"
                 app:srcCompat="@drawable/search" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
@@ -147,15 +157,16 @@
         app:layout_constraintTop_toBottomOf="@+id/ic_searchicon"
         app:layout_constraintVertical_bias="0.055" />
 
-    <ImageView
-        android:id="@+id/ic_searchfoundnothing"
+    <TextView
+        android:id="@+id/textView64"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:text="Search by location or district"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/nothingfound" />
+        app:layout_constraintVertical_bias="0.648" />
 
 
 </android.support.constraint.ConstraintLayout>
