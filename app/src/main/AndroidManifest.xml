@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PatientConfirmActivity"></activity>
+        <activity android:name=".MedicineReminderactivity"></activity>
+        <activity android:name=".PatientConfirmActivity" />
         <activity android:name=".PendingRequestActivity" />
         <activity android:name=".NurseRequestActivity" />
         <activity android:name=".DoctorAppoinment" />

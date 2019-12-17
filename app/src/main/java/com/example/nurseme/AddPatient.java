@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
      private FirebaseAuth mAuth;
      TextView c1,c2;
      Spinner nursetype,servicetype;
+
      @Override
      protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -48,7 +49,8 @@ import com.google.firebase.database.FirebaseDatabase;
         // age_spinner.setOnItemSelectedListener(new CustomOnItemSelectedListener());
      }
      public void add(View view)
-     {String namestr,descriptionstr,gender,nursetypestr,servicetypestr;
+     {
+         String namestr,descriptionstr,gender,nursetypestr,servicetypestr;
      int agenum;
      namestr=name.getText().toString().trim();
      if(age.getText().toString().equals(""))
@@ -99,6 +101,12 @@ import com.google.firebase.database.FirebaseDatabase;
          DatabaseReference databasereference2= FirebaseDatabase.getInstance().getReference("Patient");
          String id = databasereference2.push().getKey();
                  databasereference2.child(namestr).setValue(p);
+
+                 //create medicine table
+         medicineclass x=new medicineclass(mAuth.getCurrentUser().getUid(),"","","","","","");
+         DatabaseReference databasereference3= FirebaseDatabase.getInstance().getReference("medicine");
+         String id2 = databasereference3.push().getKey();
+         databasereference3.child(mAuth.getCurrentUser().getUid()).setValue(x);
         //
          //Toast.makeText(this, "Updated successfully!!", Toast.LENGTH_SHORT).show();
          startActivity(new Intent(this,RelativeDashboard.class));

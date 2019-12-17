@@ -16,4 +16,8 @@ public class ReminderActivity extends AppCompatActivity {
     {
         startActivity(new Intent(this,DoctorAppoinment.class));
     }
+    public void medicine(View v)
+    {
+        startActivity(new Intent(this,MedicineReminderactivity.class));
+    }
 }

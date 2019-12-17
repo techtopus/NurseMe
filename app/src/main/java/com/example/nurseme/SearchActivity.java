@@ -24,9 +24,9 @@ import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
     EditText location,district;
-    ImageView emptyimg;
+    ImageView emptyimg,empimg2;
     int emp=0;
-    TextView emptytext;
+    TextView emptytext,emptext2;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<NurseRecyclerClass> listItems;
@@ -36,6 +36,8 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
         emptyimg=findViewById(R.id.ic_searchfoundnothing);
         emptytext=findViewById(R.id.textView24);
+        emptext2=findViewById(R.id.textView64);
+        empimg2=findViewById(R.id.ic_searchicon);
         location=findViewById(R.id.editText2);
         district=findViewById(R.id.editText);
         recyclerView=findViewById(R.id.recyclerView);
@@ -52,6 +54,8 @@ public class SearchActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     emptyimg.setVisibility(View.GONE);
+                    empimg2.setVisibility(View.GONE);
+                    emptext2.setVisibility(View.GONE);
                     emptytext.setVisibility(View.GONE);
                     recyclerView.setVisibility(View.VISIBLE);
                     try {
@@ -89,6 +93,9 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
+
+                    empimg2.setVisibility(View.GONE);
+                    emptext2.setVisibility(View.GONE);
                     emptyimg.setVisibility(View.GONE);
                     emptytext.setVisibility(View.GONE);
                     recyclerView.setVisibility(View.VISIBLE);
