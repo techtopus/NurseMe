@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.VibrationEffect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,6 +21,9 @@ FirebaseAuth mAuth;
         setContentView(R.layout.activity_admin_dashboard);
         mAuth=FirebaseAuth.getInstance();
         OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
+        Toolbar toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
     public void addnurse(View v)
     {
@@ -40,6 +44,9 @@ FirebaseAuth mAuth;
         MenuInflater inflator=getMenuInflater();
         inflator.inflate(R.menu.menu ,menu);
         return true;
+    }public void viewfn(View v)
+    {
+        startActivity(new Intent(this,acceptviewemail.class));
     }
 
     @Override

@@ -142,9 +142,7 @@ RadioButton male,female;
                         age.setText(n.getAge());
                         locality.setText(n.getLocality());
                         no.setText(n.getPhoneno());
-                        UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
-                                .setDisplayName(n.getName())
-                                .build();
+
 
 
                     }
