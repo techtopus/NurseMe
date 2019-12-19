@@ -35,6 +35,52 @@ FirebaseAuth mAuth;
     public void nurse(View v)
     {
         Toast.makeText(this, "Calling nurse......", Toast.LENGTH_SHORT).show();
+        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
+        Query query2 = reference2.child("Request").orderByChild("patientemail").equalTo(mAuth.getCurrentUser().getEmail());
+        query2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if ( dataSnapshot.exists()) {
+
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                        RequestClass t = dataSnapshot1.getValue(RequestClass.class);
+
+                        if(t.getStatus().equals("1")){
+                            Toast.makeText(EmergenyContact.this, "tata", Toast.LENGTH_SHORT).show();
+                            DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
+                            Query query2 = reference2.child("NursePersonalInfo").orderByChild("email").equalTo(t.getNurseemail());
+                            query2.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    if ( dataSnapshot.exists()) {
+                                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                            NursePersonalInfo t = dataSnapshot1.getValue(NursePersonalInfo.class);
+                                            Intent intent = new Intent(Intent.ACTION_DIAL);
+                                            intent.setData(Uri.parse("tel:" + t.getPhoneno()));
+                                            startActivity(intent);
+
+                                        }
+                                    }}
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
+                        }
+                        else
+                        {
+                            Toast.makeText(EmergenyContact.this, "You dont have any nurse connected", Toast.LENGTH_SHORT).show();
+                        }
+                                }
+            }}
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
     public void ambulance(View view){
         Intent intent = new Intent(Intent.ACTION_DIAL);
