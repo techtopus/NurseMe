@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,13 +25,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
-    EditText location,district;
+    EditText location;
     ImageView emptyimg,empimg2;
     int emp=0;
     TextView emptytext,emptext2;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<NurseRecyclerClass> listItems;
+    Spinner sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,16 +42,22 @@ public class SearchActivity extends AppCompatActivity {
         emptext2=findViewById(R.id.textView64);
         empimg2=findViewById(R.id.ic_searchicon);
         location=findViewById(R.id.editText2);
-        district=findViewById(R.id.editText);
+
         recyclerView=findViewById(R.id.recyclerView);
         recyclerView.hasFixedSize();
+        sp=findViewById(R.id.spinner3);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         listItems   =   new ArrayList<>();
-    }
+       /* String[] districts=getResources().getStringArray(R.array.districts);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,districts);
+        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        sp.setAdapter(adapter);
+        sp.se
+    */}
     public void locationsearch(View v)
     {listItems.clear();
         DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
-        Query query2 = reference2.child("NursePersonalInfo").orderByChild("locality").equalTo(location.getText().toString());
+        Query query2 = reference2.child("NursePersonalInfo").orderByChild("locality").equalTo(location.getText().toString().toLowerCase());
         query2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -88,7 +97,7 @@ public class SearchActivity extends AppCompatActivity {
     public void districtsearch(View v){
         listItems.clear();
         DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
-        Query query2 = reference2.child("NursePersonalInfo").orderByChild("district").equalTo(district.getText().toString());
+        Query query2 = reference2.child("NursePersonalInfo").orderByChild("district").equalTo(sp.getSelectedItem().toString());
         query2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

@@ -34,7 +34,6 @@ FirebaseAuth mAuth;
     }
     public void nurse(View v)
     {
-        Toast.makeText(this, "Calling nurse......", Toast.LENGTH_SHORT).show();
         DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
         Query query2 = reference2.child("Request").orderByChild("patientemail").equalTo(mAuth.getCurrentUser().getEmail());
         query2.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -46,7 +45,9 @@ FirebaseAuth mAuth;
                         RequestClass t = dataSnapshot1.getValue(RequestClass.class);
 
                         if(t.getStatus().equals("1")){
-                            Toast.makeText(EmergenyContact.this, "tata", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EmergenyContact.this, "Calling nurse......", Toast.LENGTH_SHORT).show();
+
+//                            Toast.makeText(EmergenyContact.this, "tata", Toast.LENGTH_SHORT).show();
                             DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
                             Query query2 = reference2.child("NursePersonalInfo").orderByChild("email").equalTo(t.getNurseemail());
                             query2.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -73,7 +74,10 @@ FirebaseAuth mAuth;
                             Toast.makeText(EmergenyContact.this, "You dont have any nurse connected", Toast.LENGTH_SHORT).show();
                         }
                                 }
-            }}
+            }else
+                    Toast.makeText(EmergenyContact.this, "You dont have any nurse connected", Toast.LENGTH_SHORT).show();
+
+            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
