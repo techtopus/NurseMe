@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -22,10 +23,12 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.onesignal.OneSignal;
 
+import java.security.spec.ECField;
+
 public class RelativeDashboard extends AppCompatActivity {
 FirebaseAuth mAuth;
 ProgressBar pg;
-Button add_btn;
+Button add_btn,but;
 CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment_card,health_card,account_card;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment
        OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
         pg=findViewById(R.id.progressBar);
         Toolbar toolbar=findViewById(R.id.toolbar);
+        but=findViewById(R.id.button8);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -46,32 +50,39 @@ CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment
         contacts_card=findViewById(R.id.contacts_card_view);
         payment_card=findViewById(R.id.payment_card_view);
         health_card=findViewById(R.id.health_card_view);
-         DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
-         Query query2 = reference2.child("Patient").orderByChild("relativename").equalTo(mAuth.getCurrentUser().getUid());
-         query2.addListenerForSingleValueEvent(new ValueEventListener() {
-         @Override
-         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-         if ( dataSnapshot.exists()) {
-         //add_btn.setVisibility(View.GONE);
-             pg.setVisibility(View.GONE);
 
-         search_nurse_card.setVisibility(View.VISIBLE);
-         remainder_card.setVisibility(View.VISIBLE);
-         payment_card.setVisibility(View.VISIBLE);
-         contacts_card.setVisibility(View.VISIBLE);
-         health_card.setVisibility(View.VISIBLE);
-         account_card.setVisibility(View.VISIBLE);
-         }
-         else{
-             pg.setVisibility(View.GONE);
-             add_patient_card.setVisibility(View.VISIBLE);
-         }
-
-         }
-         @Override
-         public void onCancelled(@NonNull DatabaseError databaseError) {
+        checkpatient();
         }
-        });
+
+        public void checkpatient()
+        {
+            DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
+            Query query2 = reference2.child("Patient").orderByChild("relativename").equalTo(mAuth.getCurrentUser().getUid());
+            query2.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if ( dataSnapshot.exists()) {
+                        //add_btn.setVisibility(View.GONE);
+                        pg.setVisibility(View.GONE);
+
+                        search_nurse_card.setVisibility(View.VISIBLE);
+                        checkstatus();
+                        remainder_card.setVisibility(View.VISIBLE);
+                        payment_card.setVisibility(View.VISIBLE);
+                        contacts_card.setVisibility(View.VISIBLE);
+                        health_card.setVisibility(View.VISIBLE);
+                        account_card.setVisibility(View.VISIBLE);
+                    }
+                    else{
+                        pg.setVisibility(View.GONE);
+                        add_patient_card.setVisibility(View.VISIBLE);
+                    }
+
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                }
+            });
         }
 
     public void add(View v)
@@ -134,5 +145,43 @@ public void searchactivity(View v)
         { finish();
             startActivity(new Intent(this, NurseDashboard.class));
         }
+        checkstatus();
     }
+    public void checkstatus(){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        //Toast.makeText(PendingRequestActivity.this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+
+        Query query = reference.child("contract").orderByChild("patientemail").equalTo(mAuth.getCurrentUser().getEmail());
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    Toast.makeText(RelativeDashboard.this, "gone", Toast.LENGTH_SHORT).show();
+                    try {
+                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                            ContractClass r = dataSnapshot1.getValue(ContractClass.class);
+
+                            if (r.getStatus().toString().equals("working")) {
+                                search_nurse_card.setVisibility(View.GONE);
+                                but.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    }
+                    catch(Exception e){
+                        Toast.makeText(RelativeDashboard.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }}
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void nursedetails(View view)
+    {
+        startActivity(new Intent(this,NurseDetailsOnPatientSide.class));
+    }
+
 }

@@ -24,6 +24,7 @@ FirebaseAuth mAuth;
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
     }
     public void addnurse(View v)
     {
@@ -61,6 +62,17 @@ FirebaseAuth mAuth;
 
         }
         return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if(mAuth.getCurrentUser()==null)
+        { finish();
+            startActivity(new Intent(this, LoginActivity.class));
+        }
+
     }
 
 }

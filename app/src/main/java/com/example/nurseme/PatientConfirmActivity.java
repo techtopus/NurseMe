@@ -1,5 +1,6 @@
 package com.example.nurseme;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.StrictMode;
@@ -22,6 +23,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class PatientConfirmActivity extends AppCompatActivity {
@@ -86,13 +90,21 @@ Button confirm,reject;
         String reemail;
         reemail=getIntent().getStringExtra("patientemail");
         int index=reemail.indexOf('@');
-        String name=reemail.substring(0,index-1);
+        String name=reemail.substring(0,index);
         int index2=mAuth.getCurrentUser().getEmail().indexOf('@');
-        String name2=mAuth.getCurrentUser().getEmail().substring(0,index2-1);
+        String name2=mAuth.getCurrentUser().getEmail().substring(0,index2);
         databasereference2.child(name+" TO "+name2).setValue(r);
        confirm.setVisibility(View.GONE);
        reject.setVisibility(View.GONE);
+       String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+
+        ContractClass c=new ContractClass( mAuth.getCurrentUser().getEmail(),getIntent().getStringExtra("patientemail"),
+                date,"","working","","","");
+        DatabaseReference databasereference3;
+        databasereference3= FirebaseDatabase.getInstance().getReference("contract");
+        databasereference3.child(name+" TO "+name2).setValue(c);
         sendNotification( getIntent().getStringExtra("patientemail"));
+        startActivity(new Intent(this,NurseDashboard.class));
         }
     public void rejectclick(View view)
     {DatabaseReference databasereference2;

@@ -104,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                                 Intent i=new Intent(LoginActivity.this,SignupActivity.class);
                                                 i.putExtra("email",usernamestr);
+                                                i.putExtra("type","relative");
                                                 startActivity(i);
                                             }
                                         }, 5000);

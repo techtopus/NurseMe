@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".acceptviewemail"></activity>
+        <activity android:name=".EmergencyContactNurse"></activity>
+        <activity android:name=".PatientDetailsOnNurseSide" />
+        <activity android:name=".NurseDetailsOnPatientSide" />
+        <activity android:name=".acceptviewemail" />
         <activity android:name=".ViewNurse" />
         <activity android:name=".MedicineReminderactivity" />
         <activity android:name=".PatientConfirmActivity" />

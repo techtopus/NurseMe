@@ -44,16 +44,20 @@ public class PendingRequestActivity extends AppCompatActivity {
     public void checkPending() {
         //listItems.clear();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        Query query = reference.child("Request").orderByChild("nurseemail").equalTo(mAuth.getCurrentUser().getEmail().trim());
+       Toast.makeText(PendingRequestActivity.this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+
+        Query query = reference.child("Request").orderByChild("nurseemail").equalTo(mAuth.getCurrentUser().getEmail());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
+
                     try {
                         for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                             RequestClass r = dataSnapshot1.getValue(RequestClass.class);
-                            if (Integer.valueOf(r.getStatus().toString()) == -1) {
 
+                            if (r.getStatus().toString().equals("-1")) {
+                                Toast.makeText(PendingRequestActivity.this, "hii", Toast.LENGTH_SHORT).show();
 
                                 DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
                                 Query query = reference2.child("Patient").orderByChild("email").equalTo(r.getPatientemail());
@@ -68,11 +72,12 @@ public class PendingRequestActivity extends AppCompatActivity {
                                                             PendingRequestsRecyclerClass(patient.getName(), patient.getNursingtype(), patient.getEmail());
 
                                                     listItems.add(p);
-                                                   // Toast.makeText(PendingRequestActivity.this, p.getUsername(), Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(PendingRequestActivity.this, p.getUsername(), Toast.LENGTH_SHORT).show();
                                                 }
                                                 adapter=new PendingRequestsAdapterClass(listItems,getApplicationContext());
                                                 recyclerView.setAdapter(adapter);
                                             } catch (Exception e) {
+                                                Toast.makeText(PendingRequestActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     }
@@ -91,7 +96,7 @@ public class PendingRequestActivity extends AppCompatActivity {
                         Toast.makeText(PendingRequestActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
                     }
 
-                    Toast.makeText(PendingRequestActivity.this, "working", Toast.LENGTH_SHORT).show();
+                 //   Toast.makeText(PendingRequestActivity.this, "working", Toast.LENGTH_SHORT).show();
                 }}
 
 
