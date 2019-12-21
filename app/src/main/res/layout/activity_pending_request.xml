@@ -25,12 +25,29 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview2"
-        android:layout_width="412dp"
-        android:layout_height="527dp"
+        android:layout_width="404dp"
+        android:layout_height="547dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.687" />
+
+    <TextView
+        android:id="@+id/textView74"
+        android:layout_width="176dp"
+        android:layout_height="36dp"
+        android:text="Pending Requests"
+        android:textColor="#000"
+        android:textSize="24sp"
+        app:fontFamily="@font/overlock1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.199" />
 </android.support.constraint.ConstraintLayout>
