@@ -1,7 +1,7 @@
 package com.example.nurseme;
 
 public class ContractClass {
-    String nurseemail,patientemail,startdate,enddate,status,remarks,relativemessages,nursemessages;
+    String nurseemail,patientemail,startdate,enddate,status,remarks,nurseremarks,relativemessages,nursemessages;
 
     public String getNurseemail() {
         return nurseemail;
@@ -71,13 +71,22 @@ public class ContractClass {
         this.nursemessages = nursemessages;
     }
 
-    public ContractClass(String nurseemail, String patientemail, String startdate, String enddate, String status, String remarks, String relativemessages, String nursemessages) {
+    public String getNurseremarks() {
+        return nurseremarks;
+    }
+
+    public void setNurseremarks(String nurseremarks) {
+        this.nurseremarks = nurseremarks;
+    }
+
+    public ContractClass(String nurseemail, String patientemail, String startdate, String enddate, String status, String remarks, String nurseremarks, String relativemessages, String nursemessages) {
         this.nurseemail = nurseemail;
         this.patientemail = patientemail;
         this.startdate = startdate;
         this.enddate = enddate;
         this.status = status;
         this.remarks = remarks;
+        this.nurseremarks = nurseremarks;
         this.relativemessages = relativemessages;
         this.nursemessages = nursemessages;
     }

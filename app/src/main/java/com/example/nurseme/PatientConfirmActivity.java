@@ -99,7 +99,7 @@ Button confirm,reject;
        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
         ContractClass c=new ContractClass( mAuth.getCurrentUser().getEmail(),getIntent().getStringExtra("patientemail"),
-                date,"","working","","","");
+                date,"","working","","","","");
         DatabaseReference databasereference3;
         databasereference3= FirebaseDatabase.getInstance().getReference("contract");
         databasereference3.child(name+" TO "+name2).setValue(c);
