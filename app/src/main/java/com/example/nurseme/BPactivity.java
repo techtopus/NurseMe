@@ -35,6 +35,7 @@ public class BPactivity extends AppCompatActivity {
         avgtext = findViewById(R.id.avg);
         mAuth=FirebaseAuth.getInstance();
         loadvalues();
+
     }
     public void loadvalues()
     {
@@ -53,7 +54,7 @@ public class BPactivity extends AppCompatActivity {
                                 final String name = c.getPatientemail().substring(0, index);
 
                                 DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("Health Data").child("Blood Pressure");
-                                Query query2 = reference2.child(name);
+                                Query query2 = reference2.orderByChild("email").equalTo(c.getPatientemail());
                                 query2.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -62,10 +63,10 @@ public class BPactivity extends AppCompatActivity {
                                                 for (DataSnapshot dataSnapshot5 : dataSnapshot.getChildren())
                                                 {
                                                     BloodPressure2 cm = dataSnapshot5.getValue(BloodPressure2.class);
-                                                    /*avgtext.setText(String.valueOf(cm.getSavg()));
+                                                    avgtext.setText(String.valueOf(cm.getSavg()));
                                                     avgtext.append(" / ");
-                                                    avgtext.append(String.valueOf(cm.getDavg()));
-                                                    avgtext.append(" MmHg");*/
+avgtext.append(String.valueOf(cm.getDavg()));
+                                                    avgtext.append(" MmHg");
                                                     Toast.makeText(BPactivity.this,  cm.getEmail(), Toast.LENGTH_SHORT).show();
 
 
@@ -110,7 +111,7 @@ public class BPactivity extends AppCompatActivity {
             return;
         }
         int todays=Integer.parseInt( today.getText().toString());
-        int todays2=Integer.parseInt( today2.getText().toString());
+        int todays2=Integer.parseInt ( today2.getText().toString());
        condition(todays,todays2);
 
     }
@@ -129,6 +130,8 @@ public class BPactivity extends AppCompatActivity {
         }
         return "nil";
     }
+
+
     public void upload(View v){
         if(today.getText().equals("")){
             today.setError("Please enter a valid input");
@@ -138,8 +141,8 @@ public class BPactivity extends AppCompatActivity {
             today2.setError("Please enter a valid input");
             return;
         }
-        final int todays=Integer.parseInt( today.getText().toString());
-        final int todays2=Integer.parseInt( today2.getText().toString());
+       final int todays=Integer.parseInt( today.getText().toString());
+         final int todays2=Integer.parseInt( today2.getText().toString());
         final DatabaseReference databasereference2 = FirebaseDatabase.getInstance().getReference("Health Data").child("Blood Pressure");
 
 
@@ -150,20 +153,24 @@ public class BPactivity extends AppCompatActivity {
                                                  public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                      if (dataSnapshot.exists()) {
                                                          try {
+                                                             //Toast.makeText(BPactivity.this, "hello", Toast.LENGTH_SHORT).show();
                                                              for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                                                  final ContractClass c = dataSnapshot1.getValue(ContractClass.class);
                                                                  if(c.getStatus().equals("working"))
                                                                  {
+
                                                                      final String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
-                                                                     final BloodPressure b=new BloodPressure(todays,todays2,condition(todays,todays2));
+                                                                     final BloodPressure b=new BloodPressure( todays,  todays2,condition(todays,todays2));
+                                                                     //
+                                                                     // final BloodPressure b=new BloodPressure(todays,todays2,"hio");
                                                                      int index=c.getPatientemail().indexOf('@');
                                                                      final String name=c.getPatientemail().substring(0,index);
 
 
 
                                                                      DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("Health Data").child("Blood Pressure");
-                                                                     Query query2 = reference2.child(name);
+                                                                     Query query2 = reference2.orderByChild("email").equalTo(c.getPatientemail());
                                                                      query2.addListenerForSingleValueEvent(new ValueEventListener() {
                                                                                                               @Override
                                                                                                               public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -171,15 +178,16 @@ public class BPactivity extends AppCompatActivity {
                                                                                                                       try {
                                                                                                                           for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                                                                                                               BloodPressure2 cd = dataSnapshot1.getValue(BloodPressure2.class);
-
-                                                                                                                              BloodPressure2 bp = new BloodPressure2(c.getPatientemail(), (cd.getSavg()+todays)/2,(cd.getDavg()+todays2)/2);
+                                                                                                                             // Toast.makeText(BPactivity.this, "hi", Toast.LENGTH_SHORT).show();
+                                                                                                                              BloodPressure2 bp = new BloodPressure2(c.getPatientemail(), (cd.
+                                                                                                                                      getSavg() + todays) / 2, (cd.getDavg() + todays2) / 2);
                                                                                                                               databasereference2.child(name).setValue(bp);
                                                                                                                               databasereference2.child(name).child(date).setValue(b);
                                                                                                                               Toast.makeText(BPactivity.this, "successfully uploaded", Toast.LENGTH_SHORT).show();
                                                                                                                               loadvalues();
                                                                                                                           }
                                                                                                                       } catch (Exception e) {
-                                                                                                                          Toast.makeText(BPactivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                                                                                          Toast.makeText(BPactivity.this, "+"+e.getMessage(), Toast.LENGTH_SHORT).show();
                                                                                                                       }
                                                                                                                   }
 

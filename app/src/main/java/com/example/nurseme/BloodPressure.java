@@ -4,12 +4,6 @@ public class BloodPressure {
     int systolic,diastolic;
     String condition;
 
-    public BloodPressure(int systolic, int diastolic, String condition) {
-        this.systolic = systolic;
-        this.diastolic = diastolic;
-        this.condition = condition;
-    }
-
     public int getSystolic() {
         return systolic;
     }
@@ -26,6 +20,12 @@ public class BloodPressure {
         this.diastolic = diastolic;
     }
 
+    public BloodPressure(int systolic, int diastolic, String condition) {
+        this.systolic = systolic;
+        this.diastolic = diastolic;
+        this.condition = condition;
+    }
+
     public String getCondition() {
         return condition;
     }
@@ -35,5 +35,6 @@ public class BloodPressure {
     }
 
     public BloodPressure() {
+
     }
 }

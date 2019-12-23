@@ -18,6 +18,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
  public class AddPatient extends AppCompatActivity {
      EditText name,age,description;
      RadioGroup rg;
@@ -107,6 +111,17 @@ import com.google.firebase.database.FirebaseDatabase;
          DatabaseReference databasereference3= FirebaseDatabase.getInstance().getReference("medicine");
          String id2 = databasereference3.push().getKey();
          databasereference3.child(mAuth.getCurrentUser().getUid()).setValue(x);
+
+         //create health table
+         int index=mAuth.getCurrentUser().getEmail().indexOf('@');
+         String name=mAuth.getCurrentUser().getEmail().substring(0,index);
+         DatabaseReference reference=FirebaseDatabase.getInstance().getReference("Health Data").child("Blood Pressure").child(name);
+                 reference.setValue(new BloodPressure2(mAuth.getCurrentUser().getEmail(),0,0));
+
+          String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
+
+                 reference.child(date).setValue(new BloodPressure(0,0,""));
         //
          //Toast.makeText(this, "Updated successfully!!", Toast.LENGTH_SHORT).show();
          startActivity(new Intent(this,RelativeDashboard.class));

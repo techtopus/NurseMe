@@ -2,26 +2,25 @@ package com.example.nurseme;
 
 class BloodPressure2 {
   String email;
-  float savg,davg;
+  int savg,davg;
 
-
-    public float getSavg() {
+    public int getSavg() {
         return savg;
     }
 
-    public void setSavg(float savg) {
+    public void setSavg(int savg) {
         this.savg = savg;
     }
 
-    public float getDavg() {
+    public int getDavg() {
         return davg;
     }
 
-    public void setDavg(float davg) {
+    public void setDavg(int davg) {
         this.davg = davg;
     }
 
-    public BloodPressure2(String email, float savg, float davg) {
+    public BloodPressure2(String email, int savg, int davg) {
         this.email = email;
         this.savg = savg;
         this.davg = davg;
