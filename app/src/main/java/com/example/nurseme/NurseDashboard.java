@@ -120,6 +120,10 @@ public class NurseDashboard extends AppCompatActivity {
         });
 
 }
+public void health(View view)
+{
+    startActivity(new Intent(this,HealthNurse.class));
+}
 public void emergency(View v)
 {
     startActivity(new Intent(this,EmergencyContactNurse.class));

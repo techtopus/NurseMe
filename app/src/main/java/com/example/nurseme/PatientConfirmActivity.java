@@ -96,7 +96,7 @@ Button confirm,reject;
         databasereference2.child(name+" TO "+name2).setValue(r);
        confirm.setVisibility(View.GONE);
        reject.setVisibility(View.GONE);
-       String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+       String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
         ContractClass c=new ContractClass( mAuth.getCurrentUser().getEmail(),getIntent().getStringExtra("patientemail"),
                 date,"","working","","","","");
