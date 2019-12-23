@@ -175,6 +175,7 @@ public class BPactivity extends AppCompatActivity {
                                                                                                                               BloodPressure2 bp = new BloodPressure2(c.getPatientemail(), (cd.getSavg()+todays)/2,(cd.getDavg()+todays2)/2);
                                                                                                                               databasereference2.child(name).setValue(bp);
                                                                                                                               databasereference2.child(name).child(date).setValue(b);
+                                                                                                                              Toast.makeText(BPactivity.this, "successfully uploaded", Toast.LENGTH_SHORT).show();
                                                                                                                               loadvalues();
                                                                                                                           }
                                                                                                                       } catch (Exception e) {
@@ -192,7 +193,7 @@ public class BPactivity extends AppCompatActivity {
 
 
 
-                                                                     Toast.makeText(BPactivity.this, "successfully uploaded", Toast.LENGTH_SHORT).show();
+
                                                                  }
                                                              }
                                                          } catch (Exception e) {
