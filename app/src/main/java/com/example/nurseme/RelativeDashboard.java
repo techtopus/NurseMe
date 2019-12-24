@@ -28,8 +28,8 @@ import java.security.spec.ECField;
 public class RelativeDashboard extends AppCompatActivity {
 FirebaseAuth mAuth;
 ProgressBar pg;
-Button add_btn,but;
-CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment_card,health_card,account_card;
+Button add_btn;
+CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment_card,health_card,account_card,but;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,7 @@ CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment
        OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
         pg=findViewById(R.id.progressBar);
         Toolbar toolbar=findViewById(R.id.toolbar);
-        but=findViewById(R.id.button8);
+        but=findViewById(R.id.nursedetails_card_view);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
