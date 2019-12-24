@@ -2,7 +2,7 @@ package com.example.nurseme;
 
 public class BloodPressure {
     int systolic,diastolic;
-    String condition;
+    String condition,date;
 
     public int getSystolic() {
         return systolic;
@@ -20,10 +20,19 @@ public class BloodPressure {
         this.diastolic = diastolic;
     }
 
-    public BloodPressure(int systolic, int diastolic, String condition) {
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public BloodPressure(int systolic, int diastolic, String condition, String date) {
         this.systolic = systolic;
         this.diastolic = diastolic;
         this.condition = condition;
+        this.date = date;
     }
 
     public String getCondition() {

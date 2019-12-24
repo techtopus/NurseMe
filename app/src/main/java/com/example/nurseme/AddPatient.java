@@ -121,8 +121,11 @@ import java.util.Locale;
           String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
 
-                 reference.child(date).setValue(new BloodPressure(0,0,""));
-        //
+                 reference.child(date).setValue(new BloodPressure(0,0,"",""));
+        //create sugar table
+         DatabaseReference referenced=FirebaseDatabase.getInstance().getReference("Health Data").child("Sugar").child(name);
+         referenced.setValue(new sugasrclass2(0,0,mAuth.getCurrentUser().getEmail()));
+         referenced.child(date).setValue(new sugarclass(0,0,"",""));
          //Toast.makeText(this, "Updated successfully!!", Toast.LENGTH_SHORT).show();
          startActivity(new Intent(this,RelativeDashboard.class));
 

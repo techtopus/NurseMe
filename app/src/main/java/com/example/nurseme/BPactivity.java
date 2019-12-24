@@ -16,7 +16,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -34,13 +36,26 @@ public class BPactivity extends AppCompatActivity {
         yesturday = findViewById(R.id.yesturday);
         avgtext = findViewById(R.id.avg);
         mAuth=FirebaseAuth.getInstance();
-        loadvalues();
+        try {
+            loadvalues();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
     }
-    public void loadvalues()
-    {
+    public void loadvalues() throws ParseException {
+        final String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        SimpleDateFormat s= new SimpleDateFormat("dd-MM-yyyy");
+        Date date2=s.parse(date);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date2);
+        calendar.add(Calendar.DATE, -1);
+        final String ydate= s.format(calendar.getTime());
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+
+
+
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         Query query = reference.child("contract").orderByChild("nurseemail").equalTo(mAuth.getCurrentUser().getEmail());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -52,6 +67,38 @@ public class BPactivity extends AppCompatActivity {
                             if (c.getStatus().equals("working")) {
                                 int index = c.getPatientemail().indexOf('@');
                                 final String name = c.getPatientemail().substring(0, index);
+                                Toast.makeText(BPactivity.this, ydate, Toast.LENGTH_SHORT).show();
+                                DatabaseReference referenced = FirebaseDatabase.getInstance().
+                                        getReference("Health Data").child("Blood Pressure");
+                                Query queryd = referenced.child(name).orderByChild("date").equalTo(ydate);
+                                queryd.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        if (dataSnapshot.exists()) {
+                                            try {
+                                                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                                    BloodPressure bpo = dataSnapshot1.getValue(BloodPressure.class);
+                                                    yesturday.setText(bpo.getSystolic() + " / " + bpo.getDiastolic() + " Mm Hg");
+                                                }
+                                            } catch (Exception e) {
+                                                Toast.makeText(BPactivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                        else
+                                        {
+                                            yesturday.setText("Come Back Tommorrow");
+                                        }
+
+                                    }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+
+
+
+
 
                                 DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("Health Data").child("Blood Pressure");
                                 Query query2 = reference2.orderByChild("email").equalTo(c.getPatientemail());
@@ -67,7 +114,7 @@ public class BPactivity extends AppCompatActivity {
                                                     avgtext.append(" / ");
 avgtext.append(String.valueOf(cm.getDavg()));
                                                     avgtext.append(" MmHg");
-                                                    Toast.makeText(BPactivity.this,  cm.getEmail(), Toast.LENGTH_SHORT).show();
+                                                   // Toast.makeText(BPactivity.this,  cm.getEmail(), Toast.LENGTH_SHORT).show();
 
 
 
@@ -161,7 +208,7 @@ avgtext.append(String.valueOf(cm.getDavg()));
 
                                                                      final String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
-                                                                     final BloodPressure b=new BloodPressure( todays,  todays2,condition(todays,todays2));
+                                                                     final BloodPressure b=new BloodPressure( todays,  todays2,condition(todays,todays2),date);
                                                                      //
                                                                      // final BloodPressure b=new BloodPressure(todays,todays2,"hio");
                                                                      int index=c.getPatientemail().indexOf('@');
@@ -179,11 +226,14 @@ avgtext.append(String.valueOf(cm.getDavg()));
                                                                                                                           for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                                                                                                               BloodPressure2 cd = dataSnapshot1.getValue(BloodPressure2.class);
                                                                                                                              // Toast.makeText(BPactivity.this, "hi", Toast.LENGTH_SHORT).show();
-                                                                                                                              BloodPressure2 bp = new BloodPressure2(c.getPatientemail(), (cd.
-                                                                                                                                      getSavg() + todays) / 2, (cd.getDavg() + todays2) / 2);
-                                                                                                                              databasereference2.child(name).child("davg").setValue((cd.getDavg() + todays2) / 2);
-                                                                                                                              databasereference2.child(name).child("savg").setValue((cd.
-                                                                                                                                      getSavg() + todays) / 2);
+                                                                                                                            if(cd.getSavg()==0)
+                                                                                                                                databasereference2.child(name).child("savg").setValue( todays);
+                                                                                                                            else
+                                                                                                                            databasereference2.child(name).child("savg").setValue((cd.getSavg() + todays) / 2);
+                                                                                                                            if(cd.getDavg()==0)
+                                                                                                                                databasereference2.child(name).child("davg").setValue(todays2);
+                                                                                                                            else
+                                                                                                                                databasereference2.child(name).child("davg").setValue((cd.getDavg() + todays2) / 2);
 
                                                                                                                               databasereference2.child(name).child(date).setValue(b);
                                                                                                                               Toast.makeText(BPactivity.this, "successfully uploaded", Toast.LENGTH_SHORT).show();
