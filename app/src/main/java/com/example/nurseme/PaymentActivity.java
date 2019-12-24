@@ -40,8 +40,8 @@ FirebaseAuth mAuth;
                             ContractClass c = dataSnapshot1.getValue(ContractClass.class);
                             if(c.getStatus().equals("working"))
                             {
-                                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-                                SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd");
+                                String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+                                SimpleDateFormat s=new SimpleDateFormat("dd-MM-yyyy");
                               Date d1=s.parse(date);
                                 String date2=c.getStartdate();
                                 Date d2= s.parse(date2);

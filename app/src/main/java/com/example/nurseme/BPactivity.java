@@ -181,7 +181,10 @@ avgtext.append(String.valueOf(cm.getDavg()));
                                                                                                                              // Toast.makeText(BPactivity.this, "hi", Toast.LENGTH_SHORT).show();
                                                                                                                               BloodPressure2 bp = new BloodPressure2(c.getPatientemail(), (cd.
                                                                                                                                       getSavg() + todays) / 2, (cd.getDavg() + todays2) / 2);
-                                                                                                                              databasereference2.child(name).setValue(bp);
+                                                                                                                              databasereference2.child(name).child("davg").setValue((cd.getDavg() + todays2) / 2);
+                                                                                                                              databasereference2.child(name).child("savg").setValue((cd.
+                                                                                                                                      getSavg() + todays) / 2);
+
                                                                                                                               databasereference2.child(name).child(date).setValue(b);
                                                                                                                               Toast.makeText(BPactivity.this, "successfully uploaded", Toast.LENGTH_SHORT).show();
                                                                                                                               loadvalues();

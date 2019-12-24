@@ -132,7 +132,7 @@ RadioButton male,female;
 
 
                         NursePersonalInfo u = new NursePersonalInfo(mAuth.getCurrentUser().getUid(),name,age,phoneno,locality.toLowerCase(),district,gender,
-                                mAuth.getCurrentUser().getEmail(),p1,p2,p3);
+                                mAuth.getCurrentUser().getEmail(),"nil",p1,p2,p3);
 
                         databasereference2.child(name).setValue(u);
 

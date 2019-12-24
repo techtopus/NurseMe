@@ -56,24 +56,30 @@ public class SearchActivity extends AppCompatActivity {
     */}
     public void locationsearch(View v)
     {listItems.clear();
+
+    emp=0;
         DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
         Query query2 = reference2.child("NursePersonalInfo").orderByChild("locality").equalTo(location.getText().toString().toLowerCase());
         query2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    emptyimg.setVisibility(View.GONE);
-                    empimg2.setVisibility(View.GONE);
-                    emptext2.setVisibility(View.GONE);
-                    emptytext.setVisibility(View.GONE);
-                    recyclerView.setVisibility(View.VISIBLE);
+
+
+
                     try {
                         for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                             NursePersonalInfo n = dataSnapshot1.getValue(NursePersonalInfo.class);
-                            NurseRecyclerClass nrc=new NurseRecyclerClass(n.getName(),n.getLocality(),n.getEmail());
-                            listItems.add(nrc);
-                            Toast.makeText(SearchActivity.this, "1." + n.getName(), Toast.LENGTH_SHORT).show();
-                        }
+                            if(n.getStatus().equals("nil")) {
+                                emptyimg.setVisibility(View.GONE);
+                                empimg2.setVisibility(View.GONE);
+                                emptext2.setVisibility(View.GONE);
+                                emptytext.setVisibility(View.GONE);
+                                recyclerView.setVisibility(View.VISIBLE);
+                                NurseRecyclerClass nrc = new NurseRecyclerClass(n.getName(), n.getLocality(), n.getEmail());
+                                listItems.add(nrc);
+                                Toast.makeText(SearchActivity.this, "1." + n.getName(), Toast.LENGTH_SHORT).show();
+                            } }
                     } catch (Exception e) {
                         Toast.makeText(SearchActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -93,8 +99,16 @@ public class SearchActivity extends AppCompatActivity {
 
             }
         });
+
+        if(emp==1)
+        {
+            emptytext.setVisibility(View.VISIBLE);
+            emptyimg.setVisibility(View.VISIBLE);
+        }
+checksize();
     }
     public void districtsearch(View v){
+        emp=0;
         listItems.clear();
         DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
         Query query2 = reference2.child("NursePersonalInfo").orderByChild("district").equalTo(sp.getSelectedItem().toString());
@@ -103,29 +117,27 @@ public class SearchActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
 
-                    empimg2.setVisibility(View.GONE);
-                    emptext2.setVisibility(View.GONE);
-                    emptyimg.setVisibility(View.GONE);
-                    emptytext.setVisibility(View.GONE);
-                    recyclerView.setVisibility(View.VISIBLE);
+
                     try {
                         for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                             NursePersonalInfo n = dataSnapshot1.getValue(NursePersonalInfo.class);
-                            NurseRecyclerClass nrc=new NurseRecyclerClass(n.getName(),n.getLocality(),n.getEmail());
-                            listItems.add(nrc);
+                            if(n.getStatus().equals("nil")) {
+                                empimg2.setVisibility(View.GONE);
+                                emptext2.setVisibility(View.GONE);
+                                emptyimg.setVisibility(View.GONE);
+                                emptytext.setVisibility(View.GONE);
+                                recyclerView.setVisibility(View.VISIBLE);
+                                NurseRecyclerClass nrc = new NurseRecyclerClass(n.getName(), n.getLocality(), n.getEmail());
+                                listItems.add(nrc);
 
-                            Toast.makeText(SearchActivity.this, "2." + n.getName(), Toast.LENGTH_SHORT).show();
-                        }
+                              //  Toast.makeText(SearchActivity.this, "2." + n.getName(), Toast.LENGTH_SHORT).show();
+                            } }
                     } catch (Exception e) {
                         Toast.makeText(SearchActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }else
                 {
-                    if(emp==1)
-                    {
-                        emptytext.setVisibility(View.VISIBLE);
-                        emptyimg.setVisibility(View.VISIBLE);
-                    }
+                    emp=1;
                 }
 
                 adapter=new NurseSearchAdapterClass(listItems,getApplicationContext());
@@ -137,5 +149,22 @@ public class SearchActivity extends AppCompatActivity {
 
             }
         });
+        if(emp==1)
+        {
+            emptytext.setVisibility(View.VISIBLE);
+            emptyimg.setVisibility(View.VISIBLE);
+        }
+        checksize();
+    }
+    public void checksize()
+    {
+        if( listItems.size()==0)
+        {
+            emptytext.setVisibility(View.VISIBLE);
+            emptyimg.setVisibility(View.VISIBLE);
+            empimg2.setVisibility(View.GONE);
+            emptext2.setVisibility(View.GONE);
+
+        }
     }
 }

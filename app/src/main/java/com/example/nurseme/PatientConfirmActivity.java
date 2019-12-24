@@ -83,6 +83,9 @@ Button confirm,reject;
     }
 
     public void confirmclick(View v){
+        DatabaseReference ref=FirebaseDatabase.getInstance().getReference("NursePersonalInfo");
+        ref.child(mAuth.getCurrentUser().getDisplayName()).child("status").setValue("working");
+
         DatabaseReference databasereference2;
         databasereference2= FirebaseDatabase.getInstance().getReference("Request");
         RequestClass r=new RequestClass(mAuth.getCurrentUser().getDisplayName(),

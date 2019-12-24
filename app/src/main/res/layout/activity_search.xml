@@ -150,9 +150,9 @@
 
     <TextView
         android:id="@+id/textView24"
-        android:layout_width="219dp"
-        android:layout_height="19dp"
-        android:text="Your Search Results Appear Here"
+        android:layout_width="299dp"
+        android:layout_height="80dp"
+        android:text="There are no Nurses in the provided Locality/District"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

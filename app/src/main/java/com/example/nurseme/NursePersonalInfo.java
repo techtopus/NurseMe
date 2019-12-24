@@ -9,11 +9,9 @@ String locality;
 String district;
 String gender;
 String email;
+String status;
 
-int daycare,nightcare,stryathome;
-
-    public NursePersonalInfo(String uid, String name, String age, String phoneno, String locality,
-                             String district, String gender, String email,int daycare, int nightcare, int stryathome) {
+    public NursePersonalInfo(String uid, String name, String age, String phoneno, String locality, String district, String gender, String email, String status, int daycare, int nightcare, int stryathome) {
         Uid = uid;
         this.name = name;
         this.age = age;
@@ -21,10 +19,21 @@ int daycare,nightcare,stryathome;
         this.locality = locality;
         this.district = district;
         this.gender = gender;
-        this.email=email;
+        this.email = email;
+        this.status = status;
         this.daycare = daycare;
         this.nightcare = nightcare;
         this.stryathome = stryathome;
+    }
+
+    int daycare,nightcare,stryathome;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getEmail() {

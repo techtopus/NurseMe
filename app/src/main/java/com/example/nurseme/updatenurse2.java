@@ -118,7 +118,7 @@ RadioButton male,female;
 
         final DatabaseReference databasereference3 = FirebaseDatabase.getInstance().getReference("NursePersonalInfo");
         NursePersonalInfo u = new NursePersonalInfo(mAuth.getCurrentUser().getUid()
-                ,namevar,agevar,novar,localityvar,districtvar,gender,getIntent().getStringExtra("email"),p1,p2,p3);
+                ,namevar,agevar,novar,localityvar,districtvar,gender,getIntent().getStringExtra("email"),"nil",p1,p2,p3);
 
         databasereference3.child(namevar).setValue(u);
 
