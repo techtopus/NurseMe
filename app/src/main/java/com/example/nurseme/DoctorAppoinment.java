@@ -23,7 +23,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class DoctorAppoinment extends AppCompatActivity {
 EditText txtDate,txtTime,name,hosp,cause;
@@ -39,8 +43,7 @@ FirebaseAuth mAuth;
         txtDate=(EditText)findViewById(R.id.in_date);
         txtTime=(EditText)findViewById(R.id.in_time);
     }
-    public void schedule(View v)
-    {
+    public void schedule(View v) throws ParseException {
         String nametxt,hosptxt,causetxt,time,date;
         nametxt=name.getText().toString();
         hosptxt=hosp.getText().toString();
@@ -59,16 +62,17 @@ FirebaseAuth mAuth;
             //setting alarm
             Calendar cal = Calendar.getInstance();
 
+
             cal.setTimeInMillis(System.currentTimeMillis());
             cal.clear();
-            int year,year1,day,month,hr,min;
+            int year,year1,day,dayt,month,hr,min;
             year1=date.lastIndexOf("-");
-            year=Integer.valueOf(date.substring(year1+1,year1+4));
-            day=date.indexOf("-");
-            day=Integer.valueOf(date.substring(0,day-1));
-            month=Integer.valueOf(date.substring(day+1,year1-1));
+            year=Integer.valueOf(date.substring(year1+1,year1+5));
+            dayt=date.indexOf("-");
+            day=Integer.valueOf(date.substring(0,1));
+            month=Integer.valueOf(date.substring(day+1,year1));
             hr=time.indexOf(":");
-            hr=Integer.valueOf(time.substring(0,hr-1));
+            hr=Integer.valueOf(time.substring(0,hr));
             min=time.indexOf(":");
             min=Integer.valueOf(time.substring(min+1));
             cal.set(year,month,day,hr,min);
@@ -78,9 +82,9 @@ FirebaseAuth mAuth;
             PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
             // cal.add(Calendar.SECOND, 5);
             alarmMgr.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);*/
-
-           addevent( year, month, day, year, min,nametxt,hosptxt,causetxt);
-            Toast.makeText(this, "Alarm set successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, hr+"-"+min, Toast.LENGTH_SHORT).show();
+           addevent( year, month, day, hr, min,nametxt,hosptxt,causetxt);
+           // Toast.makeText(this, "Alarm set successfully", Toast.LENGTH_SHORT).show();
 
         }
     }

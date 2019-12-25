@@ -126,6 +126,14 @@ import java.util.Locale;
          DatabaseReference referenced=FirebaseDatabase.getInstance().getReference("Health Data").child("Sugar").child(name);
          referenced.setValue(new sugasrclass2(0,0,mAuth.getCurrentUser().getEmail()));
          referenced.child(date).setValue(new sugarclass(0,0,"",""));
+
+
+         //create hospital class
+         int indexd=mAuth.getCurrentUser().getEmail().indexOf('@');
+         String named=mAuth.getCurrentUser().getEmail().substring(0,indexd);
+         DatabaseReference ref=FirebaseDatabase.getInstance().getReference("hospital");
+         ref.child(named).setValue(new hospital(mAuth.getCurrentUser().getUid(),""));
+
          //Toast.makeText(this, "Updated successfully!!", Toast.LENGTH_SHORT).show();
          startActivity(new Intent(this,RelativeDashboard.class));
 

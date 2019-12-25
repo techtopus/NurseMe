@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class EmergenyContact extends AppCompatActivity {
 EditText hospno;
-ImageView btn;
+Button btn;
 FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ FirebaseAuth mAuth;
         setContentView(R.layout.activity_emergeny_contact);
         mAuth=FirebaseAuth.getInstance();
         hospno=findViewById(R.id.hospno_txtbox);
-        btn=findViewById(R.id.ok_btn);
+        btn=findViewById(R.id.button8);
 
     }
     public void nurse(View v)
@@ -102,16 +102,16 @@ FirebaseAuth mAuth;
                         hospital t = dataSnapshot1.getValue(hospital.class);
 
                                 Intent intent = new Intent(Intent.ACTION_DIAL);
+                                if(t.getNo().toString().equals("")){
+                                    hospno.setVisibility(View.VISIBLE);
+                                    btn.setVisibility(View.VISIBLE);
+                        }else{
                         intent.setData(Uri.parse("tel:" +t.getNo()));
                         startActivity(intent);
                     }
+                    }
                 }
-                else{
-                        hospno.setVisibility(View.VISIBLE);
-                        btn.setVisibility(View.VISIBLE);
 
-
-                }
 
             }
             @Override
@@ -120,52 +120,14 @@ FirebaseAuth mAuth;
         });
     }
 public void change(View v)
-{DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
-    Query query2 = reference2.child("hospital").orderByChild("relativeid").equalTo(mAuth.getCurrentUser().getUid());
-    query2.addListenerForSingleValueEvent(new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            if ( dataSnapshot.exists()) {
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    hospital t = dataSnapshot1.getValue(hospital.class);
-
-                    Intent intent = new Intent(Intent.ACTION_DIAL);
-                    intent.setData(Uri.parse("tel:" +t.getNo()));
-                    startActivity(intent);
-                }
-            }
-            else{
-                hospno.setVisibility(View.VISIBLE);
-                btn.setVisibility(View.VISIBLE);
-
-
-            }
-
-        }
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-        }
-    });
-
+{
+    Toast.makeText(this, "hg", Toast.LENGTH_SHORT).show();
     hospno.setVisibility(View.VISIBLE);
     btn.setVisibility(View.VISIBLE);
 }
 
     public void call(View view)
-    {DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
-        Query query2 = reference2.child("hospital").orderByChild("relativeid").equalTo(mAuth.getCurrentUser().getUid());
-        query2.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if ( dataSnapshot.exists()) {
-                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                        dataSnapshot1.getRef().removeValue();
-         }
-                }}
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
+    {
 
         String no=hospno.getText().toString();
         if(no.length()==10) {
@@ -174,7 +136,10 @@ public void change(View v)
         btn.setVisibility(View.GONE);
             DatabaseReference databasereference2= FirebaseDatabase.getInstance().getReference("hospital");
             String id = databasereference2.push().getKey();
-            databasereference2.child(mAuth.getCurrentUser().getUid()).setValue(h);
+            int indexd=mAuth.getCurrentUser().getEmail().indexOf('@');
+            String named=mAuth.getCurrentUser().getEmail().substring(0,indexd);
+
+            databasereference2.child(named).setValue(h);
             Intent intent = new Intent(Intent.ACTION_DIAL);
             intent.setData(Uri.parse("tel:" +no));
             startActivity(intent);
