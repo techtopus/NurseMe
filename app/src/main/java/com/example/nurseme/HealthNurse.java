@@ -28,6 +28,10 @@ FirebaseAuth mAuth;
         mAuth=FirebaseAuth.getInstance();
         loadvalues();
     }
+   public void healthchart(View v)
+   {
+       startActivity(new Intent(this,BpGraphActivity.class));
+   }
 
     @Override
     protected void onStart() {
