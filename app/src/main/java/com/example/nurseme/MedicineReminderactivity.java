@@ -49,6 +49,7 @@ Dialog mydialogue;
         afterradio = mydialogue.findViewById(R.id.after);
         rg = mydialogue.findViewById(R.id.rg);
         name = mydialogue.findViewById(R.id.editText7);
+        schdle =mydialogue.findViewById(R.id.textView96);
         spinner = findViewById(R.id.spinner2);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -138,12 +139,12 @@ Dialog mydialogue;
                 add(view);
             }
         });
-       /* schdle.setOnClickListener(new View.OnClickListener() {
+       schdle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 reminder(view);
             }
-        });*/
+        });
     }
 
     public void add(View v)
@@ -285,7 +286,8 @@ public void remove(View v){
 
     }
 public void reminder(View v)
-{ /*Intent intent = new Intent(Intent.ACTION_INSERT)
+{   Toast.makeText(this, "working", Toast.LENGTH_SHORT).show();
+    /*Intent intent = new Intent(Intent.ACTION_INSERT)
         .setData(CalendarContract.Events.CONTENT_URI)
         .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
                 beginCalendarTime.getTimeInMillis())
