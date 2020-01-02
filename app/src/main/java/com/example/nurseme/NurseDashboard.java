@@ -29,15 +29,14 @@ import java.util.Locale;
 
 public class NurseDashboard extends AppCompatActivity {
     FirebaseAuth mAuth;
-    CardView requests;
-    Button but;
+    CardView requests,but;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nurse_dashboard);
         mAuth=FirebaseAuth.getInstance();
         requests=findViewById(R.id.prescard);
-        but=findViewById(R.id.button9);
+        but=findViewById(R.id.pdetailscard);
        OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -4,7 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundnurseme"
     tools:context=".ViewNurse">
+
+    <Button
+        android:id="@+id/updatedetails_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/button_shape"
+        android:onClick="back"
+        android:padding="7dp"
+        android:text="back"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
     <TextView
         android:id="@+id/textView33"
@@ -151,6 +173,35 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.635" />
 
+            <RadioGroup
+                android:id="@+id/sex_radiogrp"
+                android:layout_width="222dp"
+                android:layout_height="38dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.546"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.256">
+
+                <RadioButton
+                    android:id="@+id/male_radiobtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:editable="false"
+                    android:text="Male" />
+
+                <RadioButton
+                    android:id="@+id/female_radiobtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:editable="false"
+                    android:text="Female" />
+            </RadioGroup>
+
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="176dp"
@@ -254,57 +305,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.262" />
 
-            <RadioGroup
-                android:id="@+id/sex_radiogrp"
-                android:layout_width="222dp"
-                android:layout_height="38dp"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.546"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.256">
-
-                <RadioButton
-                    android:id="@+id/male_radiobtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:editable="false"
-                    android:text="Male" />
-
-                <RadioButton
-                    android:id="@+id/female_radiobtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:editable="false"
-                    android:text="Female" />
-            </RadioGroup>
-
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
-
-    <Button
-        android:id="@+id/updatedetails_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/button_shape"
-        android:onClick="back"
-        android:padding="7dp"
-        android:text="back"
-        android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
 
 </android.support.constraint.ConstraintLayout>

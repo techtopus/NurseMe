@@ -1,5 +1,6 @@
 package com.example.nurseme;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.provider.CalendarContract;
 import android.provider.MediaStore;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -26,26 +28,28 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Calendar;
 
 public class MedicineReminderactivity extends AppCompatActivity {
-TextView before,after;
+TextView before,after,schdle;
 FirebaseAuth mAuth;
 Spinner spinner;
 EditText name;
 int count;
 RadioGroup rg;
 RadioButton beforeradio,afterradio;
+Dialog mydialogue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mydialogue = new Dialog(MedicineReminderactivity.this);
+        mydialogue.setContentView(R.layout.addmedicine_popup);
         setContentView(R.layout.activity_medicine_reminderactivity);
-        before=findViewById(R.id.textView66);
-        after=findViewById(R.id.textView68);
-
-        mAuth=FirebaseAuth.getInstance();
-        beforeradio=findViewById(R.id.before);
-        afterradio=findViewById(R.id.after);
-        rg=findViewById(R.id.rg);
-        name=findViewById(R.id.editText7);
-        spinner=findViewById(R.id.spinner2);
+        before = findViewById(R.id.textView66);
+        after = findViewById(R.id.textView68);
+        mAuth = FirebaseAuth.getInstance();
+        beforeradio = mydialogue.findViewById(R.id.before);
+        afterradio = mydialogue.findViewById(R.id.after);
+        rg = mydialogue.findViewById(R.id.rg);
+        name = mydialogue.findViewById(R.id.editText7);
+        spinner = findViewById(R.id.spinner2);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -123,11 +127,30 @@ RadioButton beforeradio,afterradio;
         });
 
     }
+    public void popupme(View v)
+    {
+        Button b = mydialogue.findViewById(R.id.button4);
+        mydialogue.show();
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mydialogue.dismiss();
+                add(view);
+            }
+        });
+       /* schdle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                reminder(view);
+            }
+        });*/
+    }
 
     public void add(View v)
-    {int selectedId = rg.getCheckedRadioButtonId();
-// find the radiobutton by returned id
-       RadioButton sex = (RadioButton) findViewById(selectedId);
+    {
+        int selectedId = rg.getCheckedRadioButtonId();
+        // find the radiobutton by returned id
+        RadioButton sex = (RadioButton) findViewById(selectedId);
         String gender= (String) sex.getText();
 
 

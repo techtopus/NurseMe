@@ -24,33 +24,6 @@
 
 
     <android.support.v7.widget.CardView
-        android:id="@+id/before_card"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        app:cardCornerRadius="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.527">
-
-        <TextView
-            android:id="@+id/textView66"
-            android:layout_width="159dp"
-            android:layout_height="251dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#fff" />
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
         android:id="@+id/after_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,9 +32,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.937"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.527"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/textView92"
+        app:layout_constraintVertical_bias="0.02">
 
         <TextView
             android:id="@+id/textView68"
@@ -76,76 +48,82 @@
             android:background="#fff" />
     </android.support.v7.widget.CardView>
 
-    <Button
-        android:id="@+id/button5"
+    <TextView
+        android:id="@+id/textView91"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:onClick="reminder"
-        android:text="sart remindert"
+        android:text="Before Food"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.99" />
+        app:layout_constraintVertical_bias="0.4" />
 
-    <RadioGroup
-        android:id="@+id/rg"
-        android:layout_width="316dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+    <TextView
+        android:id="@+id/textView92"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="After Food"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.813"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.864">
+        app:layout_constraintVertical_bias="0.4" />
 
-        <RadioButton
-            android:id="@+id/before"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Before Food" />
-
-        <RadioButton
-            android:id="@+id/after"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="After Food" />
-    </RadioGroup>
-
-    <EditText
-        android:id="@+id/editText7"
-        android:layout_width="297dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="eter medicine name"
-        android:inputType="textPersonName"
+    <android.support.v7.widget.CardView
+        android:id="@+id/before_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.801" />
+        app:layout_constraintTop_toBottomOf="@+id/textView91"
+        app:layout_constraintVertical_bias="0.02">
 
+        <TextView
+            android:id="@+id/textView66"
+            android:layout_width="159dp"
+            android:layout_height="251dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#fff" />
+    </android.support.v7.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView33"
+        android:layout_width="31dp"
+        android:layout_height="39dp"
+        android:onClick="remove"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/before_card"
+        app:layout_constraintVertical_bias="0.045"
+        app:srcCompat="@drawable/ic_remove" />
+
+    <ImageView
+        android:id="@+id/imageView34"
+        android:layout_width="31dp"
+        android:layout_height="39dp"
+        android:onClick="remove"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/after_card_view"
+        app:layout_constraintVertical_bias="0.045"
+        app:srcCompat="@drawable/ic_remove" />
 
     <Spinner
 
@@ -163,45 +141,32 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.324" />
 
-    <ImageView
-        android:id="@+id/imageView33"
-        android:layout_width="31dp"
-        android:layout_height="39dp"
-        android:onClick="remove"
+    <TextView
+        android:id="@+id/textView98"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintHorizontal_bias="0.041"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.715"
-        app:srcCompat="@drawable/ic_remove" />
-
-    <ImageView
-        android:id="@+id/imageView34"
-        android:layout_width="31dp"
-        android:layout_height="39dp"
-        android:onClick="remove"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.807"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.715"
-        app:srcCompat="@drawable/ic_remove" />
+        app:layout_constraintVertical_bias="0.288" />
 
     <ImageView
         android:id="@+id/imageView29"
         android:layout_width="80dp"
         android:layout_height="82dp"
-        android:onClick="add"
+        android:onClick="popupme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.979"
-        app:srcCompat="@drawable/ic_add" />
+        app:srcCompat="@drawable/ic_add"
+        />
 
     <TextView
         android:id="@+id/textView87"
@@ -216,41 +181,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.184" />
-
-    <TextView
-        android:id="@+id/textView91"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Before Food"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.343" />
-
-    <TextView
-        android:id="@+id/textView92"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="After Food"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.813"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.343" />
-
-    <TextView
-        android:id="@+id/textView98"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Select time"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265" />
 
 </android.support.constraint.ConstraintLayout>
