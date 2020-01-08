@@ -60,11 +60,10 @@
                 app:layout_constraintVertical_bias="0.975" />
 
             <Button
-                android:id="@+id/request2"
+                android:id="@+id/requested"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_inactive"
-                android:onClick="requestclick"
                 android:text="Requested"
                 android:textColor="#fff"
                 android:visibility="invisible"

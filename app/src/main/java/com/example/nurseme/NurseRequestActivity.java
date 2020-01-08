@@ -38,7 +38,7 @@ TextView name,age,gender,locality,district,sah,nc,dc;
         name=findViewById(R.id.name);
         age=findViewById(R.id.age);
         request=findViewById(R.id.request);
-        requested=findViewById(R.id.request2);
+        requested=findViewById(R.id.requested);
         gender=findViewById(R.id.gender);
         mAuth=FirebaseAuth.getInstance();
         locality=findViewById(R.id.locality);

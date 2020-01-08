@@ -33,7 +33,7 @@
         <activity android:name=".HealthActivity" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".ReminderActivity" />
-        <activity android:name=".SearchActivity" />
+        <activity android:name=".SearchActivity" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".EmergenyContact" />
         <activity android:name=".AddPatient" />
         <activity android:name=".RelativeDashboard" />
