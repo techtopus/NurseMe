@@ -116,7 +116,7 @@
         android:id="@+id/imageView34"
         android:layout_width="31dp"
         android:layout_height="39dp"
-        android:onClick="remove"
+        android:onClick="remove2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.78"

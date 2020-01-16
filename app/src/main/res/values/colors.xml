@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#30d1a1</color>
     <color name="colorAccent">#000</color>
     <color name="colorLogin">#30d1a1</color>
+    <color name="palegreen">#98fb98</color>
+    <color name="palered">#ffcccb</color>
+    <color name="paleblue">#afeeee</color>
 </resources>

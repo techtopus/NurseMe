@@ -183,5 +183,8 @@ public void searchactivity(View v)
     {
         startActivity(new Intent(this,NurseDetailsOnPatientSide.class));
     }
-
+public void reportfn(View v)
+    {
+        startActivity(new Intent(this,ReportRelativeactivity.class));
+    }
 }

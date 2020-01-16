@@ -151,9 +151,13 @@ Dialog mydialogue;
     {
         int selectedId = rg.getCheckedRadioButtonId();
         // find the radiobutton by returned id
-        RadioButton sex = (RadioButton) findViewById(selectedId);
-        String gender= (String) sex.getText();
 
+        String gender;
+
+        if(selectedId==R.id.before)
+            gender="Before Food";
+        else
+            gender="After Food";
 
         String time= (String) spinner.getSelectedItem();
         String beforeorafter;
@@ -241,12 +245,12 @@ public void remove(View v){
     String str=before.getText().toString();
     str=str.substring(0,str.length()-2);
     if(!str.contains("\n"))
-        index=1;
+        index=0;
     else
    index=str.lastIndexOf("\n");
 
 
-        before.setText(before.getText().toString().substring(0,index-1));
+        before.setText(before.getText().toString().substring(0,index));
         DatabaseReference ref=FirebaseDatabase.getInstance().getReference();
     if(spinner.getSelectedItem().equals("Morning")) {
         ref.child("medicine").child(mAuth.getCurrentUser().getUid()).child("morning").setValue(before.getText().toString());
@@ -264,13 +268,13 @@ public void remove(View v){
         after.setText(after.getText().toString());
         int index;
         String str=after.getText().toString();
-        str.substring(0,str.length()-2);
+        str=str.substring(0,str.length()-2);
         if(!str.contains("\n"))
-            index=1;
+            index=0;
         else
        index=str.lastIndexOf("\n");
 
-        after.setText(after.getText().toString().substring(0,index-1));
+        after.setText(after.getText().toString().substring(0,index));
         DatabaseReference ref=FirebaseDatabase.getInstance().getReference();
         if(spinner.getSelectedItem().equals("Morning")) {
             ref.child("medicine").child(mAuth.getCurrentUser().getUid()).child("morning2").setValue(after.getText().toString());
