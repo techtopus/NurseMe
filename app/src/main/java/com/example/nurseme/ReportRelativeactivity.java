@@ -122,9 +122,12 @@ public void reportfn(View v){
                         try {
                             for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                 ContractClass r = dataSnapshot1.getValue(ContractClass.class);
+                                String namestr=mAuth.getCurrentUser().getEmail();
+                                int ind=namestr.indexOf('@');
+                                namestr=namestr.substring(0,ind);
                                 DatabaseReference ref=FirebaseDatabase.getInstance().getReference("report");
                                 String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-                                ref.child("Relative : "+mAuth.getCurrentUser().getDisplayName()).setValue(new
+                                ref.child("Relative : "+ namestr ).setValue(new
                                         reportclass(e.getText().toString(),severity,r.getNurseemail(),date,"nil",
                                         mAuth.getCurrentUser().getEmail()));
 

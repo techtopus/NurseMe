@@ -20,12 +20,17 @@ FirebaseAuth mAuth;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dashboard);
         mAuth=FirebaseAuth.getInstance();
-        OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
+            OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
     }
+
+    public void reports(View v){
+        startActivity(new Intent(this,GenerateReport.class));
+    }
+
     public void addnurse(View v)
     {
         Intent i =new Intent(this,SignupActivity.class);
