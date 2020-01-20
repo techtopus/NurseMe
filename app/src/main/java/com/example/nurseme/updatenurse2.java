@@ -122,8 +122,8 @@ RadioButton male,female;
 
         databasereference3.child(namevar).setValue(u);
 
-
-
+        Toast.makeText(this, "Updated successfully!!", Toast.LENGTH_SHORT).show();
+startActivity(new Intent(this,AdminDashboard.class));
 
     }
     public void initialise(String email)

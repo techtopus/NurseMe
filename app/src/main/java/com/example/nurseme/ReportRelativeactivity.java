@@ -110,7 +110,8 @@ public void reportfn(View v){
                 severity="high";
                 Toast.makeText(this, "high", Toast.LENGTH_SHORT).show();
             }
-        } DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        } if(!mAuth.getCurrentUser().getEmail().contains("nurse")) {
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
             //Toast.makeText(PendingRequestActivity.this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
 
             Query query = reference.child("contract").orderByChild("patientemail").equalTo(mAuth.getCurrentUser().getEmail());
@@ -118,17 +119,17 @@ public void reportfn(View v){
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
-                       // Toast.makeText(RelativeDashboard.this, "gone", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(RelativeDashboard.this, "gone", Toast.LENGTH_SHORT).show();
                         try {
                             for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                 ContractClass r = dataSnapshot1.getValue(ContractClass.class);
-                                String namestr=mAuth.getCurrentUser().getEmail();
-                                int ind=namestr.indexOf('@');
-                                namestr=namestr.substring(0,ind);
-                                DatabaseReference ref=FirebaseDatabase.getInstance().getReference("report");
+                                String namestr = mAuth.getCurrentUser().getEmail();
+                                int ind = namestr.indexOf('@');
+                                namestr = namestr.substring(0, ind);
+                                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("report");
                                 String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-                                ref.child("Relative : "+ namestr ).setValue(new
-                                        reportclass(e.getText().toString(),severity,r.getNurseemail(),date,"nil",
+                                ref.child("Relative : " + namestr).setValue(new
+                                        reportclass(e.getText().toString(), severity, r.getNurseemail(), date, "nil",
                                         mAuth.getCurrentUser().getEmail()));
 
                             }
@@ -146,7 +147,50 @@ public void reportfn(View v){
 
             Toast.makeText(this, "Report send successfully !", Toast.LENGTH_SHORT).show();
             sendNotifiction("bba@admin.com");
-        startActivity(new Intent(this,RelativeDashboard.class));
+            startActivity(new Intent(this, RelativeDashboard.class));
+        }
+            else{
+
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+            //Toast.makeText(PendingRequestActivity.this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+
+            Query query = reference.child("contract").orderByChild("nurseemail").equalTo(mAuth.getCurrentUser().getEmail());
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // Toast.makeText(RelativeDashboard.this, "gone", Toast.LENGTH_SHORT).show();
+                        try {
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                ContractClass r = dataSnapshot1.getValue(ContractClass.class);
+                                String namestr = mAuth.getCurrentUser().getEmail();
+                                int ind = namestr.indexOf('@');
+                                namestr = namestr.substring(0, ind);
+                                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("report");
+                                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+                                ref.child("Nurse : " + namestr).setValue(new
+                                        reportclass(e.getText().toString(), severity, mAuth.getCurrentUser().getEmail(), date, "nil",
+                                        r.getPatientemail()));
+
+                            }
+                        } catch (Exception e) {
+                            Toast.makeText(ReportRelativeactivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+            Toast.makeText(this, "Report send successfully !", Toast.LENGTH_SHORT).show();
+            sendNotifiction("bba@admin.com");
+            startActivity(new Intent(this, NurseDashboard.class));
+
+        }
+
         }
     else
         {

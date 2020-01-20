@@ -46,6 +46,7 @@ public class NurseDashboard extends AppCompatActivity {
 
     public void earnings(View v)
     {
+        startActivity(new Intent(this,PaymentActivity.class));
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         Query query = reference.child("contract").orderByChild("nurseemail").equalTo(mAuth.getCurrentUser().getEmail());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -80,7 +81,10 @@ public class NurseDashboard extends AppCompatActivity {
         });
     }
 
-
+public void report(View v)
+{
+    startActivity(new Intent(this,ReportRelativeactivity.class));
+}
 
 
     public void patientdetails(View v){

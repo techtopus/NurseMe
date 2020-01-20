@@ -145,7 +145,7 @@ RadioButton male,female;
                 }
             });
 
-            FirebaseAuth.getInstance().signOut();
+           // FirebaseAuth.getInstance().signOut();
             finish();
 
             mAuth.signInWithEmailAndPassword("bba@admin.com", "123456")

@@ -25,7 +25,7 @@ public class EmergencyContactNurse extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_emergeny_contact);
+        setContentView(R.layout.activity_emergency_contact_nurse);
         mAuth=FirebaseAuth.getInstance();
         hospno=findViewById(R.id.hospno_txtbox);
         btn=findViewById(R.id.ok_btn);

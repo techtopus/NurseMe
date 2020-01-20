@@ -2,6 +2,7 @@ package com.example.nurseme;
 
 import android.content.Intent;
 import android.os.VibrationEffect;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -9,7 +10,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.onesignal.OneSignal;
 
@@ -75,7 +80,22 @@ FirebaseAuth mAuth;
 
         if(mAuth.getCurrentUser()==null)
         { finish();
-            startActivity(new Intent(this, LoginActivity.class));
+            mAuth.signInWithEmailAndPassword("bba@admin.com", "123456")
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+
+                              //  startActivity(new Intent(a.this, AdminDashboard.class));
+                            } else {
+
+                              //  Toast.makeText(deletenurse.this, "Some Error occured! Please try again!!", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+
+                    });
+
         }
 
     }

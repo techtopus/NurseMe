@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,12 +25,13 @@ import com.google.firebase.database.ValueEventListener;
 
 public class deletenurse extends AppCompatActivity {
     EditText e;
-
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deletenurse);
         e=findViewById(R.id.editText3);
+        mAuth=FirebaseAuth.getInstance();
     }
     public void search(View v)
     {if(!e.getText().toString().contains("nurse"))
@@ -54,14 +56,29 @@ public class deletenurse extends AppCompatActivity {
 
                                                   }
                                               });
-    }  final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    }
 
         // Get auth credentials from the user for re-authentication. The example below shows
         // email and password credentials but there are multiple possible providers,
         // such as GoogleAuthProvider or FacebookAuthProvider.
         AuthCredential credential = EmailAuthProvider
                 .getCredential(e.getText().toString().trim(), "123456");
+        mAuth.signInWithEmailAndPassword(e.getText().toString().trim(), "123456")
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
 
+                           // startActivity(new Intent(deletenurse.this, AdminDashboard.class));
+                        } else {
+
+                            Toast.makeText(deletenurse.this, "Some Error occured! Please try again!!", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+
+                });
+final FirebaseUser user=mAuth.getCurrentUser();
         // Prompt the user to re-provide their sign-in credentials
         user.reauthenticate(credential)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -73,13 +90,31 @@ public class deletenurse extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
                                             //Log.d(TAG, "User account deleted.");
+                                            Toast.makeText(deletenurse.this, "Deleted successfull", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
 
                     }
                 });
-        Toast.makeText(this, "Nurse profile deleted successfully", Toast.LENGTH_SHORT).show();
+
+        mAuth.signInWithEmailAndPassword("bba@admin.com", "123456")
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+
+                            startActivity(new Intent(deletenurse.this, AdminDashboard.class));
+                        } else {
+
+                            Toast.makeText(deletenurse.this, "Some Error occured! Please try again!!", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+
+                });
+
+       Toast.makeText(this, "Nurse profile deleted successfully", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this,AdminDashboard.class));
     }
 }

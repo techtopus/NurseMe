@@ -469,6 +469,7 @@
         android:id="@+id/imageView38"
         android:layout_width="33dp"
         android:layout_height="41dp"
+        android:onClick="report"
         app:layout_constraintBottom_toTopOf="@+id/healthnurse"
         app:layout_constraintEnd_toStartOf="@+id/toolbar"
         app:layout_constraintHorizontal_bias="1.0"

@@ -60,10 +60,10 @@ CheckBox c1,c2,c3;
                         no.setText(n.getPhoneno());
                         gender =n.getGender().toString();
                         if(gender.equals("Female")){
-                            f.setEnabled(true);
+                            f.setChecked(true);
                         }
                         else
-                            m.setEnabled(true);
+                            m.setChecked(true);
                         if(n.getDaycare()==1){
                             c1.setChecked(true);
                         }
