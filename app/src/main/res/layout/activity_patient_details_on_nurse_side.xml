@@ -9,8 +9,8 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/pdetails_card_view"
-        android:layout_width="392dp"
-        android:layout_height="621dp"
+        android:layout_width="384dp"
+        android:layout_height="575dp"
         android:layout_gravity="center"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
@@ -19,10 +19,10 @@
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintHorizontal_bias="0.583"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.695">
+        app:layout_constraintVertical_bias="0.813" >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"

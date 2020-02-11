@@ -9,8 +9,8 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/chart_card_view"
-        android:layout_width="399dp"
-        android:layout_height="248dp"
+        android:layout_width="379dp"
+        android:layout_height="226dp"
         android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
@@ -22,7 +22,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.357" >
+        app:layout_constraintVertical_bias="0.366" >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -65,10 +65,10 @@
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.76" >
+        app:layout_constraintVertical_bias="0.813" >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -131,10 +131,10 @@
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.76" >
+        app:layout_constraintVertical_bias="0.813" >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"

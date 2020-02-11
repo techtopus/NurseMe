@@ -26,8 +26,8 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/search_card_view"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_gravity="center"
         android:layout_marginBottom="421dp"
         android:background="#DFBEBA"
@@ -104,8 +104,8 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/nursedetails_card_view"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_gravity="center"
         android:layout_marginBottom="421dp"
         android:background="#DFBEBA"
@@ -117,8 +117,7 @@
         app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8"
-        >
+        app:layout_constraintVertical_bias="0.8">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -151,8 +150,8 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/reminders_card_view"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_gravity="center"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
@@ -211,8 +210,8 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/contacts_card_view"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_gravity="center"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
@@ -271,7 +270,7 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/payment_card_view"
-        android:layout_width="150dp"
+        android:layout_width="140dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginStart="30dp"
@@ -347,8 +346,8 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/health_card_view"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_gravity="center"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
@@ -423,8 +422,8 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/callnurse_card"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_gravity="center"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
@@ -495,7 +494,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.57">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -549,7 +549,7 @@
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
 
@@ -573,7 +573,7 @@
         android:onClick="reportfn"
         app:layout_constraintBottom_toTopOf="@+id/reminders_card_view"
         app:layout_constraintEnd_toEndOf="@+id/toolbar"
-        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.135"

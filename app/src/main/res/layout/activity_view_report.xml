@@ -46,10 +46,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView123"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintVertical_bias="0.104" />
 
     <TextView
         android:id="@+id/textView125"
@@ -58,10 +58,10 @@
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView124"
-        app:layout_constraintVertical_bias="0.065" />
+        app:layout_constraintVertical_bias="0.055" />
 
     <TextView
         android:id="@+id/textView126"
@@ -72,10 +72,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/textView124"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.017"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView123"
-        app:layout_constraintVertical_bias="0.555" />
+        app:layout_constraintVertical_bias="0.55" />
 
     <TextView
         android:id="@+id/textView127"
@@ -101,21 +101,10 @@
 "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView125"
-        app:layout_constraintVertical_bias="0.836" />
-
-    <ImageView
-        android:id="@+id/imageView42"
-        android:layout_width="43dp"
-        android:layout_height="53dp"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toStartOf="@+id/textView129"
-        app:layout_constraintHorizontal_bias="0.727"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView125"
-        app:layout_constraintVertical_bias="0.388"
-        app:srcCompat="@drawable/ic_call" />
+        app:layout_constraintVertical_bias="0.75" />
 
     <ImageView
         android:id="@+id/imageView43"
@@ -123,25 +112,23 @@
         android:layout_height="53dp"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toEndOf="@+id/textView129"
         app:layout_constraintTop_toBottomOf="@+id/textView125"
-        app:layout_constraintVertical_bias="0.388"
+        app:layout_constraintVertical_bias="0.382"
         app:srcCompat="@drawable/ic_call" />
 
-    <TextView
-        android:id="@+id/textView128"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Call Relative"
-        android:textColor="#000"
-        android:textSize="18sp"
+    <ImageView
+        android:id="@+id/imageView42"
+        android:layout_width="43dp"
+        android:layout_height="53dp"
         app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toStartOf="@+id/imageView42"
-        app:layout_constraintHorizontal_bias="0.673"
+        app:layout_constraintEnd_toStartOf="@+id/textView129"
+        app:layout_constraintHorizontal_bias="0.729"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView125"
-        app:layout_constraintVertical_bias="0.412" />
+        app:layout_constraintVertical_bias="0.382"
+        app:srcCompat="@drawable/ic_call" />
 
     <TextView
         android:id="@+id/textView129"
@@ -154,8 +141,23 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView125"
+        app:layout_constraintVertical_bias="0.396" />
+
+    <TextView
+        android:id="@+id/textView128"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Call Relative"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toStartOf="@+id/imageView42"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView125"
         app:layout_constraintVertical_bias="0.412" />
+
 </android.support.constraint.ConstraintLayout>
