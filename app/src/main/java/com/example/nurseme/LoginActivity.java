@@ -73,60 +73,19 @@ public class LoginActivity extends AppCompatActivity {
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         passwordstr=password.getText().toString().trim();
         usernamestr= String.valueOf(username.getText()).trim();
-        if (usernamestr.matches(emailPattern) && usernamestr.length() > 0){
+        if(usernamestr.equals("admin"))
+        {
+
+        }
+        if (usernamestr.matches(emailPattern)||usernamestr.equals("admin") && usernamestr.length() > 0){
 
             if(passwordstr.length()>2)
             {
-                mAuth.signInWithEmailAndPassword(usernamestr, passwordstr)
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    pg.setVisibility(View.GONE);
-                                    // Sign in success, update UI with the signed-in user's information
-                                    //Log.d(TAG, "signInWithEmail:success");
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    Toast.makeText(LoginActivity.this, "Successfully Signed In", Toast.LENGTH_SHORT).show();
-                                    if(usernamestr.contains("nurse"))
-                                    {
-                                        startActivity(new Intent(LoginActivity.this,NurseDashboard.class));
-                                    }
-                                    if(usernamestr.contains("admin")){
-                                        startActivity(new Intent(LoginActivity.this,AdminDashboard.class));
-                                    }
-                                    else
-                                    startActivity(new Intent(LoginActivity.this,RelativeDashboard.class));
-                                } else {
-                                    if(task.getException() instanceof FirebaseAuthInvalidUserException)
-                                    {                    Toast.makeText(LoginActivity.this, "Oops! You are not a registered user...\n you will be redirected to sign up page in 5 seconds!!", Toast.LENGTH_SHORT).show();
-                                        new Timer().schedule(new TimerTask(){
-                                            public void run() {
+                if(usernamestr.equals("admin"))
 
-                                                Intent i=new Intent(LoginActivity.this,SignupActivity.class);
-                                                i.putExtra("email",usernamestr);
-                                                i.putExtra("type","relative");
-                                                startActivity(i);
-                                            }
-                                        }, 5000);
-                                    }
-                                    else if(task.getException() instanceof FirebaseAuthWeakPasswordException){
-                                        {loginbtn.setVisibility(View.VISIBLE);
-                                            Toast.makeText(LoginActivity.this, "Incorrect password!", Toast.LENGTH_SHORT).show();
-                                            password.setError("Incorrect Password!");
-                                            password.setText("");
-                                            password.requestFocus();
-                                        }}
-                                    else
-                                    {
-                                        loginbtn.setVisibility(View.VISIBLE);
-                                        Toast.makeText(LoginActivity.this, "Some Error occured! Please try again!!", Toast.LENGTH_SHORT).show();
-                                    }
-                                    invalidtxt.setVisibility(View.VISIBLE);
-                                }
-                            }
-                        });
-
-
+                login("bba@admin.com",passwordstr);
+                else
+                    login(usernamestr,passwordstr);
             }
             else
             {pg.setVisibility(View.GONE);
@@ -141,6 +100,59 @@ public class LoginActivity extends AppCompatActivity {
             username.setError("Invalid Email!");
             username.requestFocus();
         }
+    }
+    public void login(final String usernamestr, String passwordstr)
+    {
+
+        mAuth.signInWithEmailAndPassword(usernamestr, passwordstr)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            pg.setVisibility(View.GONE);
+                            // Sign in success, update UI with the signed-in user's information
+                            //Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(LoginActivity.this, "Successfully Signed In", Toast.LENGTH_SHORT).show();
+                            if(usernamestr.contains("nurse"))
+                            {
+                                startActivity(new Intent(LoginActivity.this,NurseDashboard.class));
+                            }
+                            if(usernamestr.contains("admin")){
+                                startActivity(new Intent(LoginActivity.this,AdminDashboard.class));
+                            }
+                            else
+                                startActivity(new Intent(LoginActivity.this,RelativeDashboard.class));
+                        } else {
+                            if(task.getException() instanceof FirebaseAuthInvalidUserException)
+                            {                    Toast.makeText(LoginActivity.this, "Oops! You are not a registered user...\n you will be redirected to sign up page in 5 seconds!!", Toast.LENGTH_SHORT).show();
+                                new Timer().schedule(new TimerTask(){
+                                    public void run() {
+
+                                        Intent i=new Intent(LoginActivity.this,SignupActivity.class);
+                                        i.putExtra("email",usernamestr);
+                                        i.putExtra("type","relative");
+                                        startActivity(i);
+                                    }
+                                }, 5000);
+                            }
+                            else if(task.getException() instanceof FirebaseAuthWeakPasswordException){
+                                {loginbtn.setVisibility(View.VISIBLE);
+                                    Toast.makeText(LoginActivity.this, "Incorrect password!", Toast.LENGTH_SHORT).show();
+                                    password.setError("Incorrect Password!");
+                                    password.setText("");
+                                    password.requestFocus();
+                                }}
+                            else
+                            {
+                                loginbtn.setVisibility(View.VISIBLE);
+                                Toast.makeText(LoginActivity.this, "Some Error occured! Please try again!!", Toast.LENGTH_SHORT).show();
+                            }
+                            invalidtxt.setVisibility(View.VISIBLE);
+                        }
+                    }
+                });
+
     }
     @Override
     protected void onStart() {
