@@ -9,13 +9,14 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/yesterday_card_view"
-        android:layout_width="182dp"
-        android:layout_height="229dp"
+        android:layout_width="160dp"
+        android:layout_height="189dp"
         android:layout_gravity="center"
+        android:layout_marginRight="100dp"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.398">
@@ -24,29 +25,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView78"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="11dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="11dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginBottom="184dp"
-                android:text="Yesturdays Recording "
-                android:textColor="#000"
-                android:textSize="18sp"
-                app:fontFamily="@font/overlock1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <ImageView
                 android:id="@+id/imageView32"
-                android:layout_width="160dp"
-                android:layout_height="146dp"
+                android:layout_width="129dp"
+                android:layout_height="120dp"
                 android:layout_marginStart="11dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginTop="14dp"
@@ -60,12 +42,32 @@
                 app:srcCompat="@drawable/ic_circled" />
 
             <TextView
+                android:id="@+id/textView78"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="11dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginBottom="184dp"
+                android:text="Yesterdays Recording "
+                android:textColor="#000"
+                android:textSize="14sp"
+                app:fontFamily="@font/overlock1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.114" />
+
+            <TextView
                 android:id="@+id/yesturday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="_ _ _"
                 android:textColor="#000"
-                android:textSize="20sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView32"
                 app:layout_constraintEnd_toEndOf="@+id/imageView32"
                 app:layout_constraintStart_toStartOf="@+id/imageView32"
@@ -78,29 +80,51 @@
                 android:layout_height="wrap_content"
                 android:text="mmHg"
                 android:textColor="#000"
+                android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView32"
                 app:layout_constraintEnd_toEndOf="@+id/imageView32"
+                app:layout_constraintHorizontal_bias="0.494"
                 app:layout_constraintStart_toStartOf="@+id/imageView32"
                 app:layout_constraintTop_toTopOf="@+id/imageView32"
-                app:layout_constraintVertical_bias="0.598" />
+                app:layout_constraintVertical_bias="0.632" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/Average_card_view"
-        android:layout_width="182dp"
-        android:layout_height="229dp"
+        android:layout_width="160dp"
+        android:layout_height="189dp"
         android:layout_gravity="center"
+        android:layout_marginLeft="100dp"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintHorizontal_bias="0.88"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.398">>
+        app:layout_constraintVertical_bias="0.398">
+
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView35"
+                android:layout_width="129dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="23dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.538"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView75"
+                app:layout_constraintVertical_bias="0.611"
+                app:srcCompat="@drawable/ic_circled" />
 
             <TextView
                 android:id="@+id/textView75"
@@ -114,30 +138,13 @@
                 android:layout_marginBottom="187dp"
                 android:text="Average Recording "
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 app:fontFamily="@font/overlock1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageView35"
-                android:layout_width="160dp"
-                android:layout_height="146dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="23dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView75"
-                app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/ic_circled" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.028" />
 
             <TextView
                 android:id="@+id/avg"
@@ -145,7 +152,7 @@
                 android:layout_height="wrap_content"
                 android:text="_ _ _"
                 android:textColor="#000"
-                android:textSize="20sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView35"
                 app:layout_constraintEnd_toEndOf="@+id/imageView35"
                 app:layout_constraintHorizontal_bias="0.491"
@@ -159,31 +166,73 @@
                 android:layout_height="wrap_content"
                 android:text="mmHg"
                 android:textColor="#000"
+                android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView35"
                 app:layout_constraintEnd_toEndOf="@+id/imageView35"
-                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintHorizontal_bias="0.484"
                 app:layout_constraintStart_toStartOf="@+id/imageView35"
                 app:layout_constraintTop_toTopOf="@+id/imageView35"
-                app:layout_constraintVertical_bias="0.606" />
+                app:layout_constraintVertical_bias="0.625" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/newrec_card_view"
-        android:layout_width="399dp"
+        android:layout_width="350dp"
         android:layout_height="167dp"
         android:layout_gravity="center"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.771" >
+        app:layout_constraintVertical_bias="0.762">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/bptoday2"
+                android:layout_width="126dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Diastolic"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.861"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.549" />
+
+            <EditText
+                android:id="@+id/bptoday"
+                android:layout_width="133dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Systolic"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.124"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.541" />
+
+            <TextView
+                android:id="@+id/asd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"
+                android:textColor="#000"
+                android:textSize="36sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.508" />
 
             <TextView
                 android:id="@+id/textView80"
@@ -194,50 +243,10 @@
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.536"
+                app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.114" />
-
-            <EditText
-                android:id="@+id/bptoday2"
-                android:layout_width="126dp"
-                android:layout_height="67dp"
-                android:ems="10"
-                android:hint="Diastolic Pressure"
-                android:inputType="number"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.842"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.55" />
-
-            <TextView
-                android:id="@+id/asd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="/"
-                android:textSize="36sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.512" />
-
-            <EditText
-                android:id="@+id/bptoday"
-                android:layout_width="142dp"
-                android:layout_height="61dp"
-                android:ems="10"
-                android:hint="Systolic Pressure "
-                android:inputType="number"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.097"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.575" />
+                app:layout_constraintVertical_bias="0.111" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
@@ -251,17 +260,17 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/button_shape"
         android:onClick="check"
+        android:padding="8dp"
         android:text="Check severity"
+        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.923"
-        android:textColor="#fff"
-        android:background="@drawable/button_shape"
-        android:padding="8dp"/>
+        app:layout_constraintVertical_bias="0.941" />
 
     <Button
         android:id="@+id/button14"
@@ -273,17 +282,17 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/button_shape"
         android:onClick="upload"
+        android:padding="8dp"
         android:text="Upload Data"
+        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintHorizontal_bias="0.922"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.923"
-        android:background="@drawable/button_shape"
-        android:textColor="#fff"
-        android:padding="8dp"/>
+        app:layout_constraintVertical_bias="0.941" />
 
     <TextView
         android:id="@+id/textView84"
@@ -311,8 +320,9 @@
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19" />
+        app:layout_constraintVertical_bias="0.195" />
 
 </android.support.constraint.ConstraintLayout>

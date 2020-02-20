@@ -25,19 +25,20 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/after_card_view"
-        android:layout_width="wrap_content"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.937"
+        app:layout_constraintHorizontal_bias="0.934"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView92"
-        app:layout_constraintVertical_bias="0.02">
+        app:layout_constraintVertical_bias="0.018">
 
         <TextView
             android:id="@+id/textView68"
-            android:layout_width="159dp"
+            android:layout_width="149dp"
             android:layout_height="251dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
@@ -55,7 +56,7 @@
         android:text="Before Food"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintHorizontal_bias="0.183"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.4" />
@@ -67,28 +68,28 @@
         android:text="After Food"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.813"
+        app:layout_constraintHorizontal_bias="0.822"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.4" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/before_card"
-        android:layout_width="wrap_content"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
+        android:layout_marginRight="100dp"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView91"
-        app:layout_constraintVertical_bias="0.02">
+        app:layout_constraintVertical_bias="0.018">
 
         <TextView
             android:id="@+id/textView66"
-            android:layout_width="159dp"
+            android:layout_width="149dp"
             android:layout_height="251dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
@@ -106,10 +107,10 @@
         android:onClick="remove"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintHorizontal_bias="0.252"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/before_card"
-        app:layout_constraintVertical_bias="0.045"
+        app:layout_constraintVertical_bias="0.101"
         app:srcCompat="@drawable/ic_remove" />
 
     <ImageView
@@ -119,16 +120,16 @@
         android:onClick="remove2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintHorizontal_bias="0.768"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/after_card_view"
-        app:layout_constraintVertical_bias="0.045"
+        app:layout_constraintVertical_bias="0.101"
         app:srcCompat="@drawable/ic_remove" />
 
     <Spinner
 
         android:id="@+id/spinner2"
-        android:layout_width="395dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -138,7 +139,6 @@
         android:entries="@array/timing"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.324" />
@@ -150,10 +150,10 @@
         android:text="Select time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintVertical_bias="0.279" />
 
     <ImageView
         android:id="@+id/imageView29"

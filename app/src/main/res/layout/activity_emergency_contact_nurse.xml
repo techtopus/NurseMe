@@ -102,7 +102,7 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/callhopital_card"
-        android:layout_width="386dp"
+        android:layout_width="340dp"
         android:layout_height="103dp"
         android:layout_gravity="center"
         android:layout_marginStart="16dp"
@@ -113,7 +113,6 @@
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.714">
@@ -149,7 +148,7 @@
                 app:fontFamily="@font/overlock1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.331"
+                app:layout_constraintHorizontal_bias="0.523"
                 app:layout_constraintStart_toEndOf="@+id/imageView7"
                 app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
@@ -158,7 +157,7 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/callnurse_card"
-        android:layout_width="386dp"
+        android:layout_width="340dp"
         android:layout_height="103dp"
         android:layout_gravity="center"
         android:layout_marginStart="16dp"
@@ -169,10 +168,9 @@
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.342" >
+        app:layout_constraintVertical_bias="0.342">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -206,7 +204,7 @@
                 app:fontFamily="@font/overlock1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.54"
+                app:layout_constraintHorizontal_bias="0.34"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.29" />
@@ -215,7 +213,7 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/callambulance_card"
-        android:layout_width="386dp"
+        android:layout_width="340dp"
         android:layout_height="103dp"
         android:layout_gravity="center"
         android:layout_marginStart="16dp"
@@ -226,7 +224,6 @@
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.53">
@@ -247,8 +244,10 @@
                 android:layout_marginBottom="14dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
                 app:srcCompat="@drawable/callambulance" />
 
             <TextView

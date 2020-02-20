@@ -26,8 +26,8 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/chart_card_view"
-        android:layout_width="360dp"
-        android:layout_height="475dp"
+        android:layout_width="320dp"
+        android:layout_height="435dp"
         android:layout_gravity="center"
         android:layout_marginStart="23dp"
         android:layout_marginLeft="23dp"
@@ -38,10 +38,9 @@
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.283" >
+        app:layout_constraintVertical_bias="0.25">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -51,12 +50,6 @@
                 android:id="@+id/register_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="139dp"
-                android:layout_marginLeft="139dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="133dp"
-                android:layout_marginRight="133dp"
-                android:layout_marginBottom="55dp"
                 android:background="@drawable/button_shape"
                 android:onClick="signup"
                 android:text="Register"
@@ -64,27 +57,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/password2_txtbox" />
-
-            <EditText
-                android:id="@+id/password_txtbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="47dp"
-                android:layout_marginLeft="47dp"
-                android:layout_marginTop="42dp"
-                android:layout_marginEnd="43dp"
-                android:layout_marginRight="43dp"
-                android:layout_marginBottom="231dp"
-                android:background="@drawable/textbox_shape"
-                android:ems="10"
-                android:hint="Enter Password"
-                android:inputType="textPassword"
-                android:typeface="sans"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/email_txtbox" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.958" />
 
             <EditText
                 android:id="@+id/password2_txtbox"
@@ -95,7 +69,6 @@
                 android:layout_marginTop="52dp"
                 android:layout_marginEnd="42dp"
                 android:layout_marginRight="42dp"
-                android:layout_marginBottom="139dp"
                 android:background="@drawable/textbox_shape"
                 android:ems="10"
                 android:hint="Re-Enter Password"
@@ -103,10 +76,29 @@
                 android:typeface="sans"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/password_txtbox"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.043" />
+
+            <EditText
+                android:id="@+id/password_txtbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="47dp"
+                android:layout_marginLeft="47dp"
+                android:layout_marginTop="42dp"
+                android:layout_marginEnd="43dp"
+                android:layout_marginRight="43dp"
+                android:background="@drawable/textbox_shape"
+                android:ems="10"
+                android:hint="Enter Password"
+                android:inputType="textPassword"
+                android:typeface="sans"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_txtbox"
+                app:layout_constraintVertical_bias="0.041" />
 
             <EditText
                 android:id="@+id/email_txtbox"
@@ -117,7 +109,6 @@
                 android:layout_marginTop="122dp"
                 android:layout_marginEnd="43dp"
                 android:layout_marginRight="43dp"
-                android:layout_marginBottom="313dp"
                 android:background="@drawable/textbox_shape"
                 android:ems="10"
                 android:hint="Email ID"
@@ -125,8 +116,10 @@
                 android:typeface="sans"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.475"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <ProgressBar
                 android:id="@+id/progressBar3"
@@ -148,22 +141,6 @@
                 app:layout_constraintVertical_bias="0.885" />
 
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginLeft="48dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginEnd="249dp"
-                android:layout_marginRight="249dp"
-                android:layout_marginBottom="9dp"
-                android:text="Password"
-                app:layout_constraintBottom_toTopOf="@+id/password_txtbox"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/email_txtbox" />
-
-            <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -177,28 +154,8 @@
                 app:layout_constraintBottom_toTopOf="@+id/password2_txtbox"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/password_txtbox" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="156dp"
-                android:layout_marginLeft="156dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="145dp"
-                android:layout_marginRight="145dp"
-                android:layout_marginBottom="62dp"
-                android:text="REGISTRATION"
-                android:textSize="30dp"
-                android:textStyle="bold"
-                app:fontFamily="@font/overlock1"
-                app:layout_constraintBottom_toTopOf="@+id/email_txtbox"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.537"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@+id/password_txtbox"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/textView"
@@ -213,9 +170,49 @@
                 android:text="Email Address"
                 app:layout_constraintBottom_toTopOf="@+id/email_txtbox"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.475"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="249dp"
+                android:layout_marginRight="249dp"
+                android:layout_marginBottom="9dp"
+                android:text="Password"
+                app:layout_constraintBottom_toTopOf="@+id/password_txtbox"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_txtbox"
+                app:layout_constraintVertical_bias="0.25" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="156dp"
+                android:layout_marginLeft="156dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="145dp"
+                android:layout_marginRight="145dp"
+                android:layout_marginBottom="62dp"
+                android:text="REGISTRATION"
+                android:textColor="#000"
+                android:textSize="30dp"
+                app:fontFamily="@font/overlock1"
+                app:layout_constraintBottom_toTopOf="@+id/email_txtbox"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.528"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.558" />
+
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 

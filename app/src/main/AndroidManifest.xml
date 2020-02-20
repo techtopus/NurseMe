@@ -3,58 +3,61 @@
     package="com.example.nurseme">
 
     <application
+
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ViewReport"></activity>
-        <activity android:name=".GenerateReport" />
-        <activity android:name=".ReportRelativeactivity" />
-        <activity android:name=".BpGraphActivity" />
-        <activity android:name=".SugarActivity" />
-        <activity android:name=".BPactivity" />
-        <activity android:name=".HealthNurse" />
-        <activity android:name=".EmergencyContactNurse" />
-        <activity android:name=".PatientDetailsOnNurseSide" />
-        <activity android:name=".NurseDetailsOnPatientSide" />
-        <activity android:name=".acceptviewemail" />
-        <activity android:name=".ViewNurse" />
-        <activity android:name=".MedicineReminderactivity" />
-        <activity android:name=".PatientConfirmActivity" />
-        <activity android:name=".PendingRequestActivity" />
-        <activity android:name=".NurseRequestActivity" />
-        <activity android:name=".DoctorAppoinment" />
-        <activity android:name=".deletenurse" />
-        <activity android:name=".updatenurse2" />
-        <activity android:name=".updatenurse" />
-        <activity android:name=".add_nurse" />
-        <activity android:name=".AdminDashboard" />
-        <activity android:name=".NurseDashboard" />
-        <activity android:name=".AccountActivity" />
-        <activity android:name=".HealthActivity" />
-        <activity android:name=".PaymentActivity" />
-        <activity android:name=".ReminderActivity" />
+        android:theme="@style/AppTheme"
+        >
+        <activity android:name=".ViewReport" android:screenOrientation="portrait"></activity>
+        <activity android:name=".GenerateReport" android:screenOrientation="portrait"/>
+        <activity android:name=".ReportRelativeactivity" android:screenOrientation="portrait"/>
+        <activity android:name=".BpGraphActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".SugarActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".BPactivity" android:screenOrientation="portrait"/>
+        <activity android:name=".HealthNurse" android:screenOrientation="portrait"/>
+        <activity android:name=".EmergencyContactNurse" android:screenOrientation="portrait"/>
+        <activity android:name=".PatientDetailsOnNurseSide" android:screenOrientation="portrait"/>
+        <activity android:name=".NurseDetailsOnPatientSide" android:screenOrientation="portrait"/>
+        <activity android:name=".acceptviewemail" android:screenOrientation="portrait"/>
+        <activity android:name=".ViewNurse" android:screenOrientation="portrait"/>
+        <activity android:name=".MedicineReminderactivity" android:screenOrientation="portrait"/>
+        <activity android:name=".PatientConfirmActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".PendingRequestActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".NurseRequestActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".DoctorAppoinment" android:screenOrientation="portrait"/>
+        <activity android:name=".deletenurse" android:screenOrientation="portrait"/>
+        <activity android:name=".updatenurse2" android:screenOrientation="portrait"/>
+        <activity android:name=".updatenurse" android:screenOrientation="portrait"/>
+        <activity android:name=".add_nurse" android:screenOrientation="portrait"/>
+        <activity android:name=".AdminDashboard" android:screenOrientation="portrait"/>
+        <activity android:name=".NurseDashboard" android:screenOrientation="portrait"/>
+        <activity android:name=".AccountActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".HealthActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".PaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ReminderActivity" android:screenOrientation="portrait"/>
         <activity
             android:name=".SearchActivity"
-            android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".EmergenyContact" />
-        <activity android:name=".AddPatient" />
-        <activity android:name=".RelativeDashboard" />
-        <activity android:name=".RelativeDetails" />
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".LoginActivity" />
+            android:windowSoftInputMode="adjustPan" android:screenOrientation="portrait"/>
+        <activity android:name=".EmergenyContact" android:screenOrientation="portrait"/>
+        <activity android:name=".AddPatient" android:screenOrientation="portrait"/>
+        <activity android:name=".RelativeDashboard" android:screenOrientation="portrait"/>
+        <activity android:name=".RelativeDetails" android:screenOrientation="portrait"/>
+        <activity android:name=".SignupActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".LoginActivity" android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity android:name=".MainActivity">
+            android:label="@string/title_activity_login" android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+    </application
+        >
 
 </manifest>

@@ -91,14 +91,14 @@
 
     <ImageView
         android:id="@+id/imageView28"
-        android:layout_width="139dp"
-        android:layout_height="116dp"
+        android:layout_width="109dp"
+        android:layout_height="104dp"
+        android:src="@drawable/viewnurse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.304"
-        android:src="@drawable/viewnurse"/>
+        app:layout_constraintVertical_bias="0.352" />
 
 </android.support.constraint.ConstraintLayout>

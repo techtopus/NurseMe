@@ -9,16 +9,16 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/newrec_card_view"
-        android:layout_width="399dp"
+        android:layout_width="350dp"
         android:layout_height="167dp"
         android:layout_gravity="center"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.771">
+        app:layout_constraintVertical_bias="0.792" >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -27,42 +27,44 @@
             <EditText
                 android:id="@+id/after"
                 android:layout_width="126dp"
-                android:layout_height="67dp"
+                android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="After food"
                 android:inputType="number"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.842"
+                app:layout_constraintHorizontal_bias="0.857"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.55" />
-
-            <EditText
-                android:id="@+id/before"
-                android:layout_width="142dp"
-                android:layout_height="61dp"
-                android:ems="10"
-                android:hint="Before food"
-                android:inputType="number"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.097"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.575" />
+                app:layout_constraintVertical_bias="0.549" />
 
             <TextView
                 android:id="@+id/asd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="/"
+                android:textColor="#000"
                 android:textSize="36sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.51"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.512" />
+                app:layout_constraintVertical_bias="0.508" />
+
+            <EditText
+                android:id="@+id/before"
+                android:layout_width="142dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Before food"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.139"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.549" />
 
             <TextView
                 android:id="@+id/textView80"
@@ -82,16 +84,17 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/Average_card_view"
-        android:layout_width="182dp"
-        android:layout_height="229dp"
+        android:layout_width="160dp"
+        android:layout_height="189dp"
         android:layout_gravity="center"
+        android:layout_marginLeft="100dp"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintHorizontal_bias="0.876"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.398">>
+        app:layout_constraintVertical_bias="0.398" >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -99,8 +102,8 @@
 
             <ImageView
                 android:id="@+id/imageView35"
-                android:layout_width="160dp"
-                android:layout_height="146dp"
+                android:layout_width="129dp"
+                android:layout_height="120dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="18dp"
@@ -109,7 +112,7 @@
                 android:layout_marginBottom="23dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.444"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView75"
                 app:layout_constraintVertical_bias="1.0"
@@ -127,12 +130,13 @@
                 android:layout_marginBottom="187dp"
                 android:text="Average Recording "
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 app:fontFamily="@font/overlock1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.028" />
 
             <TextView
                 android:id="@+id/avg2"
@@ -140,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:text="_ _ _"
                 android:textColor="#000"
-                android:textSize="20sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView35"
                 app:layout_constraintEnd_toEndOf="@+id/imageView35"
                 app:layout_constraintHorizontal_bias="0.491"
@@ -154,6 +158,7 @@
                 android:layout_height="wrap_content"
                 android:text="mmHg"
                 android:textColor="#000"
+                android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView35"
                 app:layout_constraintEnd_toEndOf="@+id/imageView35"
                 app:layout_constraintHorizontal_bias="0.491"
@@ -165,16 +170,17 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/yesterday_card_view"
-        android:layout_width="182dp"
-        android:layout_height="229dp"
+        android:layout_width="160dp"
+        android:layout_height="189dp"
         android:layout_gravity="center"
+        android:layout_marginRight="100dp"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintHorizontal_bias="0.119"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.398">
+        app:layout_constraintVertical_bias="0.398" >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -182,8 +188,8 @@
 
             <ImageView
                 android:id="@+id/imageView32"
-                android:layout_width="160dp"
-                android:layout_height="146dp"
+                android:layout_width="129dp"
+                android:layout_height="120dp"
                 android:layout_marginStart="11dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginTop="14dp"
@@ -208,12 +214,14 @@
                 android:layout_marginBottom="184dp"
                 android:text="Yesterdays Recording "
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 app:fontFamily="@font/overlock1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.538"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.114" />
 
             <TextView
                 android:id="@+id/yesturday2"
@@ -221,7 +229,7 @@
                 android:layout_height="wrap_content"
                 android:text="_ _ _"
                 android:textColor="#000"
-                android:textSize="20sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView32"
                 app:layout_constraintEnd_toEndOf="@+id/imageView32"
                 app:layout_constraintStart_toStartOf="@+id/imageView32"
@@ -234,6 +242,7 @@
                 android:layout_height="wrap_content"
                 android:text="mmHg"
                 android:textColor="#000"
+                android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView32"
                 app:layout_constraintEnd_toEndOf="@+id/imageView32"
                 app:layout_constraintStart_toStartOf="@+id/imageView32"
@@ -254,7 +263,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19" />
+        app:layout_constraintVertical_bias="0.205" />
 
     <TextView
         android:id="@+id/textView101"

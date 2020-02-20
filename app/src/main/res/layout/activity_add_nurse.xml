@@ -26,21 +26,16 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/chart_card_view"
-        android:layout_width="370dp"
+        android:layout_width="340dp"
         android:layout_height="522dp"
         android:layout_gravity="center"
-        android:layout_marginStart="23dp"
-        android:layout_marginLeft="23dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
-        android:layout_marginBottom="88dp"
         app:cardCornerRadius="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/updatedetails_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.882" >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -53,10 +48,10 @@
                 android:text="Night Care\n8Pm - 8 Am"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.484"
+                app:layout_constraintHorizontal_bias="0.444"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.946" />
+                app:layout_constraintVertical_bias="0.944" />
 
             <CheckBox
                 android:id="@+id/daycare_box"
@@ -65,10 +60,10 @@
                 android:text="Day Care\n8 Am - 8 Pm"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.057"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.946" />
+                app:layout_constraintVertical_bias="0.944" />
 
             <CheckBox
                 android:id="@+id/stayathome_box"
@@ -92,10 +87,10 @@
                 android:inputType="textPersonName"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.48"
+                app:layout_constraintHorizontal_bias="0.457"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.547" />
+                app:layout_constraintVertical_bias="0.549" />
 
             <EditText
                 android:id="@+id/name_txtbox"
@@ -126,7 +121,7 @@
                 android:inputType="number"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.625"
+                app:layout_constraintHorizontal_bias="0.551"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.29" />
@@ -141,10 +136,10 @@
                 android:inputType="number"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.48"
+                app:layout_constraintHorizontal_bias="0.457"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/locality_txtbox"
-                app:layout_constraintVertical_bias="0.201" />
+                app:layout_constraintVertical_bias="0.207" />
 
             <RadioGroup
                 android:id="@+id/sex_radiogrp"
@@ -202,14 +197,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nurse Details"
+                android:textColor="#000"
                 android:textSize="25dp"
-                android:textStyle="bold"
                 app:fontFamily="@font/overlock1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.008" />
+                app:layout_constraintVertical_bias="0.032" />
 
             <TextView
                 android:id="@+id/textView26"
@@ -219,10 +214,10 @@
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.141"
+                app:layout_constraintHorizontal_bias="0.105"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.099" />
+                app:layout_constraintVertical_bias="0.105" />
 
             <TextView
                 android:id="@+id/textView27"
@@ -231,10 +226,10 @@
                 android:text="Age"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.136"
+                app:layout_constraintHorizontal_bias="0.101"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.226" />
+                app:layout_constraintVertical_bias="0.238" />
 
             <TextView
                 android:id="@+id/textView28"
@@ -257,10 +252,10 @@
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.15"
+                app:layout_constraintHorizontal_bias="0.12"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.469" />
+                app:layout_constraintVertical_bias="0.467" />
 
             <TextView
                 android:id="@+id/textView30"
@@ -269,11 +264,11 @@
                 android:text="Contact No."
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.163"
+                app:layout_constraintHorizontal_bias="0.125"
 
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.622" />
+                app:layout_constraintVertical_bias="0.626" />
 
 
         </android.support.constraint.ConstraintLayout>
