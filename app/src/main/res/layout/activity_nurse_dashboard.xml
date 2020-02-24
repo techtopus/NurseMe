@@ -8,25 +8,25 @@
     tools:context=".NurseDashboard">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar4"
         android:layout_width="87dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
 
         android:background="#30d1a1"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.974"
+        app:layout_constraintHorizontal_bias="0.967"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView121"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -34,12 +34,12 @@
         android:textColor="#ffff"
         android:textSize="36dp"
         app:fontFamily="@font/overlock1"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.225" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/pdetailscard"
@@ -48,7 +48,6 @@
         android:layout_gravity="center"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="31dp"
         android:layout_marginRight="31dp"
         android:layout_marginBottom="250dp"
@@ -57,10 +56,10 @@
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.143"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.38">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.554">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -99,20 +98,17 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_gravity="center"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="31dp"
         android:layout_marginRight="31dp"
-        android:layout_marginBottom="408dp"
+        android:paddingRight="200dp"
         android:visibility="visible"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.242"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.38">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.327">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -137,7 +133,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Requests"
-                android:textSize="14dp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -154,16 +150,14 @@
         android:layout_gravity="center"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
         android:onClick="health"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.895"
+        app:layout_constraintHorizontal_bias="0.735"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.24">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.327" >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -183,10 +177,10 @@
                 android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.437"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/abledhealth" />
 
             <ImageView
@@ -201,8 +195,10 @@
                 android:layout_marginBottom="1dp"
                 app:layout_constraintBottom_toTopOf="@+id/textView44"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.375"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/disabledhealth" />
 
             <TextView
@@ -210,11 +206,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Health"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.877" />
+                app:layout_constraintVertical_bias="0.841" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
@@ -225,16 +222,14 @@
         android:layout_gravity="center"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
         android:onClick="emergency"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.895"
+        app:layout_constraintHorizontal_bias="0.735"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/healthnurse"
-        app:layout_constraintVertical_bias="0.154">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.589" >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -262,11 +257,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="11dp"
                 android:text="Emergency contacts"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.958" />
+                app:layout_constraintVertical_bias="0.978" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
@@ -280,13 +276,15 @@
         android:layout_marginEnd="31dp"
         android:layout_marginRight="31dp"
         android:onClick="earnings"
+        android:paddingRight="200dp"
+        android:paddingBottom="100dp"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.143"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prescard"
-        app:layout_constraintVertical_bias="0.145">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.587" >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -331,6 +329,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="23dp"
                 android:text="Earnings"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -344,18 +343,17 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_gravity="center"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
         android:layout_marginEnd="31dp"
         android:layout_marginRight="31dp"
         android:onClick="reminder"
+        android:paddingRight="200dp"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.242"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/earnings"
-        app:layout_constraintVertical_bias="0.517">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.847" >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -389,6 +387,7 @@
                 android:layout_marginRight="39dp"
                 android:layout_marginBottom="14dp"
                 android:text="Reminders"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -403,15 +402,13 @@
         android:layout_gravity="center"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.895"
+        app:layout_constraintHorizontal_bias="0.735"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emergency"
-        app:layout_constraintVertical_bias="0.517">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.847" >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -444,6 +441,7 @@
                 android:layout_marginRight="50dp"
                 android:layout_marginBottom="13dp"
                 android:text="Settings"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -453,15 +451,29 @@
 
     <ImageView
         android:id="@+id/imageView38"
-        android:layout_width="33dp"
+        android:layout_width="30dp"
         android:layout_height="41dp"
         android:onClick="report"
-        app:layout_constraintBottom_toTopOf="@+id/healthnurse"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintStart_toEndOf="@+id/textView121"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.108"
+        app:layout_constraintVertical_bias="0.888"
         app:srcCompat="@drawable/ic_report" />
+
+    <TextView
+        android:id="@+id/textView131"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DASHBOARD"
+        android:textColor="#000"
+        android:textSize="20sp"
+        app:fontFamily="@font/overlock1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.193" />
 
 </android.support.constraint.ConstraintLayout>

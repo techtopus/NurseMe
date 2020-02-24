@@ -140,14 +140,14 @@
         android:id="@+id/textView96"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autoLink="all"
+        android:clickable="true"
+        android:onClick="reminder"
         android:text="Click here to schedule medicine"
-        android:textColor="#0000EE"
+        android:textColor="#000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.984"
-        android:clickable="true"
-        android:autoLink="all"
-        android:onClick="reminder"/>
+        app:layout_constraintVertical_bias="0.984" />
 </android.support.constraint.ConstraintLayout>

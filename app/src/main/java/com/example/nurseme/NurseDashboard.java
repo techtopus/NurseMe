@@ -38,7 +38,7 @@ public class NurseDashboard extends AppCompatActivity {
         requests=findViewById(R.id.prescard);
         but=findViewById(R.id.pdetailscard);
        OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
-        Toolbar toolbar=findViewById(R.id.toolbar);
+        Toolbar toolbar=findViewById(R.id.toolbar4);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         checkstatus();
