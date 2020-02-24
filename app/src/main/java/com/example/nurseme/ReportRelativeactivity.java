@@ -53,7 +53,7 @@ RadioGroup rg;
             if(checkedId==R.id.radioButton)
             {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    e.setBackgroundColor(R.color.palegreen);
+                   // e.setBackgroundColor(R.color.palegreen);
                     severity="low";
                     Toast.makeText(ReportRelativeactivity.this, "low", Toast.LENGTH_SHORT).show();
                 }
@@ -61,17 +61,17 @@ RadioGroup rg;
             if(checkedId==R.id.radioButton2)
             {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    e.setBackgroundColor(R.color.paleblue);
-                    severity="low";
-                    Toast.makeText(ReportRelativeactivity.this, "low", Toast.LENGTH_SHORT).show();
+                   // e.setBackgroundColor(R.color.paleblue);
+                    severity="medium";
+                    Toast.makeText(ReportRelativeactivity.this, "medium", Toast.LENGTH_SHORT).show();
                 }
             }
             if(checkedId==R.id.radioButton3)
             {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    e.setBackgroundColor(R.color.palered);
-                    severity="low";
-                    Toast.makeText(ReportRelativeactivity.this, "low", Toast.LENGTH_SHORT).show();
+                   // e.setBackgroundColor(R.color.palered);
+                    severity="high";
+                    Toast.makeText(ReportRelativeactivity.this, "high", Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -90,7 +90,7 @@ public void reportfn(View v){
             if(low.isChecked())
             {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    e.setBackgroundColor(R.color.palegreen);
+                   // e.setBackgroundColor(R.color.palegreen);
                     severity="low";
                     Toast.makeText(this, "low", Toast.LENGTH_SHORT).show();
                 }
@@ -98,15 +98,15 @@ public void reportfn(View v){
             if(med.isChecked())
             {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    e.setBackgroundColor(R.color.paleblue);
-                    severity="med";
+                  //  e.setBackgroundColor(R.color.paleblue);
+                    severity="medium";
                     Toast.makeText(this, "med", Toast.LENGTH_SHORT).show();
                 }
             }
             if(high.isChecked())
         {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                e.setBackgroundColor(R.color.palered);
+               // e.setBackgroundColor(R.color.palered);
                 severity="high";
                 Toast.makeText(this, "high", Toast.LENGTH_SHORT).show();
             }
@@ -119,7 +119,7 @@ public void reportfn(View v){
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
-                        // Toast.makeText(RelativeDashboard.this, "gone", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ReportRelativeactivity.this, "gone", Toast.LENGTH_SHORT).show();
                         try {
                             for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                 ContractClass r = dataSnapshot1.getValue(ContractClass.class);
@@ -169,8 +169,8 @@ public void reportfn(View v){
                                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("report");
                                 String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
                                 ref.child("Nurse : " + namestr).setValue(new
-                                        reportclass(e.getText().toString(), severity, mAuth.getCurrentUser().getEmail(), date, "nil",
-                                        r.getPatientemail()));
+                                        reportclass(e.getText().toString(), severity,r.getPatientemail(), date, "nil",
+                                        mAuth.getCurrentUser().getEmail()));
 
                             }
                         } catch (Exception e) {

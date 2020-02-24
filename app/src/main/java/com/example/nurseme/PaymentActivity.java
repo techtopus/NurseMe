@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,15 +23,17 @@ import java.util.Locale;
 
 public class PaymentActivity extends AppCompatActivity {
 EditText e;
+TextView e2;
 FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
         e=findViewById(R.id.editText8);
+        e2=findViewById(R.id.textView107);
         mAuth=FirebaseAuth.getInstance();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        Query query = reference.child("contract").orderByChild("patientemail").equalTo(mAuth.getCurrentUser().getEmail());
+        Query query = reference.child("contract").orderByChild("nurseemail").equalTo(mAuth.getCurrentUser().getEmail());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -47,6 +50,7 @@ FirebaseAuth mAuth;
                                 Date d2= s.parse(date2);
                                 e.setText(" ₹ . ");
                                 e.append(String.valueOf( (d1.getTime() - d2.getTime())/(24*60*60*1000)*500));
+                                e2.setText(String.valueOf( (d1.getTime() - d2.getTime())/(24*60*60*1000)*500));
                             }
                         }
                     }catch(Exception e){

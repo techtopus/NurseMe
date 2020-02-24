@@ -14,6 +14,9 @@ public class reportclass {
         this.complaintsender = complaintsender;
     }
 
+    public reportclass() {
+    }
+
     public String getComplaint() {
         return complaint;
     }
