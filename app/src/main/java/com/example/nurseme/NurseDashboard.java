@@ -43,6 +43,10 @@ public class NurseDashboard extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         checkstatus();
     }
+    public void settingsnurse(View v)
+    {
+        startActivity(new Intent(this,SettingsNurseActivity.class));
+    }
 
     public void earnings(View v)
     {

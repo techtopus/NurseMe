@@ -109,9 +109,9 @@ public void searchactivity(View v)
     {
         startActivity(new Intent(this,HealthActivity.class));
     }
-    public void accountactivity(View v)
+    public void accountActivity(View v)
     {
-        startActivity(new Intent(this,AccountActivity.class));
+        startActivity(new Intent(this,SettingsNurseActivity.class));
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
