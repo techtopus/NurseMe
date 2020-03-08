@@ -24,6 +24,8 @@ import org.w3c.dom.Text;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -302,6 +304,150 @@ if (email.contains("nurse")) {
 
                                 + "\"data\": {\"foo\": \"bar\"},"
                                 + "\"contents\": {\"en\": \"YOUR ISSUES HAS BEEN CLEARED! \"}"
+                                + "}";
+
+
+                        System.out.println("strJsonBody:\n" + strJsonBody);
+
+                        byte[] sendBytes = strJsonBody.getBytes("UTF-8");
+                        con.setFixedLengthStreamingMode(sendBytes.length);
+
+                        OutputStream outputStream = con.getOutputStream();
+                        outputStream.write(sendBytes);
+
+                        int httpResponse = con.getResponseCode();
+                        System.out.println("httpResponse: " + httpResponse);
+
+                        if (httpResponse >= HttpURLConnection.HTTP_OK
+                                && httpResponse < HttpURLConnection.HTTP_BAD_REQUEST) {
+                            Scanner scanner = new Scanner(con.getInputStream(), "UTF-8");
+                            jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
+                            scanner.close();
+                        } else {
+                            Scanner scanner = new Scanner(con.getErrorStream(), "UTF-8");
+                            jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
+                            scanner.close();
+                        }
+                        System.out.println("jsonResponse:\n" + jsonResponse);
+
+                    } catch (Exception e) {
+
+                        //  Toast.makeText(NurseRequestActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                        // name.setText(e.getMessage().toString());
+                    }
+
+
+                }
+            }
+        });
+
+    }
+    public void cancel(View v)
+    {        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        Query query = null;
+        if(email.contains("nurse")) {
+            query = reference.child("contract").orderByChild("nurseemail").equalTo(email);
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        try {
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                ContractClass c = dataSnapshot1.getValue(ContractClass.class);
+                                String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+                                int index = c.getPatientemail().indexOf('@');
+                                String name = c.getPatientemail().substring(0, index);
+                                int index2 = c.getNurseemail().indexOf('@');
+                                String name2 = c.getNurseemail().substring(0, index2);
+                                ContractClass cnew = new ContractClass(c.getNurseemail(), c.getPatientemail(),
+                                        c.getStartdate(), date, "Cancelled By Admin", "", "", "", "");
+                                DatabaseReference databasereference3;
+                                databasereference3 = FirebaseDatabase.getInstance().getReference("contract");
+                                databasereference3.child(name + " TO " + name2).setValue(cnew);
+                                sendNotification(c.getPatientemail());
+                                sendNotification(c.getNurseemail());
+                                Toast.makeText(ViewReport.this, "The contract has been cleared!\n PRESS CLEARED BUTTON!!", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+        else
+        {query = reference.child("contract").orderByChild("patientemail").equalTo(email);
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        try {
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                ContractClass c = dataSnapshot1.getValue(ContractClass.class);
+                                String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+                                int index = c.getPatientemail().indexOf('@');
+                                String name = c.getPatientemail().substring(0, index);
+                                int index2 = c.getNurseemail().indexOf('@');
+                                String name2 = c.getNurseemail().substring(0, index2);
+                                ContractClass cnew = new ContractClass(c.getNurseemail(), c.getPatientemail(),
+                                        c.getStartdate(), date, "Cancelled By Admin", "", "", "", "");
+                                DatabaseReference databasereference3;
+                                databasereference3 = FirebaseDatabase.getInstance().getReference("contract");
+                                databasereference3.child(name + " TO " + name2).setValue(cnew);
+                                sendNotification(c.getPatientemail());
+                                sendNotification(c.getNurseemail());
+                                Toast.makeText(ViewReport.this, "The contract has been cleared!\n PRESS CLEARED BUTTON!!", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+        }
+    }
+    public void sendNotification(final String email){
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                int SDK_INT= Build.VERSION.SDK_INT;
+                if(SDK_INT>8)
+                {
+                    StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                    StrictMode.setThreadPolicy(policy);
+
+
+
+                    try {
+                        String jsonResponse;
+
+
+                        URL url = new URL("https://onesignal.com/api/v1/notifications");
+                        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                        con.setUseCaches(false);
+                        con.setDoOutput(true);
+                        con.setDoInput(true);
+
+                        con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+                        con.setRequestProperty("Authorization", "Basic M2QzOGY5MmMtOTMyZi00ODU0LWFmNjItYmI5YjFjZTEwYzAz");
+                        con.setRequestMethod("POST");
+                        //  Toast.makeText(NurseRequestActivity.this, email, Toast.LENGTH_SHORT).show();
+                        String strJsonBody = "{"
+                                + "\"app_id\": \"2e20bdb3-de39-46ae-a545-bcf4d9ce9542\","
+
+                                + "\"filters\": [{\"field\": \"tag\", \"key\": \"User_ID\", \"relation\": \"=\", \"value\": \"" +email  + "\"}],"
+
+                                + "\"data\": {\"foo\": \"bar\"},"
+                                + "\"contents\": {\"en\": \"YOUR Contract has been TERMINATED!! \"}"
                                 + "}";
 
 

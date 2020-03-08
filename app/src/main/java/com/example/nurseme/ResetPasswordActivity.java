@@ -31,17 +31,23 @@ EditText e;
     public void reset(View v){
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         if (e.getText().toString().matches(emailPattern) && e.getText().toString().length() > 0){
+
             FirebaseAuth.getInstance().sendPasswordResetEmail(e.getText().toString())
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(ResetPasswordActivity.this, "Reset link sent sucessfull to our email id!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ResetPasswordActivity.this, "Reset link sent sucessfull to our Email-ID!", Toast.LENGTH_SHORT).show();
                                 // Log.d(TAG, "Email sent.");
 
+                            }
+                            else{
+                                Toast.makeText(ResetPasswordActivity.this, "Enter Email-ID registered with your Account", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
     }
+        else
+            e.setError("Enter a valid Email-ID");
     }
 }

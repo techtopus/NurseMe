@@ -1,6 +1,7 @@
 package com.example.nurseme;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -154,6 +155,15 @@ public class LoginActivity extends AppCompatActivity {
                 });
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+
+        System.exit(0);
+    }
+
     @Override
     protected void onStart() {
         super.onStart();

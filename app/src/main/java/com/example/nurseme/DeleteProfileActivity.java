@@ -43,48 +43,56 @@ public class DeleteProfileActivity extends AppCompatActivity {
 
 
     public void nursedelete(String email){
-        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
-        Query query2 = reference2.child("NursePersonalInfo").orderByChild("email").equalTo(email);
-        query2.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if ( dataSnapshot.exists()) {
-                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                        dataSnapshot1.getRef().removeValue();
+        int t= accountdeletion(email);
+        if(t==0) {
+            DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
+            Query query2 = reference2.child("NursePersonalInfo").orderByChild("email").equalTo(email);
+            query2.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                            dataSnapshot1.getRef().removeValue();
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
-accountdeletion(email);
+                }
+            });
+            startActivity(new Intent(DeleteProfileActivity.this, LoginActivity.class));
+        }
+
     }
     public void userdelete(String email){
-        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
-        Query query2 = reference2.child("Relatives").orderByChild("emailid").equalTo(email);
-        query2.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if ( dataSnapshot.exists()) {
-                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                        dataSnapshot1.getRef().removeValue();
+        int t= accountdeletion(email);
+        if(t==0) {
+            DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
+            Query query2 = reference2.child("Relatives").orderByChild("emailid").equalTo(email);
+            query2.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                            dataSnapshot1.getRef().removeValue();
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });accountdeletion(email);
+                }
+            });
 
-
+            startActivity(new Intent(DeleteProfileActivity.this, LoginActivity.class));
+        }
     }
-    public void accountdeletion(String email)
+    public int accountdeletion(String email)
     {
+        final int[] temp = new int[1];
         //account deletion
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -105,13 +113,20 @@ accountdeletion(email);
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
 //                                            Log.d(TAG, "User account deleted.");
+
                                             Toast.makeText(DeleteProfileActivity.this, "Account successfullyy deleted!!", Toast.LENGTH_SHORT).show();
-                                            startActivity(new Intent(DeleteProfileActivity.this,LoginActivity.class));
+                                            temp[0] = 0;
+                                             }
+                                        else
+                                        {
+                                            e.setError("Enter our correct password");
+                                            temp[0] = 1;
                                         }
                                     }
                                 });
 
                     }
                 });
+        return temp[0];
     }
 }

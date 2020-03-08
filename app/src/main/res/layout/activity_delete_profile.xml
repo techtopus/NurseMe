@@ -17,6 +17,7 @@
         android:layout_marginRight="100dp"
         android:layout_marginBottom="482dp"
         android:ems="10"
+        android:hint="ReEnter your password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
