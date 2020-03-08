@@ -54,7 +54,7 @@ Dialog mydialogue;
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                Toast.makeText(MedicineReminderactivity.this, "entered", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MedicineReminderactivity.this, "entered", Toast.LENGTH_SHORT).show();
                 if(spinner.getSelectedItem().equals("Morning")) {
                     DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
                     Query query2 = reference2.child("medicine").orderByChild("uid").equalTo(mAuth.getCurrentUser().getUid());
@@ -165,7 +165,7 @@ Dialog mydialogue;
 
            // Toast.makeText(this, "mrng", Toast.LENGTH_SHORT).show();
         if(gender.equals("Before Food"))
-        { Toast.makeText(this, "before", Toast.LENGTH_SHORT).show();
+        {// Toast.makeText(this, "before", Toast.LENGTH_SHORT).show();
             String str=before.getText().toString();
         count=0;
         for(int i=0;i<str.length();++i)
@@ -214,7 +214,7 @@ Dialog mydialogue;
                     }
 
                 }
-                Toast.makeText(this, "after", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(this, "after", Toast.LENGTH_SHORT).show();
                 after.append(String.valueOf(count+1));
                 after.append(". ");
                 after.append(name.getText());
@@ -290,7 +290,7 @@ public void remove(View v){
 
     }
 public void reminder(View v)
-{   Toast.makeText(this, "working", Toast.LENGTH_SHORT).show();
+{  // Toast.makeText(this, "working", Toast.LENGTH_SHORT).show();
     /*Intent intent = new Intent(Intent.ACTION_INSERT)
         .setData(CalendarContract.Events.CONTENT_URI)
         .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,

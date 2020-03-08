@@ -82,7 +82,7 @@ FirebaseAuth mAuth;
             PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
             // cal.add(Calendar.SECOND, 5);
             alarmMgr.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);*/
-            Toast.makeText(this, hr+"-"+min, Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(this, hr+"-"+min, Toast.LENGTH_SHORT).show();
            addevent( year, month, day, hr, min,nametxt,hosptxt,causetxt);
            // Toast.makeText(this, "Alarm set successfully", Toast.LENGTH_SHORT).show();
 

@@ -78,7 +78,7 @@ public class SearchActivity extends AppCompatActivity {
                                 recyclerView.setVisibility(View.VISIBLE);
                                 NurseRecyclerClass nrc = new NurseRecyclerClass(n.getName(), n.getLocality(), n.getEmail());
                                 listItems.add(nrc);
-                                Toast.makeText(SearchActivity.this, "1." + n.getName(), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(SearchActivity.this, "1." + n.getName(), Toast.LENGTH_SHORT).show();
                             } }
                     } catch (Exception e) {
                         Toast.makeText(SearchActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();

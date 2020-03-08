@@ -45,7 +45,7 @@ FirebaseAuth mAuth;
                             {
                                 String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                                 SimpleDateFormat s=new SimpleDateFormat("dd-MM-yyyy");
-                              Date d1=s.parse(date);
+                                Date d1=s.parse(date);
                                 String date2=c.getStartdate();
                                 Date d2= s.parse(date2);
                                 e.setText(" ₹ . ");

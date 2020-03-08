@@ -9,7 +9,10 @@
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DeleteProfileActivity"></activity>
+        <activity android:name=".FinalTerminationActiviy"></activity>
+        <activity android:name=".RatingActivity" />
+        <activity android:name=".ReasonActivity" />
+        <activity android:name=".DeleteProfileActivity" />
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".SettingsNurseActivity" />
         <activity

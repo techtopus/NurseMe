@@ -24,6 +24,7 @@ import org.w3c.dom.Text;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -343,7 +344,7 @@ if (email.contains("nurse")) {
 
     }
     public void cancel(View v)
-    {        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+    {        final DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         Query query = null;
         if(email.contains("nurse")) {
             query = reference.child("contract").orderByChild("nurseemail").equalTo(email);
@@ -364,9 +365,12 @@ if (email.contains("nurse")) {
                                 DatabaseReference databasereference3;
                                 databasereference3 = FirebaseDatabase.getInstance().getReference("contract");
                                 databasereference3.child(name + " TO " + name2).setValue(cnew);
-                                sendNotification(c.getPatientemail());
-                                sendNotification(c.getNurseemail());
-                                Toast.makeText(ViewReport.this, "The contract has been cleared!\n PRESS CLEARED BUTTON!!", Toast.LENGTH_SHORT).show();
+                                int amt=calculateamount(cnew.startdate,cnew.enddate);
+                                sendNotification(c.getPatientemail(),amt);
+                                sendNotification(c.getNurseemail(),amt);
+                                sendemail(cnew.getPatientemail(),amt);
+                                changestatus(c.getNurseemail());
+                                Toast.makeText(ViewReport.this, "The contract has been cleared!\n "+amt+"\n PRESS CLEARED BUTTON!!", Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
                         }
@@ -398,8 +402,11 @@ if (email.contains("nurse")) {
                                 DatabaseReference databasereference3;
                                 databasereference3 = FirebaseDatabase.getInstance().getReference("contract");
                                 databasereference3.child(name + " TO " + name2).setValue(cnew);
-                                sendNotification(c.getPatientemail());
-                                sendNotification(c.getNurseemail());
+                                int amt=calculateamount(cnew.startdate,cnew.enddate);
+                                sendNotification(c.getPatientemail(),amt);
+                                sendNotification(c.getNurseemail(),amt);
+                                sendemail(cnew.getPatientemail(),amt);
+                                changestatus(c.getNurseemail());
                                 Toast.makeText(ViewReport.this, "The contract has been cleared!\n PRESS CLEARED BUTTON!!", Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
@@ -415,7 +422,35 @@ if (email.contains("nurse")) {
 
         }
     }
-    public void sendNotification(final String email){
+    public void sendemail(String email,int amt){
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.setType("message/rfc822");
+        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{email});
+        i.putExtra(Intent.EXTRA_SUBJECT, "Termination of contract!!!! Pay the pending Amount Immediately");
+        i.putExtra(Intent.EXTRA_TEXT   , "Respected sir, \n\n You are subjected to pay the home nurse the amouunt of $"+amt+
+                " . By today evening or else you will e sujected to further actions as per Nurse Me polic \n\n Thank You! ");
+        try {
+            startActivity(Intent.createChooser(i, "Send mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+           // Toast.makeText(MyActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public int calculateamount(String p,String q) throws ParseException {
+
+        SimpleDateFormat s=new SimpleDateFormat("dd-MM-yyyy");
+        Date d1= null;
+        try {
+            d1 = s.parse(q);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        String date2=p;
+        Date d2= s.parse(date2);
+
+        return (int) ((d1.getTime() - d2.getTime())/(24*60*60*1000)*500);
+
+    }
+    public void sendNotification(final String email, final int amt){
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
@@ -447,7 +482,7 @@ if (email.contains("nurse")) {
                                 + "\"filters\": [{\"field\": \"tag\", \"key\": \"User_ID\", \"relation\": \"=\", \"value\": \"" +email  + "\"}],"
 
                                 + "\"data\": {\"foo\": \"bar\"},"
-                                + "\"contents\": {\"en\": \"YOUR Contract has been TERMINATED!! \"}"
+                                + "\"contents\": {\"en\": \"YOUR Contract has been TERMINATED!! Amount is "+amt+" \"}"
                                 + "}";
 
 
@@ -485,5 +520,33 @@ if (email.contains("nurse")) {
             }
         });
 
+    }
+    public void changestatus(String email){
+       // Toast.makeText(this, "entered", Toast.LENGTH_SHORT).show();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        Query query = reference.child("NursePersonalInfo").orderByChild("email").equalTo(email);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    try {
+                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                            NursePersonalInfo c = dataSnapshot1.getValue(NursePersonalInfo.class);
+                            DatabaseReference reff;
+                            reff= FirebaseDatabase.getInstance().getReference();
+                            reff.child("NursePersonalInfo").child(c.getName()).child("status").setValue("nil");
+                           // Toast.makeText(ViewReport.this, c.getName(), Toast.LENGTH_SHORT).show();
+                        }
+                    }catch(Exception e){
+
+                    }
+            }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }

@@ -156,7 +156,7 @@ public void searchactivity(View v)
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    Toast.makeText(RelativeDashboard.this, "gone", Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(RelativeDashboard.this, "gone", Toast.LENGTH_SHORT).show();
                     try {
                         for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                             ContractClass r = dataSnapshot1.getValue(ContractClass.class);

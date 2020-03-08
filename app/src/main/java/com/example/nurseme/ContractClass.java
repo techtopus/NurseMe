@@ -1,7 +1,11 @@
 package com.example.nurseme;
 
 public class ContractClass {
-    String nurseemail,patientemail,startdate,enddate,status,remarks,nurseremarks,relativemessages,nursemessages;
+    String nurseemail, patientemail, startdate, enddate, status, reason, rating, review, Salary;
+
+
+    public ContractClass() {
+    }
 
     public String getNurseemail() {
         return nurseemail;
@@ -43,51 +47,47 @@ public class ContractClass {
         this.status = status;
     }
 
-    public String getRemarks() {
-        return remarks;
+    public String getReason() {
+        return reason;
     }
 
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 
-
-    public ContractClass() {
+    public String getRating() {
+        return rating;
     }
 
-    public String getRelativemessages() {
-        return relativemessages;
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 
-    public void setRelativemessages(String relativemessages) {
-        this.relativemessages = relativemessages;
+    public String getReview() {
+        return review;
     }
 
-    public String getNursemessages() {
-        return nursemessages;
+    public void setReview(String review) {
+        this.review = review;
     }
 
-    public void setNursemessages(String nursemessages) {
-        this.nursemessages = nursemessages;
+    public String getSalary() {
+        return Salary;
     }
 
-    public String getNurseremarks() {
-        return nurseremarks;
+    public void setSalary(String salary) {
+        Salary = salary;
     }
 
-    public void setNurseremarks(String nurseremarks) {
-        this.nurseremarks = nurseremarks;
-    }
-
-    public ContractClass(String nurseemail, String patientemail, String startdate, String enddate, String status, String remarks, String nurseremarks, String relativemessages, String nursemessages) {
+    public ContractClass(String nurseemail, String patientemail, String startdate, String enddate, String status, String reason, String rating, String review, String salary) {
         this.nurseemail = nurseemail;
         this.patientemail = patientemail;
         this.startdate = startdate;
         this.enddate = enddate;
         this.status = status;
-        this.remarks = remarks;
-        this.nurseremarks = nurseremarks;
-        this.relativemessages = relativemessages;
-        this.nursemessages = nursemessages;
+        this.reason = reason;
+        this.rating = rating;
+        this.review = review;
+        Salary = salary;
     }
 }
