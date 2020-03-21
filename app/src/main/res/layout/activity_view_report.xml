@@ -38,22 +38,8 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView124"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Issue:"
-        android:textColor="#000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView123"
-        app:layout_constraintVertical_bias="0.104" />
-
-    <TextView
         android:id="@+id/textView125"
-        android:layout_width="395dp"
+        android:layout_width="340dp"
         android:layout_height="330dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,20 +50,6 @@
         app:layout_constraintVertical_bias="0.055" />
 
     <TextView
-        android:id="@+id/textView126"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Priority:"
-        android:textColor="#000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView124"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.017"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView123"
-        app:layout_constraintVertical_bias="0.55" />
-
-    <TextView
         android:id="@+id/textView127"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,26 +58,54 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/textView124"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toEndOf="@+id/textView126"
         app:layout_constraintTop_toBottomOf="@+id/textView123"
-        app:layout_constraintVertical_bias="0.552" />
+        app:layout_constraintVertical_bias="0.545" />
+
+    <TextView
+        android:id="@+id/textView124"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Issue:"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView123"
+        app:layout_constraintVertical_bias="0.104" />
+
+    <TextView
+        android:id="@+id/textView126"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Priority:"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView124"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView123"
+        app:layout_constraintVertical_bias="0.545" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
+        android:layout_width="155dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_red"
+        android:background="@drawable/button_shape"
         android:onClick="cleared"
         android:text="Cleared"
         android:textColor="#fff
 "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView125"
-        app:layout_constraintVertical_bias="0.759" />
+        app:layout_constraintVertical_bias="0.784" />
 
     <ImageView
         android:id="@+id/imageView43"
@@ -207,13 +207,16 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/button_red"
         android:onClick="cancel"
+        android:padding="10"
         android:text="Cancel contract"
+        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.876"
+        app:layout_constraintHorizontal_bias="0.852"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.973" />
+        app:layout_constraintVertical_bias="0.976" />
 
 </android.support.constraint.ConstraintLayout>
