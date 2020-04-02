@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_shape"
                 android:onClick="confirm"
-                android:padding="10"
+                android:padding="10dp"
                 android:text="COnfirm terminaton"
                 android:textColor="#fff"
                 app:layout_constraintBottom_toBottomOf="parent"
