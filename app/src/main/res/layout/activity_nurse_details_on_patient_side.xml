@@ -238,7 +238,7 @@
                 android:layout_marginRight="8dp"
                 android:background="@drawable/button_red"
                 android:onClick="terminate"
-                android:padding="10"
+                android:padding="10dp"
                 android:text="terminate contract "
                 android:textColor="#fff"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button_red"
         android:onClick="delete"
-        android:padding="8"
+        android:padding="8dp"
         android:text="Delete Permenently"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
