@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class RelativeDashboard extends AppCompatActivity {
 FirebaseAuth mAuth;
 ProgressBar pg;
 Button add_btn;
+ImageView active1,active2;
 CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment_card,health_card,account_card,but;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,8 @@ CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment
         setContentView(R.layout.activity_relative_dashboard);
        // add_btn=findViewById(R.id.add_btn);
         mAuth=FirebaseAuth.getInstance();
+        active2=findViewById(R.id.ic_paymentactive);
+        active1=findViewById(R.id.ic_healthactive);
        OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
         pg=findViewById(R.id.progressBar);
         Toolbar toolbar=findViewById(R.id.toolbar);
@@ -57,6 +61,7 @@ CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment
 
         public void checkpatient()
         {
+
             DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
             Query query2 = reference2.child("Patient").orderByChild("relativename").equalTo(mAuth.getCurrentUser().getUid());
             query2.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -216,6 +221,8 @@ public void searchactivity(View v)
 
                             if (r.getStatus().toString().equals("working")) {
                                 search_nurse_card.setVisibility(View.GONE);
+                                active1.setVisibility(View.VISIBLE);
+                                active2.setVisibility(View.VISIBLE);
                                 but.setVisibility(View.VISIBLE);
                             }
                         }
