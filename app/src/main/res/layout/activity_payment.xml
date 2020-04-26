@@ -7,49 +7,6 @@
     tools:context=".PaymentActivity"
     android:background="@drawable/backgroundnurseme">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/pendingsal_card"
-        android:layout_width="340dp"
-        android:layout_height="108dp"
-        app:cardCornerRadius="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.548"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView39">
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <EditText
-                android:id="@+id/editText8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:editable="false"
-                android:ems="10"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/textView67"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.507" />
-
-            <TextView
-                android:id="@+id/textView67"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pending Amount"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.025"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.505" />
-        </android.support.constraint.ConstraintLayout>
-    </android.support.v7.widget.CardView>
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -81,7 +38,6 @@
         android:id="@+id/textView104"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Earnings"
         android:textColor="#000"
         android:textSize="30sp"
         app:fontFamily="@font/overlock1"
@@ -98,7 +54,7 @@
         android:layout_height="109dp"
         android:layout_marginTop="116dp"
         android:gravity="center"
-        android:text="Total Earnings"
+        android:text="Total Amount"
         android:textColor="#000"
         android:textSize="36sp"
         android:textStyle="bold"
