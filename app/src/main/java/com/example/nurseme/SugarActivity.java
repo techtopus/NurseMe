@@ -1,5 +1,6 @@
 package com.example.nurseme;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -220,7 +221,7 @@ TextView yesturday,avg;
 
             }
         });
-
+startActivity(new Intent(this,HealthNurse.class));
 
     }
     public String condition(int before,int after)

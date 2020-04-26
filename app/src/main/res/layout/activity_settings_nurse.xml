@@ -63,7 +63,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/button_shape"
+        android:background="@drawable/button_red"
         android:onClick="deleteprofile"
         android:text="Delete account permanently"
         android:textColor="#fff"

@@ -43,7 +43,7 @@ FirebaseAuth mAuth;
                         for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                             ContractClass n = dataSnapshot1.getValue(ContractClass.class);
 
-                            Toast.makeText(PatientDetailsOnNurseSide.this, "hi", Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(PatientDetailsOnNurseSide.this, "hi", Toast.LENGTH_SHORT).show();
                             DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
                             Query query2 = reference2.child("Patient").orderByChild("email").equalTo(n.getPatientemail());
                             query2.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -55,7 +55,7 @@ FirebaseAuth mAuth;
                                                 Patient npi = dataSnapshot12.getValue(Patient.class);
                                                 name.setText(npi.getName());
                                                 age.setText(String.valueOf( npi.getAge()));
-                                                Toast.makeText(PatientDetailsOnNurseSide.this, "hello", Toast.LENGTH_SHORT).show();
+                                               // Toast.makeText(PatientDetailsOnNurseSide.this, "hello", Toast.LENGTH_SHORT).show();
                                                 gender.setText(npi.getGender());
                                                 service.setText(npi.getServicestype());
                                                 nursing.setText(npi.getNursingtype());

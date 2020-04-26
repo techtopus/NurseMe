@@ -1,6 +1,7 @@
 package com.example.nurseme;
 
 import android.app.LauncherActivity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -166,5 +167,11 @@ checksize();
             emptext2.setVisibility(View.GONE);
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this,RelativeDashboard.class));
     }
 }

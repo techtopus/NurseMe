@@ -121,7 +121,7 @@ FirebaseAuth mAuth;
     }
 public void change(View v)
 {
-    Toast.makeText(this, "hg", Toast.LENGTH_SHORT).show();
+    //Toast.makeText(this, "hg", Toast.LENGTH_SHORT).show();
     hospno.setVisibility(View.VISIBLE);
     btn.setVisibility(View.VISIBLE);
 }
