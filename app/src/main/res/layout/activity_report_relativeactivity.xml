@@ -140,15 +140,17 @@
 
     <TextView
         android:id="@+id/textView122"
-        android:layout_width="373dp"
-        android:layout_height="85dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20sp"
+        android:paddingRight="20dp"
         android:text="Note: Any issue reported will be resolved by the NurseMe offcials in the next 24hrs after conducting a detailed investigation. You may expect a call from our officials."
         android:textColor="#000"
         app:layout_constraintBottom_toTopOf="@+id/button7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        app:layout_constraintVertical_bias="0.657" />
+        app:layout_constraintVertical_bias="0.666" />
 
 </android.support.constraint.ConstraintLayout>
