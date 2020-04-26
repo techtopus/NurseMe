@@ -22,16 +22,22 @@ import java.util.Date;
 import java.util.Locale;
 
 public class PaymentActivity extends AppCompatActivity {
-EditText e;
-TextView e2;
+
+TextView e2, textView1;
 FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
-        e=findViewById(R.id.editText8);
+
         e2=findViewById(R.id.textView107);
+        textView1=findViewById(R.id.textView104);
         mAuth=FirebaseAuth.getInstance();
+        if(mAuth.getCurrentUser().getEmail().contains("nurse"))
+        textView1.append("Your Earnings");
+        else
+            textView1.append("Payable amount");
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         Query query = reference.child("contract").orderByChild("nurseemail").equalTo(mAuth.getCurrentUser().getEmail());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -48,9 +54,7 @@ FirebaseAuth mAuth;
                                 Date d1=s.parse(date);
                                 String date2=c.getStartdate();
                                 Date d2= s.parse(date2);
-                                e.setText(" ₹ . ");
-                                e.append(String.valueOf( (d1.getTime() - d2.getTime())/(24*60*60*1000)*500));
-                                e2.setText(String.valueOf( (d1.getTime() - d2.getTime())/(24*60*60*1000)*500));
+                                e2.setText("₹ ."+String.valueOf( (d1.getTime() - d2.getTime())/(24*60*60*1000)*500));
                             }
                         }
                     }catch(Exception e){

@@ -44,7 +44,7 @@ public class PendingRequestActivity extends AppCompatActivity {
     public void checkPending() {
         //listItems.clear();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-       Toast.makeText(PendingRequestActivity.this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+       //Toast.makeText(PendingRequestActivity.this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
 
         Query query = reference.child("Request").orderByChild("nurseemail").equalTo(mAuth.getCurrentUser().getEmail());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -57,7 +57,7 @@ public class PendingRequestActivity extends AppCompatActivity {
                             RequestClass r = dataSnapshot1.getValue(RequestClass.class);
 
                             if (r.getStatus().toString().equals("-1")) {
-                                Toast.makeText(PendingRequestActivity.this, "hii", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(PendingRequestActivity.this, "hii", Toast.LENGTH_SHORT).show();
 
                                 DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
                                 Query query = reference2.child("Patient").orderByChild("email").equalTo(r.getPatientemail());
@@ -72,7 +72,7 @@ public class PendingRequestActivity extends AppCompatActivity {
                                                             PendingRequestsRecyclerClass(patient.getName(), patient.getNursingtype(), patient.getEmail());
 
                                                     listItems.add(p);
-                                                    Toast.makeText(PendingRequestActivity.this, p.getUsername(), Toast.LENGTH_SHORT).show();
+                                                //    Toast.makeText(PendingRequestActivity.this, p.getUsername(), Toast.LENGTH_SHORT).show();
                                                 }
                                                 adapter=new PendingRequestsAdapterClass(listItems,getApplicationContext());
                                                 recyclerView.setAdapter(adapter);

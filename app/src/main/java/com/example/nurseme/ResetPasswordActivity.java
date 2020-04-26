@@ -42,7 +42,7 @@ EditText e;
 
                             }
                             else{
-                                Toast.makeText(ResetPasswordActivity.this, "Enter Email-ID registered with your Account", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ResetPasswordActivity.this, "Oops!! incorrect Email ID", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

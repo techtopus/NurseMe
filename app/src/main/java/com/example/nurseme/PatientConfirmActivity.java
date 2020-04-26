@@ -117,7 +117,7 @@ Button confirm,reject;
         String reemail;
         reemail=getIntent().getStringExtra("patientemail");
         int index=reemail.indexOf('@');
-        String name=reemail.substring(0,index-1);
+        String name=reemail.substring(0,index);
         int index2=mAuth.getCurrentUser().getEmail().indexOf('@');
         String name2=mAuth.getCurrentUser().getEmail().substring(0,index2-1);
         databasereference2.child(name+" TO "+name2).setValue(r);
@@ -198,6 +198,13 @@ reject.setVisibility(View.GONE);
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this,NurseDashboard.class));
+    }
+
     public void sendNotification2(final String email) {
 
         AsyncTask.execute(new Runnable() {
@@ -268,6 +275,7 @@ reject.setVisibility(View.GONE);
                 }
             }
         });
+
     }
 
 
