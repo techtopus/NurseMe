@@ -102,12 +102,64 @@ public void searchactivity(View v)
         startActivity(new Intent(this,ReminderActivity.class));
     }
     public void paymentactivity(View v)
+
     {
-        startActivity(new Intent(this,PaymentActivity.class));
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        //Toast.makeText(PendingRequestActivity.this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+
+        Query query = reference.child("contract").orderByChild("patientemail").equalTo(mAuth.getCurrentUser().getEmail());
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if ( dataSnapshot.exists()) {
+
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                        ContractClass t = dataSnapshot1.getValue(ContractClass.class);
+
+                        if (t.getStatus().equals("working")) {
+                            startActivity(new Intent(RelativeDashboard.this, PaymentActivity.class));
+
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
     public void healthactivity(View v)
-    {
-        startActivity(new Intent(this,HealthActivity.class));
+    {DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        //Toast.makeText(PendingRequestActivity.this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+
+        Query query = reference.child("contract").orderByChild("patientemail").equalTo(mAuth.getCurrentUser().getEmail());
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if ( dataSnapshot.exists()) {
+
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                        ContractClass t = dataSnapshot1.getValue(ContractClass.class);
+
+                        if (t.getStatus().equals("working")) {
+                            startActivity(new Intent(RelativeDashboard.this, HealthActivity.class));
+
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
     }
     public void accountActivity(View v)
     {

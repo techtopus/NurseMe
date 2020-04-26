@@ -1,6 +1,7 @@
 package com.example.nurseme;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -62,7 +63,17 @@ public class DeleteProfileActivity extends AppCompatActivity {
 
                 }
             });
-            startActivity(new Intent(DeleteProfileActivity.this, LoginActivity.class));
+            Handler mHandler = new Handler();
+            mHandler.postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    //start your activity here
+                    startActivity(new Intent(DeleteProfileActivity.this, LoginActivity.class));
+                }
+
+            }, 3000L);
+
         }
 
     }
@@ -86,7 +97,16 @@ public class DeleteProfileActivity extends AppCompatActivity {
 
                 }
             });
+            Handler mHandler = new Handler();
+            mHandler.postDelayed(new Runnable() {
 
+                @Override
+                public void run() {
+                    //start your activity here
+                    startActivity(new Intent(DeleteProfileActivity.this, LoginActivity.class));
+                }
+
+            }, 3000L);
             startActivity(new Intent(DeleteProfileActivity.this, LoginActivity.class));
         }
     }

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthSettings;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -88,31 +89,74 @@ public class EmergencyContactNurse extends AppCompatActivity {
     }
     public void hospital(View v){
         DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
-        Query query2 = reference2.child("hospital").orderByChild("relativeid").equalTo(mAuth.getCurrentUser().getUid());
+        Query query2 = reference2.child("contract").orderByChild("nurseemail").equalTo(mAuth.getCurrentUser().getEmail());
         query2.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if ( dataSnapshot.exists()) {
-                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                        hospital t = dataSnapshot1.getValue(hospital.class);
+                                                  @Override
+                                                  public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                      if ( dataSnapshot.exists()) {
 
-                        Intent intent = new Intent(Intent.ACTION_DIAL);
-                        intent.setData(Uri.parse("tel:" +t.getNo()));
-                        startActivity(intent);
-                    }
-                }
-                else{
-                    hospno.setVisibility(View.VISIBLE);
-                    btn.setVisibility(View.VISIBLE);
+                                                          for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                                              ContractClass t = dataSnapshot1.getValue(ContractClass.class);
+
+                                                              if(t.getStatus().equals("working")) {
+                                                                  //Toast.makeText(EmergenyContact.this, "tata", Toast.LENGTH_SHORT).show();
+                                                             t.getPatientemail();
+                                                                     DatabaseReference ref= FirebaseDatabase.getInstance().getReference();
+                                                                     Query q=ref.child("Relatives").orderByChild("emailid").equalTo(t.getPatientemail());
+                                                                     q.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                         @Override
+                                                                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                                             if(dataSnapshot.exists()){
+                                                                                 for (DataSnapshot dataSnapsh : dataSnapshot.getChildren()) {
+                                                                                     Relative r = dataSnapsh.getValue(Relative.class);
+
+                                                                                     DatabaseReference refer = FirebaseDatabase.getInstance().getReference();
+                                                                                     Query que = refer.child("hospital").orderByChild("relativeid").equalTo(r.getUid());
+                                                                                     que.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                                         @Override
+                                                                                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                                                             if ( dataSnapshot.exists()) {
+                                                                                                 for (DataSnapshot data : dataSnapshot.getChildren()) {
+                                                                                                     hospital t = data.getValue(hospital.class);
+
+                                                                                                     Intent intent = new Intent(Intent.ACTION_DIAL);
+                                                                                                     intent.setData(Uri.parse("tel:" +t.getNo()));
+                                                                                                     startActivity(intent);
+                                                                                                 }
+                                                                                             }
+                                                                                             else{
+                                                                                                 hospno.setVisibility(View.VISIBLE);
+                                                                                                 btn.setVisibility(View.VISIBLE);
 
 
-                }
+                                                                                             }
 
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
+                                                                                         }
+                                                                                         @Override
+                                                                                         public void onCancelled(@NonNull DatabaseError databaseError) {
+                                                                                         }
+                                                                                     });
+                                                                             }
+                                                                         }}
+
+                                                                         @Override
+                                                                         public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                                         }
+                                                                     });
+                                                              }
+                                                          }
+                                                      }
+                                                              }
+
+                                                  @Override
+                                                  public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                  }
+                                              });
+
+
+
     }
     public void change(View v)
     {DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();

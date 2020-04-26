@@ -50,39 +50,33 @@ public class NurseDashboard extends AppCompatActivity {
 
     public void earnings(View v)
     {
-        startActivity(new Intent(this,PaymentActivity.class));
-       /* DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        //Toast.makeText(PendingRequestActivity.this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+
         Query query = reference.child("contract").orderByChild("nurseemail").equalTo(mAuth.getCurrentUser().getEmail());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    try {
-                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                            ContractClass c = dataSnapshot1.getValue(ContractClass.class);
-                            if(c.getStatus().equals("working"))
-                            {
-                                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-                                SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd");
-                                Date d1=s.parse(date);
-                                String date2=c.getStartdate();
-                                Date d2= s.parse(date2);
-                                String str=String.valueOf( (d1.getTime() - d2.getTime())/(24*60*60*1000)*500);
+                if ( dataSnapshot.exists()) {
 
-                                Toast.makeText(NurseDashboard.this, "Your earnings is ₹ "+str , Toast.LENGTH_SHORT).show();
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                        ContractClass t = dataSnapshot1.getValue(ContractClass.class);
 
-                            }
+                        if (t.getStatus().equals("working")) {
+                            startActivity(new Intent(NurseDashboard.this, PaymentActivity.class));
+
                         }
-                    }catch(Exception e){
-                        Toast.makeText(NurseDashboard.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });*/
+        });
+
+
     }
 
 public void report(View v)
@@ -129,7 +123,35 @@ public void report(View v)
 }
 public void health(View view)
 {
-    startActivity(new Intent(this,HealthNurse.class));
+
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+    //Toast.makeText(PendingRequestActivity.this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+
+    Query query = reference.child("contract").orderByChild("nurseemail").equalTo(mAuth.getCurrentUser().getEmail());
+    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                                             @Override
+                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                 if ( dataSnapshot.exists()) {
+
+                                                     for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                                         ContractClass t = dataSnapshot1.getValue(ContractClass.class);
+
+                                                         if (t.getStatus().equals("working")) {
+                                                             startActivity(new Intent(NurseDashboard.this, HealthNurse.class));
+
+                                                         }
+                                                     }
+                                                 }
+                                                         }
+
+                                             @Override
+                                             public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                             }
+                                         });
+
+
+
 }
 public void emergency(View v)
 {
