@@ -119,7 +119,7 @@ Button confirm,reject;
         int index=reemail.indexOf('@');
         String name=reemail.substring(0,index);
         int index2=mAuth.getCurrentUser().getEmail().indexOf('@');
-        String name2=mAuth.getCurrentUser().getEmail().substring(0,index2-1);
+        String name2=mAuth.getCurrentUser().getEmail().substring(0,index2);
         databasereference2.child(name+" TO "+name2).setValue(r);
         confirm.setVisibility(View.GONE);
 reject.setVisibility(View.GONE);
