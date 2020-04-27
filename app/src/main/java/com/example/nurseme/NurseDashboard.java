@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +32,7 @@ import java.util.Locale;
 public class NurseDashboard extends AppCompatActivity {
     FirebaseAuth mAuth;
     CardView requests,but;
+    ImageView i1,i2,i3,i4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,10 @@ public class NurseDashboard extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         requests=findViewById(R.id.prescard);
         but=findViewById(R.id.pdetailscard);
+        i1=findViewById(R.id.imageView16);
+        i2=findViewById(R.id.imageView17);
+        i3=findViewById(R.id.imageView18);
+        i4=findViewById(R.id.imageView19);
        OneSignal.sendTag("User_ID",mAuth.getCurrentUser().getEmail());
         Toolbar toolbar=findViewById(R.id.toolbar4);
         setSupportActionBar(toolbar);
@@ -107,6 +113,10 @@ public void report(View v)
                             if (r.getStatus().toString().equals("working")) {
                                 requests.setVisibility(View.GONE);
                                 but.setVisibility(View.VISIBLE);
+                                i1.setVisibility(View.VISIBLE);
+                                i2.setVisibility(View.GONE);
+                                i3.setVisibility(View.VISIBLE);
+                                i4.setVisibility(View.GONE);
                             }
                         }
                     }

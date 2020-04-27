@@ -31,7 +31,7 @@ public class RelativeDashboard extends AppCompatActivity {
 FirebaseAuth mAuth;
 ProgressBar pg;
 Button add_btn;
-ImageView active1,active2;
+ImageView active1,active2,inact1,inact2;
 CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment_card,health_card,account_card,but;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,8 @@ CardView add_patient_card,search_nurse_card,remainder_card,contacts_card,payment
         pg=findViewById(R.id.progressBar);
         Toolbar toolbar=findViewById(R.id.toolbar);
         but=findViewById(R.id.nursedetails_card_view);
-
+        inact1=findViewById(R.id.ic_healthinactive);
+        inact2=findViewById(R.id.ic_paymentinactive);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         add_patient_card=findViewById(R.id.add_patient_card_view);
@@ -223,6 +224,8 @@ public void searchactivity(View v)
                                 search_nurse_card.setVisibility(View.GONE);
                                 active1.setVisibility(View.VISIBLE);
                                 active2.setVisibility(View.VISIBLE);
+                                inact1.setVisibility(View.GONE);
+                                inact2.setVisibility(View.GONE);
                                 but.setVisibility(View.VISIBLE);
                             }
                         }
