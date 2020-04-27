@@ -39,6 +39,7 @@ FirebaseAuth mAuth;
         else
             textView1.append("Payable amount");
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        if(mAuth.getCurrentUser().getEmail().contains("nurse")){
         Query query = reference.child("contract").orderByChild("nurseemail").equalTo(mAuth.getCurrentUser().getEmail());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -54,7 +55,7 @@ FirebaseAuth mAuth;
                                 Date d1=s.parse(date);
                                 String date2=c.getStartdate();
                                 Date d2= s.parse(date2);
-                                e2.setText("₹ ."+String.valueOf( (d1.getTime() - d2.getTime())/(24*60*60*1000)*500));
+                                e2.setText("₹. "+String.valueOf( (d1.getTime() - d2.getTime())/(24*60*60*1000)*500));
                             }
                         }
                     }catch(Exception e){
@@ -66,7 +67,38 @@ FirebaseAuth mAuth;
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        });}
+        else
+        {
+            Query query = reference.child("contract").orderByChild("patientemail").equalTo(mAuth.getCurrentUser().getEmail());
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        try {
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                ContractClass c = dataSnapshot1.getValue(ContractClass.class);
+                                if(c.getStatus().equals("working"))
+                                {
+                                    String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+                                    SimpleDateFormat s=new SimpleDateFormat("dd-MM-yyyy");
+                                    Date d1=s.parse(date);
+                                    String date2=c.getStartdate();
+                                    Date d2= s.parse(date2);
+                                    e2.setText("₹. "+String.valueOf( (d1.getTime() - d2.getTime())/(24*60*60*1000)*500));
+                                }
+                            }
+                        }catch(Exception e){
+                            Toast.makeText(PaymentActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 
     
