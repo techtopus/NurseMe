@@ -68,7 +68,7 @@ public class BPactivity extends AppCompatActivity {
                             if (c.getStatus().equals("working")) {
                                 int index = c.getPatientemail().indexOf('@');
                                 final String name = c.getPatientemail().substring(0, index);
-                                Toast.makeText(BPactivity.this, ydate, Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(BPactivity.this, ydate, Toast.LENGTH_SHORT).show();
                                 DatabaseReference referenced = FirebaseDatabase.getInstance().
                                         getReference("Health Data").child("Blood Pressure");
                                 Query queryd = referenced.child(name).orderByChild("date").equalTo(ydate);
@@ -79,7 +79,7 @@ public class BPactivity extends AppCompatActivity {
                                             try {
                                                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                                     BloodPressure bpo = dataSnapshot1.getValue(BloodPressure.class);
-                                                    yesturday.setText(bpo.getSystolic() + " / " + bpo.getDiastolic() + " Mm Hg");
+                                                    yesturday.setText(bpo.getSystolic() + " / " + bpo.getDiastolic());
                                                 }
                                             } catch (Exception e) {
                                                 Toast.makeText(BPactivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -87,7 +87,7 @@ public class BPactivity extends AppCompatActivity {
                                         }
                                         else
                                         {
-                                            yesturday.setText("Come Back Tommorrow");
+                                            yesturday.setText("Tommorrow");
                                         }
 
                                     }
@@ -114,7 +114,7 @@ public class BPactivity extends AppCompatActivity {
                                                     avgtext.setText(String.valueOf(cm.getSavg()));
                                                     avgtext.append(" / ");
 avgtext.append(String.valueOf(cm.getDavg()));
-                                                    avgtext.append(" MmHg");
+
                                                    // Toast.makeText(BPactivity.this,  cm.getEmail(), Toast.LENGTH_SHORT).show();
 
 
