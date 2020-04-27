@@ -427,8 +427,8 @@ if (email.contains("nurse")) {
         i.setType("message/rfc822");
         i.putExtra(Intent.EXTRA_EMAIL  , new String[]{email});
         i.putExtra(Intent.EXTRA_SUBJECT, "Termination of contract!!!! Pay the pending Amount Immediately");
-        i.putExtra(Intent.EXTRA_TEXT   , "Respected sir, \n\n You are subjected to pay the home nurse the amouunt of $"+amt+
-                " . By today evening or else you will e sujected to further actions as per Nurse Me polic \n\n Thank You! ");
+        i.putExtra(Intent.EXTRA_TEXT   , "Respected sir, \n\n You are subjected to pay the home nurse the amount of $"+amt+
+                " . By today evening or else you will e subjected to further actions as per Nurse Me policy \n\n Thank You! ");
         try {
             startActivity(Intent.createChooser(i, "Send mail..."));
         } catch (android.content.ActivityNotFoundException ex) {

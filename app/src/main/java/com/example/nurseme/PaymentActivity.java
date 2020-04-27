@@ -55,7 +55,7 @@ FirebaseAuth mAuth;
                                 Date d1=s.parse(date);
                                 String date2=c.getStartdate();
                                 Date d2= s.parse(date2);
-                                e2.setText("₹. "+String.valueOf( (d1.getTime() - d2.getTime())/(24*60*60*1000)*500));
+                                e2.setText("₹ "+String.valueOf( (d1.getTime() - d2.getTime())/(24*60*60*1000)*500));
                             }
                         }
                     }catch(Exception e){
@@ -85,7 +85,7 @@ FirebaseAuth mAuth;
                                     Date d1=s.parse(date);
                                     String date2=c.getStartdate();
                                     Date d2= s.parse(date2);
-                                    e2.setText("₹. "+String.valueOf( (d1.getTime() - d2.getTime())/(24*60*60*1000)*500));
+                                    e2.setText("₹ "+String.valueOf( (d1.getTime() - d2.getTime())/(24*60*60*1000)*500));
                                 }
                             }
                         }catch(Exception e){
