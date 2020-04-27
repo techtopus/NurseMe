@@ -56,10 +56,10 @@
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.143"
+        app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.554">
+        app:layout_constraintVertical_bias="0.55">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -157,7 +157,7 @@
         app:layout_constraintHorizontal_bias="0.735"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.327" >
+        app:layout_constraintVertical_bias="0.32999998">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -283,10 +283,10 @@
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.143"
+        app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587" >
+        app:layout_constraintVertical_bias="0.587">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
