@@ -55,7 +55,7 @@ RadioGroup rg;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                    // e.setBackgroundColor(R.color.palegreen);
                     severity="low";
-                    Toast.makeText(ReportRelativeactivity.this, "low", Toast.LENGTH_SHORT).show();
+                 //   Toast.makeText(ReportRelativeactivity.this, "low", Toast.LENGTH_SHORT).show();
                 }
             }
             if(checkedId==R.id.radioButton2)
@@ -63,7 +63,7 @@ RadioGroup rg;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                    // e.setBackgroundColor(R.color.paleblue);
                     severity="medium";
-                    Toast.makeText(ReportRelativeactivity.this, "medium", Toast.LENGTH_SHORT).show();
+               //     Toast.makeText(ReportRelativeactivity.this, "medium", Toast.LENGTH_SHORT).show();
                 }
             }
             if(checkedId==R.id.radioButton3)
@@ -71,7 +71,7 @@ RadioGroup rg;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                    // e.setBackgroundColor(R.color.palered);
                     severity="high";
-                    Toast.makeText(ReportRelativeactivity.this, "high", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(ReportRelativeactivity.this, "high", Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -92,7 +92,7 @@ public void reportfn(View v){
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                    // e.setBackgroundColor(R.color.palegreen);
                     severity="low";
-                    Toast.makeText(this, "low", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "low", Toast.LENGTH_SHORT).show();
                 }
             }
             if(med.isChecked())
@@ -100,7 +100,7 @@ public void reportfn(View v){
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                   //  e.setBackgroundColor(R.color.paleblue);
                     severity="medium";
-                    Toast.makeText(this, "med", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "med", Toast.LENGTH_SHORT).show();
                 }
             }
             if(high.isChecked())
@@ -108,7 +108,7 @@ public void reportfn(View v){
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                // e.setBackgroundColor(R.color.palered);
                 severity="high";
-                Toast.makeText(this, "high", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "high", Toast.LENGTH_SHORT).show();
             }
         } if(!mAuth.getCurrentUser().getEmail().contains("nurse")) {
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
@@ -119,7 +119,7 @@ public void reportfn(View v){
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
-                        Toast.makeText(ReportRelativeactivity.this, "gone", Toast.LENGTH_SHORT).show();
+                  //      Toast.makeText(ReportRelativeactivity.this, "gone", Toast.LENGTH_SHORT).show();
                         try {
                             for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                 ContractClass r = dataSnapshot1.getValue(ContractClass.class);
