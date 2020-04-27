@@ -74,13 +74,13 @@ TextView yesturday,avg;
                                             try {
                                                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                                     sugarclass bpo = dataSnapshot1.getValue(sugarclass.class);
-                                                    yesturday.setText(bpo.getBefore() + " / " + bpo.getAfter() + " Mm Hg");
+                                                    yesturday.setText(bpo.getBefore() + " / " + bpo.getAfter());
                                                 }
                                             } catch (Exception e) {
                                                 Toast.makeText(SugarActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                             }
                                         } else {
-                                            yesturday.setText("Come Back Tommorrow");
+                                            yesturday.setText("Tommorrow");
                                         }
 
                                     }
@@ -106,7 +106,7 @@ TextView yesturday,avg;
                                                     avg.setText(String.valueOf(cm.getBeforeavg()));
                                                     avg.append(" / ");
                                                     avg.append(String.valueOf(cm.getAfteravg()));
-                                                    avg.append(" mg/dl");
+
                                                     // Toast.makeText(BPactivity.this,  cm.getEmail(), Toast.LENGTH_SHORT).show();
 
 
